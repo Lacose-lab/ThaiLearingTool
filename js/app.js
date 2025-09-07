@@ -34,6 +34,9 @@ const transEl = document.getElementById('translation');
 const quizEl = document.getElementById('quiz');
 const qQ = document.getElementById('quiz-question');
 const qOpts = document.getElementById('quiz-options');
+const ttsFrontBtn = document.getElementById('tts-front');
+const ttsBackBtn = document.getElementById('tts-back');
+const ttsQuizBtn = document.getElementById('tts-quiz');
 const statusEl = document.getElementById('status');
 
 let currentCard = null;
@@ -72,7 +75,7 @@ flashEl?.addEventListener('click', () => {
 function nextQuiz() {
   if (!deck.length) return;
   currentCard = deck[Math.floor(Math.random() * deck.length)];
-  qQ.textContent = `What does "${currentCard.thai}" mean?`;
+  qQ.textContent = currentCard.thai;
   let opts = [currentCard.en];
   while (opts.length < 4 && opts.length < deck.length) {
     const cand = deck[Math.floor(Math.random() * deck.length)].en;
@@ -82,15 +85,15 @@ function nextQuiz() {
   qOpts.innerHTML = '';
   opts.forEach(opt => {
     const b = document.createElement('button');
-    b.className = 'w-full px-3 py-3 border rounded bg-white active:scale-[.99]';
+    b.className = 'w-full px-4 py-5 text-lg sm:text-xl rounded-2xl border border-neutral-200 shadow hover:shadow-md bg-white active:scale-[.99] text-left';
     b.textContent = opt;
     b.onclick = () => {
       if (opt === currentCard.en) {
-        b.classList.add('bg-green-200');
+        b.classList.add('bg-green-100','border-green-300');
         reviewState.stats.correct++;
         schedule(currentCard, 5);
       } else {
-        b.classList.add('bg-red-200');
+        b.classList.add('bg-red-100','border-red-300');
         schedule(currentCard, 1);
       }
       reviewState.stats.seen++;
@@ -122,6 +125,30 @@ document.getElementById('toggle-roman')?.addEventListener('change', (e) => {
   showRoman = !!e.target.checked;
   romanEl.textContent = showRoman ? (currentCard?.roman || '') : '';
 });
+
+// Text-to-Speech (Thai)
+function speakThai(text) {
+  if (!text || !('speechSynthesis' in window)) return;
+  const utter = new SpeechSynthesisUtterance(text);
+  // Prefer Thai voices if present
+  const voices = window.speechSynthesis.getVoices();
+  const th = voices.find(v => v.lang?.toLowerCase().startsWith('th')) || voices.find(v => v.lang?.toLowerCase().includes('th'));
+  if (th) utter.voice = th;
+  utter.lang = th?.lang || 'th-TH';
+  utter.rate = 0.95;
+  utter.pitch = 1.0;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(utter);
+}
+
+// Some browsers load voices asynchronously; warm them up
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = () => {};
+}
+
+ttsFrontBtn?.addEventListener('click', (e) => { e.stopPropagation(); speakThai(currentCard?.thai); });
+ttsBackBtn?.addEventListener('click', (e) => { e.stopPropagation(); speakThai(currentCard?.thai); });
+ttsQuizBtn?.addEventListener('click', () => speakThai(currentCard?.thai));
 
 const settingsDlg = document.getElementById('settings');
 document.getElementById('settings-btn')?.addEventListener('click', () => {

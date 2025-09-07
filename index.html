@@ -16,52 +16,66 @@
     .sticky-nav { position: sticky; bottom: 0; }
   </style>
 </head>
-<body class="bg-neutral-100 text-neutral-900 min-h-screen flex flex-col">
-  <header class="w-full px-4 py-3 bg-white/80 backdrop-blur border-b border-neutral-200 flex items-center justify-between">
-    <h1 class="text-lg font-semibold">Thai Vocab Trainer</h1>
+<body class="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-white to-white text-neutral-900">
+  <header class="w-full px-4 py-3 bg-white/80 backdrop-blur border-b border-neutral-200 flex items-center justify-between sticky top-0 z-10">
     <div class="flex items-center gap-2">
-      <button id="settings-btn" class="text-sm px-3 py-1 rounded border border-neutral-300">Settings</button>
-      <label class="inline-flex items-center gap-2 text-sm">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white grid place-items-center font-bold">ที</div>
+      <h1 class="text-lg font-semibold tracking-tight">Thai Vocab Trainer</h1>
+    </div>
+    <div class="flex items-center gap-2">
+      <label class="hidden sm:inline-flex items-center gap-2 text-sm">
         <input type="checkbox" id="toggle-roman" class="accent-indigo-600" checked>
         Romanization
       </label>
-      <button id="reset-btn" class="text-sm px-3 py-1 rounded bg-red-500 text-white">Reset</button>
+      <button id="settings-btn" class="text-sm px-3 py-1.5 rounded-lg border border-neutral-300 hover:bg-neutral-50">Settings</button>
+      <button id="reset-btn" class="text-sm px-3 py-1.5 rounded-lg bg-red-500 text-white hover:bg-red-600">Reset</button>
     </div>
   </header>
 
   <main class="flex-1 p-4 flex flex-col items-center">
-    <div id="status" class="w-full max-w-md text-center text-sm text-neutral-600 mb-3">Loading deck…</div>
+    <div id="status" class="w-full max-w-xl text-center text-sm text-neutral-600 mb-3">Loading deck…</div>
 
     <!-- Flashcards -->
-    <section id="flashcard" class="card w-full max-w-md aspect-[3/2] relative cursor-pointer mb-4 hidden select-none">
+    <section id="flashcard" class="card w-full max-w-xl aspect-[3/2] relative cursor-pointer mb-5 hidden select-none">
       <div class="card-inner w-full h-full relative">
-        <div class="card-front bg-white shadow-xl rounded-2xl flex items-center justify-center p-6">
-          <p id="thai-word" class="text-5xl font-bold text-center"></p>
+        <div class="card-front bg-white/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200">
+          <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">
+            🔊
+          </button>
+          <p id="thai-word" class="text-6xl sm:text-7xl font-extrabold text-center leading-tight"></p>
         </div>
-        <div class="card-back bg-indigo-50 shadow-xl rounded-2xl flex flex-col items-center justify-center p-6">
-          <p id="romanization" class="italic text-2xl"></p>
-          <p id="translation" class="text-xl mt-2"></p>
+        <div class="card-back bg-indigo-600/10 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200">
+          <div class="absolute top-3 right-3 flex gap-2">
+            <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">🔊</button>
+          </div>
+          <p id="romanization" class="italic text-2xl sm:text-3xl text-neutral-800"></p>
+          <p id="translation" class="text-xl sm:text-2xl mt-2 font-medium"></p>
         </div>
       </div>
     </section>
 
     <!-- Quiz -->
-    <section id="quiz" class="w-full max-w-md hidden">
-      <p id="quiz-question" class="text-xl font-semibold mb-3"></p>
-      <div id="quiz-options" class="grid gap-2"></div>
+    <section id="quiz" class="w-full max-w-xl hidden">
+      <div class="flex items-center justify-between mb-3">
+        <p id="quiz-question" class="text-2xl font-semibold"></p>
+        <button id="tts-quiz" type="button" class="text-xl p-2 rounded-full bg-white border border-neutral-200 shadow">🔊</button>
+      </div>
+      <div id="quiz-options" class="grid grid-cols-1 gap-3">
+        <!-- four large buttons will be injected here -->
+      </div>
     </section>
 
     <!-- Progress -->
-    <div class="w-full max-w-md mt-2">
+    <div class="w-full max-w-xl mt-3">
       <p id="stats" class="text-sm opacity-80"></p>
     </div>
   </main>
 
   <!-- Bottom Nav -->
   <nav class="sticky-nav w-full bg-white/80 backdrop-blur border-t border-neutral-200">
-    <div class="max-w-md mx-auto grid grid-cols-2">
-      <button id="flash-btn" class="py-3 text-center font-medium text-indigo-700">Flashcards</button>
-      <button id="quiz-btn" class="py-3 text-center font-medium">Quiz</button>
+    <div class="max-w-xl mx-auto grid grid-cols-2">
+      <button id="flash-btn" class="py-4 text-center font-medium text-indigo-700 hover:bg-indigo-50">Flashcards</button>
+      <button id="quiz-btn" class="py-4 text-center font-medium hover:bg-neutral-50">Quiz</button>
     </div>
   </nav>
 
