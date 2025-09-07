@@ -56,12 +56,24 @@
     <section id="flashcard" class="card w-full max-w-xl aspect-[3/2] relative cursor-pointer mb-5 hidden select-none">
       <div class="card-inner w-full h-full relative">
         <div class="card-front bg-white/70 dark:bg-neutral-800/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200 dark:border-neutral-700">
-          <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">TTS</button>
+          <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow" aria-label="Play pronunciation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
+              <path d="M15 9a3 3 0 010 6"/>
+              <path d="M17 7a6 6 0 010 10"/>
+            </svg>
+          </button>
           <p id="thai-word" class="text-6xl sm:text-7xl font-extrabold text-center leading-tight"></p>
         </div>
         <div class="card-back bg-indigo-600/10 dark:bg-indigo-900/20 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200 dark:border-indigo-800">
           <div class="absolute top-3 right-3 flex gap-2">
-            <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">TTS</button>
+            <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow" aria-label="Play pronunciation">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
+                <path d="M15 9a3 3 0 010 6"/>
+                <path d="M17 7a6 6 0 010 10"/>
+              </svg>
+            </button>
           </div>
           <p id="romanization" class="italic text-2xl sm:text-3xl text-neutral-800 dark:text-neutral-200"></p>
           <p id="translation" class="text-xl sm:text-2xl mt-2 font-medium"></p>
@@ -73,7 +85,13 @@
     <section id="quiz" class="w-full max-w-xl hidden">
       <div class="flex items-center justify-between mb-3">
         <p id="quiz-question" class="text-2xl font-semibold"></p>
-        <button id="tts-quiz" type="button" class="text-xl p-2 rounded-full bg-white border border-neutral-200 shadow">TTS</button>
+        <button id="tts-quiz" type="button" class="text-xl p-2 rounded-full bg-white border border-neutral-200 shadow" aria-label="Play pronunciation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
+            <path d="M15 9a3 3 0 010 6"/>
+            <path d="M17 7a6 6 0 010 10"/>
+          </svg>
+        </button>
       </div>
       <div id="quiz-options" class="grid grid-cols-1 gap-3">
         <!-- four large buttons will be injected here -->
