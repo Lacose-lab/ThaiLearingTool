@@ -100,18 +100,18 @@ function nextQuiz() {
 
       const isCorrect = opt === currentCard.en;
       if (isCorrect) {
-        b.classList.add('bg-green-100','border-green-300','dark:!bg-green-900/50','dark:!border-green-500','dark:!text-green-100');
+        b.classList.add('bg-green-100','border-green-300','dark:bg-green-800/60','dark:border-green-500','dark:text-green-100');
         haptic('success');
         reviewState.stats.correct++;
         schedule(currentCard, 5);
       } else {
-        b.classList.add('bg-red-100','border-red-300','dark:!bg-red-900/50','dark:!border-red-500','dark:!text-red-100');
+        b.classList.add('bg-red-100','border-red-300','dark:bg-red-800/60','dark:border-red-500','dark:text-red-100');
         span.classList.add('animate-shake');
         haptic('error');
         // Highlight the correct answer
         const correctBtn = Array.from(qOpts.children).find(btn => btn.dataset.correct === 'true');
         if (correctBtn) {
-          correctBtn.classList.add('bg-green-100','border-green-300','dark:!bg-green-900/50','dark:!border-green-500','dark:!text-green-100');
+          correctBtn.classList.add('bg-green-100','border-green-300','dark:bg-green-800/60','dark:border-green-500','dark:text-green-100');
         }
         schedule(currentCard, 1);
       }
