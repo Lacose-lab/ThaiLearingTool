@@ -6,7 +6,10 @@
   <title>Thai Vocab Trainer</title>
   <meta name="theme-color" content="#4f46e5" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <script>tailwind={config:{darkMode:'class'}};</script>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = { darkMode: 'class' };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .card { perspective: 1000px; }
