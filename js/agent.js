@@ -49,7 +49,7 @@ async function fetchDeck({ sheetUrl, useProxy = true }) {
   const normalized = toCsvUrl(sheetUrl || DEFAULT_SHEET_URL);
   const finalUrl = useProxy ? withCorsProxy(normalized) : normalized;
 
-  const res = await fetch(finalUrl, { headers: { 'cache-control': 'no-cache' } });
+  const res = await fetch(finalUrl, { headers: { 'cache-control': 'no-cache' }, cache: 'no-store' });
   if (!res.ok) throw new Error(`Fetch failed (${res.status})`);
   const text = await res.text();
   const rows = parseCSV(text);

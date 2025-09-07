@@ -85,7 +85,7 @@ function nextQuiz() {
   qOpts.innerHTML = '';
   opts.forEach(opt => {
     const b = document.createElement('button');
-    b.className = 'w-full px-4 py-5 text-lg sm:text-xl rounded-2xl border border-neutral-200 dark:border-neutral-700 shadow hover:shadow-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 active:scale-[.99] text-left';
+    b.className = 'quiz-option w-full px-4 py-5 text-lg sm:text-xl rounded-2xl shadow hover:shadow-md active:scale-[.99] text-left';
     const span = document.createElement('span');
     span.className = 'inline-block w-full';
     span.textContent = opt;
@@ -100,18 +100,18 @@ function nextQuiz() {
 
       const isCorrect = opt === currentCard.en;
       if (isCorrect) {
-        b.classList.add('bg-green-100','border-green-300','dark:bg-green-800/60','dark:border-green-500','dark:text-green-100');
+        b.classList.add('correct');
         haptic('success');
         reviewState.stats.correct++;
         schedule(currentCard, 5);
       } else {
-        b.classList.add('bg-red-100','border-red-300','dark:bg-red-800/60','dark:border-red-500','dark:text-red-100');
+        b.classList.add('wrong');
         span.classList.add('animate-shake');
         haptic('error');
         // Highlight the correct answer
         const correctBtn = Array.from(qOpts.children).find(btn => btn.dataset.correct === 'true');
         if (correctBtn) {
-          correctBtn.classList.add('bg-green-100','border-green-300','dark:bg-green-800/60','dark:border-green-500','dark:text-green-100');
+          correctBtn.classList.add('correct');
         }
         schedule(currentCard, 1);
       }
@@ -253,11 +253,22 @@ try { applyTheme(); } catch (_) {}  updateStats();
     deck = await fetchDeck({ sheetUrl, useProxy: true });
     // Ensure romanization fallback for any missing fields
     deck = deck.map(d => ({ ...d, roman: d.roman && d.roman.trim() ? d.roman : (typeof romanizeThai === 'function' ? romanizeThai(d.thai) : '') }));
+    try { localStorage.setItem('last-deck', JSON.stringify(deck)); } catch (_) {}
     statusEl.textContent = `Loaded ${deck.length} words`;
     // default to Quiz view
     document.getElementById('quiz-btn').click();
   } catch (e) {
     console.error(e);
+    // Fallback to cached deck if available
+    try {
+      const cached = JSON.parse(localStorage.getItem('last-deck') || '[]');
+      if (cached.length) {
+        deck = cached;
+        statusEl.textContent = `Loaded ${deck.length} words (cached)`;
+        document.getElementById('quiz-btn').click();
+        return;
+      }
+    } catch(_) {}
     statusEl.textContent = 'Failed to load deck. Open Settings to fix the URL.';
   }
 }
