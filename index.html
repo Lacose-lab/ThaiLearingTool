@@ -6,6 +6,10 @@
   <title>Thai Vocab Trainer</title>
   <meta name="theme-color" content="#4f46e5" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = { darkMode: 'class' };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .card { perspective: 1000px; }
@@ -14,12 +18,45 @@
     .card-front, .card-back { backface-visibility: hidden; position: absolute; inset: 0; }
     .card-back { transform: rotateY(180deg); }
     .sticky-nav { position: sticky; bottom: 0; }
+    @keyframes shake {
+      0%, 100% { transform: translate3d(0,0,0); }
+      15% { transform: translate3d(-8px,0,0); }
+      30% { transform: translate3d(8px,0,0); }
+      45% { transform: translate3d(-6px,0,0); }
+      60% { transform: translate3d(6px,0,0); }
+      75% { transform: translate3d(-3px,0,0); }
+      90% { transform: translate3d(3px,0,0); }
+    }
+    .animate-shake { animation: shake 420ms cubic-bezier(.36,.07,.19,.97) both; will-change: transform; }
+    dialog.sheet { width: 100%; max-width: 42rem; margin: 0; padding: 0; border: 0; position: fixed; inset: auto 0 0 0; }
+    dialog.sheet::backdrop { background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); }
+
+    /* Stable theme styles that do not rely on Tailwind JIT detecting JS-added classes */
+    .quiz-option {
+      background-color: #ffffff; /* light */
+      color: #111827;
+      border: 1px solid #e5e7eb;
+    }
+    .dark .quiz-option {
+      background-color: #1f2937; /* neutral-800 */
+      color: #f5f5f5;
+      border-color: #374151; /* neutral-700 */
+    }
+    .quiz-option.correct { background-color: #d1fae5; border-color: #6ee7b7; color: #065f46; }
+    .dark .quiz-option.correct { background-color: rgba(6,95,70,0.35); border-color: #34d399; color: #d1fae5; }
+    .quiz-option.wrong { background-color: #fee2e2; border-color: #fca5a5; color: #7f1d1d; }
+    .dark .quiz-option.wrong { background-color: rgba(127,29,29,0.35); border-color: #f87171; color: #fee2e2; }
+
+    .tts-btn { background: rgba(255,255,255,0.9); color: #374151; border: 1px solid #e5e7eb; }
+    .dark .tts-btn { background: rgba(55,65,81,0.8); color: #f3f4f6; border-color: #4b5563; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-white to-white text-neutral-900">
-  <header class="w-full px-4 py-3 bg-white/80 backdrop-blur border-b border-neutral-200 flex items-center justify-between sticky top-0 z-10">
+<body class="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-white to-white text-neutral-900 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-900 dark:text-neutral-100">
+  <!-- Tailwind CDN safelist to ensure JIT generates dynamic classes used in JS -->
+  <div class="hidden translate-x-6 translate-x-0 dark:bg-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-600 dark:bg-green-800/60 dark:border-green-500 dark:text-green-100 dark:bg-red-800/60 dark:border-red-500 dark:text-red-100"></div>
+  <header class="w-full px-4 py-3 bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between sticky top-0 z-10">
     <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white grid place-items-center font-bold">ที</div>
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white grid place-items-center font-bold">TH</div>
       <h1 class="text-lg font-semibold tracking-tight">Thai Vocab Trainer</h1>
     </div>
     <div class="flex items-center gap-2">
@@ -27,28 +64,47 @@
         <input type="checkbox" id="toggle-roman" class="accent-indigo-600" checked>
         Romanization
       </label>
+      <button id="theme-btn" class="relative w-14 h-8 rounded-full border border-neutral-300 dark:border-neutral-600 bg-neutral-200 dark:bg-neutral-700 focus:outline-none" title="Toggle theme" aria-pressed="false">
+        <span class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white dark:bg-neutral-900 shadow transition-transform thumb"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-2 w-4 h-4 text-yellow-500" fill="currentColor" aria-hidden="true">
+          <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-2 w-4 h-4 text-neutral-200" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+        </svg>
+      </button>
       <button id="settings-btn" class="text-sm px-3 py-1.5 rounded-lg border border-neutral-300 hover:bg-neutral-50">Settings</button>
       <button id="reset-btn" class="text-sm px-3 py-1.5 rounded-lg bg-red-500 text-white hover:bg-red-600">Reset</button>
     </div>
   </header>
 
   <main class="flex-1 p-4 flex flex-col items-center">
-    <div id="status" class="w-full max-w-xl text-center text-sm text-neutral-600 mb-3">Loading deck…</div>
+    <div id="status" class="w-full max-w-xl text-center text-sm text-neutral-600 mb-3">Loading deck...</div>
 
     <!-- Flashcards -->
     <section id="flashcard" class="card w-full max-w-xl aspect-[3/2] relative cursor-pointer mb-5 hidden select-none">
       <div class="card-inner w-full h-full relative">
-        <div class="card-front bg-white/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200">
-          <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">
-            🔊
+        <div class="card-front bg-white/70 dark:bg-neutral-800/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200 dark:border-neutral-700">
+          <button id="tts-front" type="button" class="tts-btn absolute top-3 right-3 text-xl p-2 rounded-full hover:bg-white dark:hover:bg-neutral-700 shadow" aria-label="Play pronunciation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
+              <path d="M15 9a3 3 0 010 6"/>
+              <path d="M17 7a6 6 0 010 10"/>
+            </svg>
           </button>
           <p id="thai-word" class="text-6xl sm:text-7xl font-extrabold text-center leading-tight"></p>
         </div>
-        <div class="card-back bg-indigo-600/10 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200">
+        <div class="card-back bg-indigo-600/10 dark:bg-indigo-900/20 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200 dark:border-indigo-800">
           <div class="absolute top-3 right-3 flex gap-2">
-            <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">🔊</button>
+            <button id="tts-back" type="button" class="tts-btn text-xl p-2 rounded-full hover:bg-white dark:hover:bg-neutral-700 shadow" aria-label="Play pronunciation">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
+                <path d="M15 9a3 3 0 010 6"/>
+                <path d="M17 7a6 6 0 010 10"/>
+              </svg>
+            </button>
           </div>
-          <p id="romanization" class="italic text-2xl sm:text-3xl text-neutral-800"></p>
+          <p id="romanization" class="italic text-2xl sm:text-3xl text-neutral-800 dark:text-neutral-200"></p>
           <p id="translation" class="text-xl sm:text-2xl mt-2 font-medium"></p>
         </div>
       </div>
@@ -58,7 +114,13 @@
     <section id="quiz" class="w-full max-w-xl hidden">
       <div class="flex items-center justify-between mb-3">
         <p id="quiz-question" class="text-2xl font-semibold"></p>
-        <button id="tts-quiz" type="button" class="text-xl p-2 rounded-full bg-white border border-neutral-200 shadow">🔊</button>
+        <button id="tts-quiz" type="button" class="tts-btn text-xl p-2 rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-700 shadow" aria-label="Play pronunciation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
+            <path d="M15 9a3 3 0 010 6"/>
+            <path d="M17 7a6 6 0 010 10"/>
+          </svg>
+        </button>
       </div>
       <div id="quiz-options" class="grid grid-cols-1 gap-3">
         <!-- four large buttons will be injected here -->
@@ -72,22 +134,22 @@
   </main>
 
   <!-- Bottom Nav -->
-  <nav class="sticky-nav w-full bg-white/80 backdrop-blur border-t border-neutral-200">
-    <div class="max-w-xl mx-auto grid grid-cols-2">
-      <button id="flash-btn" class="py-4 text-center font-medium text-indigo-700 hover:bg-indigo-50">Flashcards</button>
-      <button id="quiz-btn" class="py-4 text-center font-medium hover:bg-neutral-50">Quiz</button>
+  <nav class="sticky-nav w-full bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-t border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-xl mx-auto grid grid-cols-2">
+      <button id="quiz-btn" class="py-4 text-center font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800">Quiz</button>
+      <button id="flash-btn" class="py-4 text-center font-medium text-indigo-700 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-neutral-800">Flashcards</button>
     </div>
   </nav>
 
   <!-- Settings Modal -->
-  <dialog id="settings" class="rounded-lg p-0 w-11/12 max-w-md">
-    <form method="dialog" class="bg-white rounded-lg shadow-xl p-4">
+  <dialog id="settings" class="sheet rounded-t-2xl p-0">
+    <form method="dialog" class="bg-white dark:bg-neutral-900 rounded-t-2xl shadow-xl p-4 border-t border-neutral-200 dark:border-neutral-800">
       <h2 class="text-lg font-semibold mb-2">Settings</h2>
       <label class="block text-sm mb-1">Google Sheet URL (published)</label>
-      <input id="sheet-url" type="url" class="w-full border rounded px-3 py-2 mb-3" placeholder="https://docs.google.com/spreadsheets/.../pub?output=csv">
-      <div class="text-xs text-neutral-600 mb-3">Tip: File → Share → Publish to web → CSV. You can also pass ?sheet=&lt;url&gt; in the page URL.</div>
+      <input id="sheet-url" type="url" class="w-full border dark:border-neutral-700 bg-white dark:bg-neutral-900 rounded px-3 py-2 mb-3" placeholder="https://docs.google.com/spreadsheets/.../pub?output=csv">
+      <div class="text-xs text-neutral-600 dark:text-neutral-400 mb-3">Tip: File → Share → Publish to web → CSV. You can also pass ?sheet=&lt;url&gt; in the page URL.</div>
       <div class="flex items-center justify-end gap-2">
-        <button value="cancel" class="px-3 py-2 border rounded">Cancel</button>
+        <button value="cancel" class="px-3 py-2 border rounded dark:border-neutral-700">Cancel</button>
         <button id="save-settings" value="default" class="px-3 py-2 bg-indigo-600 text-white rounded">Save</button>
       </div>
     </form>
@@ -105,4 +167,11 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
