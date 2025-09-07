@@ -45,13 +45,39 @@ function romanizeLocal(text) {
   try { return romanizeThai(text); } catch (_) { return ''; }
 }
 
+function candidatesFor(url) {
+  // Multiple proxy candidates to survive iOS Safari quirks
+  return [
+    url, // direct (may fail due to CORS, but cheap to try)
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    `https://cors.isomorphic-git.org/${url}`,
+    `https://corsproxy.io/?${encodeURIComponent(url)}`
+  ];
+}
+
+function fetchWithTimeout(resource, opts = {}) {
+  const { timeout = 8000, ...rest } = opts;
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  return fetch(resource, { ...rest, signal: controller.signal }).finally(() => clearTimeout(id));
+}
+
 async function fetchDeck({ sheetUrl, useProxy = true }) {
   const normalized = toCsvUrl(sheetUrl || DEFAULT_SHEET_URL);
-  const finalUrl = useProxy ? withCorsProxy(normalized) : normalized;
-
-  const res = await fetch(finalUrl, { headers: { 'cache-control': 'no-cache' }, cache: 'no-store' });
-  if (!res.ok) throw new Error(`Fetch failed (${res.status})`);
-  const text = await res.text();
+  const attempts = useProxy ? candidatesFor(normalized) : [normalized];
+  let text = null;
+  let lastErr = null;
+  for (const url of attempts) {
+    try {
+      const res = await fetchWithTimeout(url, { headers: { 'cache-control': 'no-cache' }, cache: 'no-store', timeout: 8000 });
+      if (!res.ok) { lastErr = new Error(`Fetch failed ${res.status}`); continue; }
+      text = await res.text();
+      if (text && text.length > 0) break;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  if (!text) throw lastErr || new Error('Unable to fetch deck');
   const rows = parseCSV(text);
   if (!rows.length) throw new Error('Sheet is empty');
 
