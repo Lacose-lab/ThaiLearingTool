@@ -85,7 +85,7 @@ function nextQuiz() {
   qOpts.innerHTML = '';
   opts.forEach(opt => {
     const b = document.createElement('button');
-    b.className = 'quiz-option w-full px-4 py-5 text-lg sm:text-xl rounded-2xl shadow hover:shadow-md active:scale-[.99] text-left';
+    b.className = 'quiz-option w-full px-4 py-5 text-lg sm:text-xl rounded-2xl shadow hover:shadow-md active:scale-[.99] text-left border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100';
     const span = document.createElement('span');
     span.className = 'inline-block w-full';
     span.textContent = opt;
