@@ -167,6 +167,8 @@ async function init() {
   try {
     statusEl.textContent = 'Syncing deck…';
     deck = await fetchDeck({ sheetUrl, useProxy: true });
+    // Ensure romanization fallback for any missing fields
+    deck = deck.map(d => ({ ...d, roman: d.roman && d.roman.trim() ? d.roman : (typeof romanizeThai === 'function' ? romanizeThai(d.thai) : '') }));
     statusEl.textContent = `Loaded ${deck.length} words`;
     // show flashcards by default
     document.getElementById('flash-btn').click();

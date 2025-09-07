@@ -1,20 +1,22 @@
-const CACHE_NAME = 'thai-trainer-v1';
+const CACHE_NAME = 'thai-trainer-v3';
 const ASSETS = [
   'index.html',
   'manifest.webmanifest',
+  '404.html',
   'js/app.js',
   'js/agent.js',
-  'js/csv.js
-  'js/romanize.js''
+  'js/csv.js',
+  'js/romanize.js'
 ];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.map(k => k !== CACHE_NAME && caches.delete(k))))
+    caches.keys().then(keys => Promise.all(keys.map(k => k !== CACHE_NAME && caches.delete(k)))).then(() => self.clients.claim())
   );
 });
 
