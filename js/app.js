@@ -224,7 +224,7 @@ function applyTheme() {
   const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const dark = pref ? (pref === 'dark') : systemDark;
   document.documentElement.classList.toggle('dark', dark);
-  if (themeBtn) themeBtn.textContent = dark ? 'Light' : 'Dark';
+  if (themeBtn) themeBtn.textContent = dark ? '☀️' : '🌙';
 }
 themeBtn?.addEventListener('click', () => {
   const current = document.documentElement.classList.contains('dark');
@@ -258,8 +258,8 @@ async function init() {
     // Ensure romanization fallback for any missing fields
     deck = deck.map(d => ({ ...d, roman: d.roman && d.roman.trim() ? d.roman : (typeof romanizeThai === 'function' ? romanizeThai(d.thai) : '') }));
     statusEl.textContent = `Loaded ${deck.length} words`;
-    // show flashcards by default
-    document.getElementById('flash-btn').click();
+    // default to Quiz view
+    document.getElementById('quiz-btn').click();
   } catch (e) {
     console.error(e);
     statusEl.textContent = 'Failed to load deck. Open Settings to fix the URL.';
