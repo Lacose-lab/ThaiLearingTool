@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thai Vocab Trainer</title>
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card { perspective: 1000px; }
+    .card-inner { transition: transform 0.4s; transform-style: preserve-3d; }
+    .card.flipped .card-inner { transform: rotateY(180deg); }
+    .card-front, .card-back { backface-visibility: hidden; position: absolute; inset: 0; }
+    .card-back { transform: rotateY(180deg); }
+    .sticky-nav { position: sticky; bottom: 0; }
+  </style>
+</head>
+<body class="bg-neutral-100 text-neutral-900 min-h-screen flex flex-col">
+  <header class="w-full px-4 py-3 bg-white/80 backdrop-blur border-b border-neutral-200 flex items-center justify-between">
+    <h1 class="text-lg font-semibold">Thai Vocab Trainer</h1>
+    <div class="flex items-center gap-2">
+      <button id="settings-btn" class="text-sm px-3 py-1 rounded border border-neutral-300">Settings</button>
+      <label class="inline-flex items-center gap-2 text-sm">
+        <input type="checkbox" id="toggle-roman" class="accent-indigo-600" checked>
+        Romanization
+      </label>
+      <button id="reset-btn" class="text-sm px-3 py-1 rounded bg-red-500 text-white">Reset</button>
+    </div>
+  </header>
+
+  <main class="flex-1 p-4 flex flex-col items-center">
+    <div id="status" class="w-full max-w-md text-center text-sm text-neutral-600 mb-3">Loading deck…</div>
+
+    <!-- Flashcards -->
+    <section id="flashcard" class="card w-full max-w-md aspect-[3/2] relative cursor-pointer mb-4 hidden select-none">
+      <div class="card-inner w-full h-full relative">
+        <div class="card-front bg-white shadow-xl rounded-2xl flex items-center justify-center p-6">
+          <p id="thai-word" class="text-5xl font-bold text-center"></p>
+        </div>
+        <div class="card-back bg-indigo-50 shadow-xl rounded-2xl flex flex-col items-center justify-center p-6">
+          <p id="romanization" class="italic text-2xl"></p>
+          <p id="translation" class="text-xl mt-2"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="w-full max-w-md hidden">
+      <p id="quiz-question" class="text-xl font-semibold mb-3"></p>
+      <div id="quiz-options" class="grid gap-2"></div>
+    </section>
+
+    <!-- Progress -->
+    <div class="w-full max-w-md mt-2">
+      <p id="stats" class="text-sm opacity-80"></p>
+    </div>
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav class="sticky-nav w-full bg-white/80 backdrop-blur border-t border-neutral-200">
+    <div class="max-w-md mx-auto grid grid-cols-2">
+      <button id="flash-btn" class="py-3 text-center font-medium text-indigo-700">Flashcards</button>
+      <button id="quiz-btn" class="py-3 text-center font-medium">Quiz</button>
+    </div>
+  </nav>
+
+  <!-- Settings Modal -->
+  <dialog id="settings" class="rounded-lg p-0 w-11/12 max-w-md">
+    <form method="dialog" class="bg-white rounded-lg shadow-xl p-4">
+      <h2 class="text-lg font-semibold mb-2">Settings</h2>
+      <label class="block text-sm mb-1">Google Sheet URL (published)</label>
+      <input id="sheet-url" type="url" class="w-full border rounded px-3 py-2 mb-3" placeholder="https://docs.google.com/spreadsheets/.../pub?output=csv">
+      <div class="text-xs text-neutral-600 mb-3">Tip: File → Share → Publish to web → CSV. You can also pass ?sheet=&lt;url&gt; in the page URL.</div>
+      <div class="flex items-center justify-end gap-2">
+        <button value="cancel" class="px-3 py-2 border rounded">Cancel</button>
+        <button id="save-settings" value="default" class="px-3 py-2 bg-indigo-600 text-white rounded">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/csv.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
+
