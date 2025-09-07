@@ -4,7 +4,8 @@ const ASSETS = [
   'manifest.webmanifest',
   'js/app.js',
   'js/agent.js',
-  'js/csv.js'
+  'js/csv.js
+  'js/romanize.js''
 ];
 
 self.addEventListener('install', (e) => {

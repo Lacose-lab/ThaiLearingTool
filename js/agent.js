@@ -42,9 +42,7 @@ function inferColumn(headers, candidates) {
 }
 
 function romanizeLocal(text) {
-  // Basic fallback: return empty for non-latin scripts; rely on sheet-provided romanization if present
-  // Extend here if you want a heuristic romanization.
-  return '';
+  try { return romanizeThai(text); } catch (_) { return ''; }
 }
 
 async function fetchDeck({ sheetUrl, useProxy = true }) {
