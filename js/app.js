@@ -101,7 +101,7 @@ function nextQuiz() {
         reviewState.stats.correct++;
         schedule(currentCard, 5);
       } else {
-        b.classList.add('bg-red-100','border-red-300');
+        b.classList.add('bg-red-100','border-red-300','animate-shake');
         // Highlight the correct answer
         const correctBtn = Array.from(qOpts.children).find(btn => btn.dataset.correct === 'true');
         if (correctBtn) {

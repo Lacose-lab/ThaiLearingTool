@@ -14,6 +14,16 @@
     .card-front, .card-back { backface-visibility: hidden; position: absolute; inset: 0; }
     .card-back { transform: rotateY(180deg); }
     .sticky-nav { position: sticky; bottom: 0; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      15% { transform: translateX(-8px); }
+      30% { transform: translateX(8px); }
+      45% { transform: translateX(-6px); }
+      60% { transform: translateX(6px); }
+      75% { transform: translateX(-3px); }
+      90% { transform: translateX(3px); }
+    }
+    .animate-shake { animation: shake 400ms cubic-bezier(.36,.07,.19,.97) both; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-white to-white text-neutral-900">
