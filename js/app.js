@@ -87,19 +87,32 @@ function nextQuiz() {
     const b = document.createElement('button');
     b.className = 'w-full px-4 py-5 text-lg sm:text-xl rounded-2xl border border-neutral-200 shadow hover:shadow-md bg-white active:scale-[.99] text-left';
     b.textContent = opt;
+    b.dataset.correct = String(opt === currentCard.en);
     b.onclick = () => {
-      if (opt === currentCard.en) {
+      // Disable all buttons to prevent double answers
+      Array.from(qOpts.children).forEach(btn => {
+        btn.disabled = true;
+        btn.classList.add('pointer-events-none');
+      });
+
+      const isCorrect = opt === currentCard.en;
+      if (isCorrect) {
         b.classList.add('bg-green-100','border-green-300');
         reviewState.stats.correct++;
         schedule(currentCard, 5);
       } else {
         b.classList.add('bg-red-100','border-red-300');
+        // Highlight the correct answer
+        const correctBtn = Array.from(qOpts.children).find(btn => btn.dataset.correct === 'true');
+        if (correctBtn) {
+          correctBtn.classList.add('bg-green-100','border-green-300');
+        }
         schedule(currentCard, 1);
       }
       reviewState.stats.seen++;
       saveState();
       updateStats();
-      setTimeout(nextQuiz, 450);
+      setTimeout(nextQuiz, isCorrect ? 450 : 900);
     };
     qOpts.appendChild(b);
   });
