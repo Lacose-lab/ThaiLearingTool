@@ -246,7 +246,9 @@ if (window.matchMedia) {
     mm.addListener(() => { if (!localStorage.getItem('theme')) applyTheme(); });
   }
 }
-try { applyTheme(); } catch (_) {}  updateStats();
+async function init() {
+  try { applyTheme(); } catch (_) {}
+  updateStats();
   const sheetUrl = getInitialSheetUrl();
   try {
     statusEl.textContent = 'Syncing deck...';
