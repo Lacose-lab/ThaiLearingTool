@@ -85,8 +85,11 @@ function nextQuiz() {
   qOpts.innerHTML = '';
   opts.forEach(opt => {
     const b = document.createElement('button');
-    b.className = 'w-full px-4 py-5 text-lg sm:text-xl rounded-2xl border border-neutral-200 shadow hover:shadow-md bg-white active:scale-[.99] text-left';
-    b.textContent = opt;
+    b.className = 'w-full px-4 py-5 text-lg sm:text-xl rounded-2xl border border-neutral-200 dark:border-neutral-700 shadow hover:shadow-md bg-white dark:bg-neutral-800 active:scale-[.99] text-left';
+    const span = document.createElement('span');
+    span.className = 'inline-block w-full';
+    span.textContent = opt;
+    b.appendChild(span);
     b.dataset.correct = String(opt === currentCard.en);
     b.onclick = () => {
       // Disable all buttons to prevent double answers
@@ -98,10 +101,13 @@ function nextQuiz() {
       const isCorrect = opt === currentCard.en;
       if (isCorrect) {
         b.classList.add('bg-green-100','border-green-300');
+        haptic('success');
         reviewState.stats.correct++;
         schedule(currentCard, 5);
       } else {
-        b.classList.add('bg-red-100','border-red-300','animate-shake');
+        b.classList.add('bg-red-100','border-red-300');
+        span.classList.add('animate-shake');
+        haptic('error');
         // Highlight the correct answer
         const correctBtn = Array.from(qOpts.children).find(btn => btn.dataset.correct === 'true');
         if (correctBtn) {
@@ -171,6 +177,66 @@ ttsFrontBtn?.addEventListener('click', (e) => { e.stopPropagation(); speakThai(c
 ttsBackBtn?.addEventListener('click', (e) => { e.stopPropagation(); speakThai(currentCard?.thai); });
 ttsQuizBtn?.addEventListener('click', () => speakThai(currentCard?.thai));
 
+// Haptics (Android/Chromium). iOS Safari does not support vibrate.
+function haptic(kind) {
+  if (!('vibrate' in navigator)) return;
+  if (kind === 'success') navigator.vibrate(20);
+  else if (kind === 'error') navigator.vibrate([15, 30, 15]);
+}
+
+// Swipe gestures on flashcards
+let touchStartX = 0, touchStartY = 0, isSwiping = false;
+const SWIPE_THRESHOLD = 50; // px
+flashEl?.addEventListener('touchstart', (e) => {
+  const t = e.changedTouches[0];
+  touchStartX = t.clientX; touchStartY = t.clientY; isSwiping = true;
+});
+flashEl?.addEventListener('touchmove', (e) => {
+  if (!isSwiping) return;
+  const t = e.changedTouches[0];
+  const dx = t.clientX - touchStartX; const dy = t.clientY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy)) {
+    e.preventDefault(); // horizontal intent
+  }
+});
+flashEl?.addEventListener('touchend', (e) => {
+  if (!isSwiping || !currentCard) return;
+  isSwiping = false;
+  const t = e.changedTouches[0];
+  const dx = t.clientX - touchStartX; const dy = t.clientY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > SWIPE_THRESHOLD) {
+    if (dx > 0) {
+      // swipe right: easy
+      schedule(currentCard, 5); haptic('success');
+    } else {
+      // swipe left: hard
+      schedule(currentCard, 2); haptic('error');
+    }
+    updateStats();
+    nextFlashcard();
+  }
+});
+
+// Theme: system + toggle
+const themeBtn = document.getElementById('theme-btn');
+function applyTheme() {
+  const pref = localStorage.getItem('theme');
+  const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const dark = pref ? (pref === 'dark') : systemDark;
+  document.documentElement.classList.toggle('dark', dark);
+  if (themeBtn) themeBtn.textContent = dark ? 'Light' : 'Dark';
+}
+themeBtn?.addEventListener('click', () => {
+  const current = document.documentElement.classList.contains('dark');
+  localStorage.setItem('theme', current ? 'light' : 'dark');
+  applyTheme();
+});
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (!localStorage.getItem('theme')) applyTheme();
+  });
+}
+
 const settingsDlg = document.getElementById('settings');
 document.getElementById('settings-btn')?.addEventListener('click', () => {
   const input = document.getElementById('sheet-url');
@@ -183,10 +249,11 @@ document.getElementById('save-settings')?.addEventListener('click', () => {
 });
 
 async function init() {
+  try { applyTheme(); } catch (_) {}
   updateStats();
   const sheetUrl = getInitialSheetUrl();
   try {
-    statusEl.textContent = 'Syncing deck…';
+    statusEl.textContent = 'Syncing deck...';
     deck = await fetchDeck({ sheetUrl, useProxy: true });
     // Ensure romanization fallback for any missing fields
     deck = deck.map(d => ({ ...d, roman: d.roman && d.roman.trim() ? d.roman : (typeof romanizeThai === 'function' ? romanizeThai(d.thai) : '') }));

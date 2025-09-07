@@ -15,19 +15,21 @@
     .card-back { transform: rotateY(180deg); }
     .sticky-nav { position: sticky; bottom: 0; }
     @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      15% { transform: translateX(-8px); }
-      30% { transform: translateX(8px); }
-      45% { transform: translateX(-6px); }
-      60% { transform: translateX(6px); }
-      75% { transform: translateX(-3px); }
-      90% { transform: translateX(3px); }
+      0%, 100% { transform: translate3d(0,0,0); }
+      15% { transform: translate3d(-8px,0,0); }
+      30% { transform: translate3d(8px,0,0); }
+      45% { transform: translate3d(-6px,0,0); }
+      60% { transform: translate3d(6px,0,0); }
+      75% { transform: translate3d(-3px,0,0); }
+      90% { transform: translate3d(3px,0,0); }
     }
-    .animate-shake { animation: shake 400ms cubic-bezier(.36,.07,.19,.97) both; }
+    .animate-shake { animation: shake 420ms cubic-bezier(.36,.07,.19,.97) both; will-change: transform; }
+    dialog.sheet { width: 100%; max-width: 42rem; margin: 0; padding: 0; border: 0; position: fixed; inset: auto 0 0 0; }
+    dialog.sheet::backdrop { background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-white to-white text-neutral-900">
-  <header class="w-full px-4 py-3 bg-white/80 backdrop-blur border-b border-neutral-200 flex items-center justify-between sticky top-0 z-10">
+<body class="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-white to-white text-neutral-900 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-900 dark:text-neutral-100">
+  <header class="w-full px-4 py-3 bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between sticky top-0 z-10">
     <div class="flex items-center gap-2">
       <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white grid place-items-center font-bold">ที</div>
       <h1 class="text-lg font-semibold tracking-tight">Thai Vocab Trainer</h1>
@@ -37,6 +39,7 @@
         <input type="checkbox" id="toggle-roman" class="accent-indigo-600" checked>
         Romanization
       </label>
+      <button id="theme-btn" class="text-lg px-2 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800" title="Toggle theme">Dark</button>
       <button id="settings-btn" class="text-sm px-3 py-1.5 rounded-lg border border-neutral-300 hover:bg-neutral-50">Settings</button>
       <button id="reset-btn" class="text-sm px-3 py-1.5 rounded-lg bg-red-500 text-white hover:bg-red-600">Reset</button>
     </div>
@@ -48,17 +51,17 @@
     <!-- Flashcards -->
     <section id="flashcard" class="card w-full max-w-xl aspect-[3/2] relative cursor-pointer mb-5 hidden select-none">
       <div class="card-inner w-full h-full relative">
-        <div class="card-front bg-white/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200">
+        <div class="card-front bg-white/70 dark:bg-neutral-800/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200 dark:border-neutral-700">
           <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">
             🔊
           </button>
           <p id="thai-word" class="text-6xl sm:text-7xl font-extrabold text-center leading-tight"></p>
         </div>
-        <div class="card-back bg-indigo-600/10 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200">
+        <div class="card-back bg-indigo-600/10 dark:bg-indigo-900/20 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200 dark:border-indigo-800">
           <div class="absolute top-3 right-3 flex gap-2">
             <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow">🔊</button>
           </div>
-          <p id="romanization" class="italic text-2xl sm:text-3xl text-neutral-800"></p>
+          <p id="romanization" class="italic text-2xl sm:text-3xl text-neutral-800 dark:text-neutral-200"></p>
           <p id="translation" class="text-xl sm:text-2xl mt-2 font-medium"></p>
         </div>
       </div>
@@ -82,22 +85,22 @@
   </main>
 
   <!-- Bottom Nav -->
-  <nav class="sticky-nav w-full bg-white/80 backdrop-blur border-t border-neutral-200">
+  <nav class="sticky-nav w-full bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-t border-neutral-200 dark:border-neutral-800">
     <div class="max-w-xl mx-auto grid grid-cols-2">
-      <button id="flash-btn" class="py-4 text-center font-medium text-indigo-700 hover:bg-indigo-50">Flashcards</button>
-      <button id="quiz-btn" class="py-4 text-center font-medium hover:bg-neutral-50">Quiz</button>
+      <button id="flash-btn" class="py-4 text-center font-medium text-indigo-700 hover:bg-indigo-50 dark:hover:bg-neutral-800">📇 Flashcards</button>
+      <button id="quiz-btn" class="py-4 text-center font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800">🧠 Quiz</button>
     </div>
   </nav>
 
   <!-- Settings Modal -->
-  <dialog id="settings" class="rounded-lg p-0 w-11/12 max-w-md">
-    <form method="dialog" class="bg-white rounded-lg shadow-xl p-4">
+  <dialog id="settings" class="sheet rounded-t-2xl p-0">
+    <form method="dialog" class="bg-white dark:bg-neutral-900 rounded-t-2xl shadow-xl p-4 border-t border-neutral-200 dark:border-neutral-800">
       <h2 class="text-lg font-semibold mb-2">Settings</h2>
       <label class="block text-sm mb-1">Google Sheet URL (published)</label>
-      <input id="sheet-url" type="url" class="w-full border rounded px-3 py-2 mb-3" placeholder="https://docs.google.com/spreadsheets/.../pub?output=csv">
-      <div class="text-xs text-neutral-600 mb-3">Tip: File → Share → Publish to web → CSV. You can also pass ?sheet=&lt;url&gt; in the page URL.</div>
+      <input id="sheet-url" type="url" class="w-full border dark:border-neutral-700 bg-white dark:bg-neutral-900 rounded px-3 py-2 mb-3" placeholder="https://docs.google.com/spreadsheets/.../pub?output=csv">
+      <div class="text-xs text-neutral-600 dark:text-neutral-400 mb-3">Tip: File → Share → Publish to web → CSV. You can also pass ?sheet=&lt;url&gt; in the page URL.</div>
       <div class="flex items-center justify-end gap-2">
-        <button value="cancel" class="px-3 py-2 border rounded">Cancel</button>
+        <button value="cancel" class="px-3 py-2 border rounded dark:border-neutral-700">Cancel</button>
         <button id="save-settings" value="default" class="px-3 py-2 bg-indigo-600 text-white rounded">Save</button>
       </div>
     </form>
@@ -115,4 +118,5 @@
   </script>
 </body>
 </html>
+
 
