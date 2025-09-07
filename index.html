@@ -98,8 +98,9 @@
   <script src="js/agent.js"></script>
   <script src="js/app.js"></script>
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
+    // Only register SW when served over http(s), not via file://
+    if ((location.protocol === 'http:' || location.protocol === 'https:') && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.warn);
     }
   </script>
 </body>

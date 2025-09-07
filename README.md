@@ -33,3 +33,19 @@ A lightweight, mobile-friendly flashcard + quiz app that auto-loads your Thai â†
 - Test in Chrome/Edge/Firefox + mobile. Reset progress with `localStorage.removeItem('thai-srs')`.
 - PRs: include a short description, screenshots/GIFs for UI changes, and clear test steps.
 
+
+## Local Dev Notes
+- Do not open index.html via ile://. Service workers and manifest require http(s) origins.
+- Serve locally: python -m http.server 8000 then open http://localhost:8000/ (Windows: py -m http.server 8000).
+- Hard refresh after updates (Ctrl/Cmd+Shift+R) to reload the service worker.
+
+## Tailwind in Production
+- The CDN is fine for prototyping. For production, pre-build CSS and commit it:
+  1. 
+pm i -D tailwindcss postcss autoprefixer and 
+px tailwindcss init -p
+  2. Create styles/input.css with @tailwind base; @tailwind components; @tailwind utilities;
+  3. Build: 
+px tailwindcss -i styles/input.css -o assets/tailwind.css --minify
+  4. Replace the CDN <script> with: <link rel="stylesheet" href="assets/tailwind.css"> in index.html.
+- Optional: add a GitHub Action to build CSS on push if you don't want to commit compiled assets.

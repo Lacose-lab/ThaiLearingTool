@@ -127,23 +127,31 @@ document.getElementById('toggle-roman')?.addEventListener('change', (e) => {
 });
 
 // Text-to-Speech (Thai)
+let ttsPending = null;
 function speakThai(text) {
   if (!text || !('speechSynthesis' in window)) return;
+  const synth = window.speechSynthesis;
+  // Some browsers load voices asynchronously; if none yet, retry shortly
+  const voices = synth.getVoices();
+  if (!voices || voices.length === 0) {
+    clearTimeout(ttsPending);
+    ttsPending = setTimeout(() => speakThai(text), 200);
+    return;
+  }
   const utter = new SpeechSynthesisUtterance(text);
-  // Prefer Thai voices if present
-  const voices = window.speechSynthesis.getVoices();
   const th = voices.find(v => v.lang?.toLowerCase().startsWith('th')) || voices.find(v => v.lang?.toLowerCase().includes('th'));
   if (th) utter.voice = th;
   utter.lang = th?.lang || 'th-TH';
   utter.rate = 0.95;
   utter.pitch = 1.0;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utter);
+  try { synth.cancel(); } catch (_) {}
+  synth.speak(utter);
 }
 
 // Some browsers load voices asynchronously; warm them up
 if ('speechSynthesis' in window) {
-  window.speechSynthesis.onvoiceschanged = () => {};
+  // trigger voices to load
+  window.speechSynthesis.getVoices();
 }
 
 ttsFrontBtn?.addEventListener('click', (e) => { e.stopPropagation(); speakThai(currentCard?.thai); });
