@@ -43,7 +43,15 @@
         <input type="checkbox" id="toggle-roman" class="accent-indigo-600" checked>
         Romanization
       </label>
-      <button id="theme-btn" class="text-lg px-2 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800" title="Toggle theme">Dark</button>
+      <button id="theme-btn" class="relative w-14 h-8 rounded-full border border-neutral-300 dark:border-neutral-600 bg-neutral-200 dark:bg-neutral-700 focus:outline-none" title="Toggle theme" aria-pressed="false">
+        <span class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white dark:bg-neutral-900 shadow transition-transform thumb"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-2 w-4 h-4 text-yellow-500" fill="currentColor" aria-hidden="true">
+          <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-2 w-4 h-4 text-neutral-200" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+        </svg>
+      </button>
       <button id="settings-btn" class="text-sm px-3 py-1.5 rounded-lg border border-neutral-300 hover:bg-neutral-50">Settings</button>
       <button id="reset-btn" class="text-sm px-3 py-1.5 rounded-lg bg-red-500 text-white hover:bg-red-600">Reset</button>
     </div>
@@ -56,7 +64,7 @@
     <section id="flashcard" class="card w-full max-w-xl aspect-[3/2] relative cursor-pointer mb-5 hidden select-none">
       <div class="card-inner w-full h-full relative">
         <div class="card-front bg-white/70 dark:bg-neutral-800/70 backdrop-blur shadow-2xl rounded-3xl flex items-center justify-center p-6 border border-neutral-200 dark:border-neutral-700">
-          <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow" aria-label="Play pronunciation">
+          <button id="tts-front" type="button" class="absolute top-3 right-3 text-xl p-2 rounded-full bg-white/90 dark:bg-neutral-700/80 text-neutral-700 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-600 hover:bg-white dark:hover:bg-neutral-700 shadow" aria-label="Play pronunciation">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
               <path d="M15 9a3 3 0 010 6"/>
@@ -67,7 +75,7 @@
         </div>
         <div class="card-back bg-indigo-600/10 dark:bg-indigo-900/20 backdrop-blur shadow-2xl rounded-3xl flex flex-col items-center justify-center p-6 border border-indigo-200 dark:border-indigo-800">
           <div class="absolute top-3 right-3 flex gap-2">
-            <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/80 hover:bg-white shadow" aria-label="Play pronunciation">
+            <button id="tts-back" type="button" class="text-xl p-2 rounded-full bg-white/90 dark:bg-neutral-700/80 text-neutral-700 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-600 hover:bg-white dark:hover:bg-neutral-700 shadow" aria-label="Play pronunciation">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
                 <path d="M15 9a3 3 0 010 6"/>
@@ -85,7 +93,7 @@
     <section id="quiz" class="w-full max-w-xl hidden">
       <div class="flex items-center justify-between mb-3">
         <p id="quiz-question" class="text-2xl font-semibold"></p>
-        <button id="tts-quiz" type="button" class="text-xl p-2 rounded-full bg-white border border-neutral-200 shadow" aria-label="Play pronunciation">
+        <button id="tts-quiz" type="button" class="text-xl p-2 rounded-full bg-white dark:bg-neutral-700 text-neutral-700 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-700 shadow" aria-label="Play pronunciation">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M11 5l-5 4H3v6h3l5 4V5z" fill="currentColor" stroke="none"/>
             <path d="M15 9a3 3 0 010 6"/>

@@ -217,40 +217,36 @@ flashEl?.addEventListener('touchend', (e) => {
   }
 });
 
-// Theme: system + toggle
+// Theme: system + toggle with animated thumb
 const themeBtn = document.getElementById('theme-btn');
+const themeThumb = themeBtn ? themeBtn.querySelector('.thumb') : null;
 function applyTheme() {
   const pref = localStorage.getItem('theme');
   const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const dark = pref ? (pref === 'dark') : systemDark;
   document.documentElement.classList.toggle('dark', dark);
-  if (themeBtn) themeBtn.textContent = dark ? '☀️' : '🌙';
+  if (themeBtn) themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+  if (themeThumb) {
+    themeThumb.classList.toggle('translate-x-6', dark);
+    themeThumb.classList.toggle('translate-x-0', !dark);
+  }
 }
-themeBtn?.addEventListener('click', () => {
-  const current = document.documentElement.classList.contains('dark');
-  localStorage.setItem('theme', current ? 'light' : 'dark');
-  applyTheme();
-});
-if (window.matchMedia) {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (!localStorage.getItem('theme')) applyTheme();
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    const current = document.documentElement.classList.contains('dark');
+    localStorage.setItem('theme', current ? 'light' : 'dark');
+    applyTheme();
   });
 }
-
-const settingsDlg = document.getElementById('settings');
-document.getElementById('settings-btn')?.addEventListener('click', () => {
-  const input = document.getElementById('sheet-url');
-  input.value = localStorage.getItem('sheet-url') || getInitialSheetUrl() || '';
-  settingsDlg.showModal();
-});
-document.getElementById('save-settings')?.addEventListener('click', () => {
-  const url = document.getElementById('sheet-url').value.trim();
-  if (url) localStorage.setItem('sheet-url', url);
-});
-
-async function init() {
-  try { applyTheme(); } catch (_) {}
-  updateStats();
+if (window.matchMedia) {
+  const mm = window.matchMedia('(prefers-color-scheme: dark)');
+  if (mm.addEventListener) {
+    mm.addEventListener('change', () => { if (!localStorage.getItem('theme')) applyTheme(); });
+  } else if (mm.addListener) {
+    mm.addListener(() => { if (!localStorage.getItem('theme')) applyTheme(); });
+  }
+}
+try { applyTheme(); } catch (_) {}  updateStats();
   const sheetUrl = getInitialSheetUrl();
   try {
     statusEl.textContent = 'Syncing deck...';
@@ -267,4 +263,5 @@ async function init() {
 }
 
 init();
+
 
