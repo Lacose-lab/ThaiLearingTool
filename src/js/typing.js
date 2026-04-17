@@ -1,5 +1,7 @@
 import { getProgress, saveProgress, getApiKey } from './storage.js';
 import { updateCard } from './srs.js';
+import { speak } from './tts.js';
+import { romanize } from './romanize.js';
 
 function fuzzyMatch(input, target) {
   const a = input.trim().toLowerCase().replace(/\s+/g, '');
@@ -61,10 +63,16 @@ export function render(container, vocab) {
         feedback.innerHTML = `
           <div style="color:var(--accent2);font-size:1.1rem;font-weight:600">${exact ? '&#10003; Correct!' : '&#128077; Close enough!'}</div>
           <div class="thai-sm" style="margin-top:0.25rem;color:var(--text-muted)">${w.thai}</div>
+          <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+            <button class="btn btn-ghost" id="speak-ans" style="padding:0.35rem 0.75rem;font-size:0.8rem">&#128266; Hear it</button>
+            <button class="btn btn-ghost" id="roman-ans" style="padding:0.35rem 0.75rem;font-size:0.8rem">A&#257; Roman</button>
+          </div>
+          <div id="roman-text" style="display:none;color:var(--text-muted);font-size:0.85rem;margin-top:0.25rem;letter-spacing:0.05em"></div>
         `;
         progress[w.id] = updateCard(progress[w.id] || {}, exact ? 3 : 2);
         saveProgress(progress);
-        setTimeout(() => { idx++; showPrompt(); }, 1200);
+        bindSpeakRoman(w.thai);
+        setTimeout(() => { idx++; showPrompt(); }, 1800);
       } else {
         progress[w.id] = updateCard(progress[w.id] || {}, 0);
         saveProgress(progress);
@@ -72,10 +80,17 @@ export function render(container, vocab) {
           <div style="color:var(--danger);font-weight:600">&#10007; Correct answer:</div>
           <div class="thai-sm" style="margin:0.25rem 0">${w.thai}</div>
           ${w.notes ? `<div class="muted" style="font-style:italic;font-size:0.8rem">${w.notes}</div>` : ''}
+          <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+            <button class="btn btn-ghost" id="speak-ans" style="padding:0.35rem 0.75rem;font-size:0.8rem">&#128266; Hear it</button>
+            <button class="btn btn-ghost" id="roman-ans" style="padding:0.35rem 0.75rem;font-size:0.8rem">A&#257; Roman</button>
+          </div>
+          <div id="roman-text" style="display:none;color:var(--text-muted);font-size:0.85rem;margin-top:0.25rem;letter-spacing:0.05em"></div>
           <div id="tutor-feedback" class="muted" style="margin-top:0.75rem;font-size:0.875rem">Getting tip from Kru Noi\u2026</div>
           <button class="btn btn-ghost" style="margin-top:0.75rem" id="next-btn">Next &#8594;</button>
         `;
         document.getElementById('next-btn').onclick = () => { idx++; showPrompt(); };
+        bindSpeakRoman(w.thai);
+        speak(w.thai);
         const apiKey = getApiKey();
         if (apiKey) getTutorFeedback(w, answer, apiKey);
       }
@@ -83,6 +98,17 @@ export function render(container, vocab) {
 
     document.getElementById('submit').onclick = check;
     input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+  }
+
+  function bindSpeakRoman(thai) {
+    document.getElementById('speak-ans').onclick = () => speak(thai);
+    let romanVisible = false;
+    document.getElementById('roman-ans').onclick = () => {
+      romanVisible = !romanVisible;
+      const el = document.getElementById('roman-text');
+      if (romanVisible) { el.textContent = romanize(thai); el.style.display = 'block'; }
+      else el.style.display = 'none';
+    };
   }
 
   async function getTutorFeedback(word, userAnswer, apiKey) {

@@ -1,5 +1,7 @@
 import { getProgress, saveProgress } from './storage.js';
 import { updateCard, getDueWords } from './srs.js';
+import { speak } from './tts.js';
+import { romanize } from './romanize.js';
 
 export function render(container, vocab) {
   const progress = getProgress();
@@ -38,6 +40,11 @@ export function render(container, vocab) {
           ${w.notes ? `<div class="muted" style="font-style:italic;margin-top:0.5rem;font-size:0.8rem">${w.notes}</div>` : ''}
         `}
       </div>
+      <div style="display:flex;gap:0.5rem;margin-top:0.75rem;justify-content:center">
+        <button class="btn btn-ghost" id="speak-btn" style="padding:0.5rem 1.25rem">&#128266; Speak</button>
+        <button class="btn btn-ghost" id="roman-btn" style="padding:0.5rem 1.25rem">A&#257; Roman</button>
+      </div>
+      <div id="roman-text" style="display:none;text-align:center;color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem;letter-spacing:0.05em"></div>
       ${revealed ? `
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;margin-top:1rem">
           <button class="btn btn-danger" id="btn-fail">Again</button>
@@ -50,6 +57,24 @@ export function render(container, vocab) {
     document.getElementById('card-face').onclick = () => {
       revealed = true;
       showCard();
+    };
+
+    document.getElementById('speak-btn').onclick = (e) => {
+      e.stopPropagation();
+      speak(w.thai);
+    };
+
+    let romanVisible = false;
+    document.getElementById('roman-btn').onclick = (e) => {
+      e.stopPropagation();
+      const el = document.getElementById('roman-text');
+      romanVisible = !romanVisible;
+      if (romanVisible) {
+        el.textContent = romanize(w.thai);
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
     };
 
     if (revealed) {

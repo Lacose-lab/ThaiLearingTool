@@ -1,5 +1,7 @@
 import { getProgress, saveProgress } from './storage.js';
 import { updateCard } from './srs.js';
+import { speak } from './tts.js';
+import { romanize } from './romanize.js';
 
 function shuffle(arr) {
   return [...arr].sort(() => Math.random() - 0.5);
@@ -39,8 +41,15 @@ export function render(container, vocab) {
         <div class="muted">${idx + 1} / ${pool.length}</div>
         <div class="muted">Score: ${score}</div>
       </div>
-      <div class="card" style="text-align:center;margin:1rem 0;min-height:100px;display:flex;align-items:center;justify-content:center">
+      <div class="card" style="text-align:center;margin:1rem 0;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem">
         <div class="${mode === 'thai-to-en' ? 'thai' : ''}" style="font-size:${mode === 'thai-to-en' ? '2rem' : '1.3rem'};font-weight:600">${question}</div>
+        ${mode === 'thai-to-en' ? `
+          <div style="display:flex;gap:0.5rem;justify-content:center;margin-top:0.25rem">
+            <button class="btn btn-ghost" id="speak-q" style="padding:0.35rem 0.75rem;font-size:0.8rem">&#128266;</button>
+            <button class="btn btn-ghost" id="roman-q" style="padding:0.35rem 0.75rem;font-size:0.8rem">A&#257;</button>
+          </div>
+          <div id="roman-text" style="display:none;color:var(--text-muted);font-size:0.85rem;letter-spacing:0.05em"></div>
+        ` : ''}
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem">
         ${options.map(o => `
@@ -50,6 +59,17 @@ export function render(container, vocab) {
           </button>`).join('')}
       </div>
     `;
+
+    if (mode === 'thai-to-en') {
+      document.getElementById('speak-q').onclick = () => speak(correct.thai);
+      let romanVisible = false;
+      document.getElementById('roman-q').onclick = () => {
+        romanVisible = !romanVisible;
+        const el = document.getElementById('roman-text');
+        if (romanVisible) { el.textContent = romanize(correct.thai); el.style.display = 'block'; }
+        else el.style.display = 'none';
+      };
+    }
 
     container.querySelectorAll('.option-btn').forEach(btn => {
       btn.onclick = () => {
@@ -69,6 +89,7 @@ export function render(container, vocab) {
           progress[correct.id] = updateCard(progress[correct.id] || {}, 0);
         }
 
+        speak(correct.thai);
         saveProgress(progress);
         setTimeout(() => {
           idx++;
