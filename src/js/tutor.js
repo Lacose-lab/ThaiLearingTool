@@ -1,4 +1,5 @@
 import { getApiKey } from './storage.js';
+import { speak } from './tts.js';
 
 function buildSystemPrompt(vocab) {
   const wordList = vocab.words.map(w =>
@@ -46,21 +47,34 @@ export function render(container, vocab) {
   const input = document.getElementById('chat-input');
 
   function addMessage(role, text) {
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = `display:flex;flex-direction:column;align-items:${role === 'user' ? 'flex-end' : 'flex-start'};max-width:88%;${role === 'user' ? 'margin-left:auto' : ''}`;
+
     const div = document.createElement('div');
     const isUser = role === 'user';
     div.style.cssText = `
       padding:0.75rem 1rem;
       border-radius:var(--radius);
-      max-width:88%;
       line-height:1.6;
       white-space:pre-wrap;
       word-break:break-word;
       ${isUser
-        ? 'background:var(--accent);color:#000;align-self:flex-end;margin-left:auto;'
-        : 'background:var(--surface2);color:var(--text);align-self:flex-start;border:1px solid var(--border);'}
+        ? 'background:var(--accent);color:#000;'
+        : 'background:var(--surface2);color:var(--text);border:1px solid var(--border);'}
     `;
     div.textContent = text;
-    messagesEl.appendChild(div);
+    wrapper.appendChild(div);
+
+    if (!isUser) {
+      const btn = document.createElement('button');
+      btn.className = 'btn btn-ghost';
+      btn.style.cssText = 'padding:0.2rem 0.6rem;font-size:0.75rem;margin-top:0.25rem;align-self:flex-start';
+      btn.textContent = '🔊 Speak';
+      btn.onclick = () => speak(text);
+      wrapper.appendChild(btn);
+    }
+
+    messagesEl.appendChild(wrapper);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return div;
   }
