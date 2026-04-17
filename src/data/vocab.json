@@ -1,0 +1,5889 @@
+{
+  "words": [
+    {
+      "id": 1,
+      "thai": "คำถาม",
+      "english": "Question",
+      "german": "Frage",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 2,
+      "thai": "เมื่อไหร่",
+      "english": "When",
+      "german": "Wann",
+      "notes": "commom book/speaking",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 3,
+      "thai": "เท่าไหร่",
+      "english": "How many-much",
+      "german": "Wie viele?",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 4,
+      "thai": "กี่",
+      "english": "How many-much",
+      "german": "Wie viele?",
+      "notes": "No need classier/ no spacific",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 5,
+      "thai": "กี่โมง",
+      "english": "What time",
+      "german": "Wie viel Uhr",
+      "notes": "~ How many + o'clock",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 6,
+      "thai": "อะไร",
+      "english": "What",
+      "german": "Was",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 7,
+      "thai": "ที่ไหน",
+      "english": "Where",
+      "german": "Wo",
+      "notes": "place + Which",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 8,
+      "thai": "ไหน",
+      "english": "Which",
+      "german": "Welche",
+      "notes": "classifier + Which",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 9,
+      "thai": "ใคร",
+      "english": "Who",
+      "german": "WHO",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 10,
+      "thai": "ยังไง",
+      "english": "How",
+      "german": "Wie",
+      "notes": "Oral talking / Casual",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 11,
+      "thai": "ทำไม",
+      "english": "Why",
+      "german": "Warum",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 12,
+      "thai": "เพราะอะไร",
+      "english": "Why",
+      "german": "Warum",
+      "notes": "softer (in some situation)",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 13,
+      "thai": "(แล้ว)รึยัง",
+      "english": "Yet?",
+      "german": "Noch?",
+      "notes": "already or Not yet",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 14,
+      "thai": "เหรอ",
+      "english": "really?",
+      "german": "Wirklich?",
+      "notes": "to make more polite say \n\"จริงเหรอ\"",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 15,
+      "thai": "อื่นๆ",
+      "english": "ETC.",
+      "german": "USW.",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 16,
+      "thai": "ก็",
+      "english": "also",
+      "german": "Auch",
+      "notes": "pronouce as = ก้อ",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 17,
+      "thai": "บ้าง",
+      "english": "Some",
+      "german": "Manche",
+      "notes": "more than 1 option",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 18,
+      "thai": "ถ้า",
+      "english": "if",
+      "german": "Wenn",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 19,
+      "thai": "ถึง",
+      "english": "to",
+      "german": "Zu",
+      "notes": "1 ถึง 10",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 20,
+      "thai": "เพราะ",
+      "english": "because",
+      "german": "Weil",
+      "notes": "เกาะ - island",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 21,
+      "thai": "สำหรับ",
+      "english": "for",
+      "german": "für",
+      "notes": "for something",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 22,
+      "thai": "ให้",
+      "english": "for, to give",
+      "german": "für, geben",
+      "notes": "someone",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 23,
+      "thai": "เพื่อ",
+      "english": "for, in oder to",
+      "german": "für, um zu",
+      "notes": "for something important, purpose",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 24,
+      "thai": "แต่",
+      "english": "but",
+      "german": "Aber",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 25,
+      "thai": "กว่า",
+      "english": "more // than",
+      "german": "mehr // als",
+      "notes": "ex. ดี (good) ดีกว่า (better) ดีที่สุด (best)",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 26,
+      "thai": "ที่สุด",
+      "english": "The most",
+      "german": "Die meisten",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 27,
+      "thai": "แค่",
+      "english": "only, just",
+      "german": "nur, nur",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 28,
+      "thai": "เอง",
+      "english": "self",
+      "german": "selbst",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 29,
+      "thai": "ตัวเอง",
+      "english": "oneself",
+      "german": "sich",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 30,
+      "thai": "เคย",
+      "english": "ever",
+      "german": "immer",
+      "notes": "Have ever ... (talk about exp.)",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 31,
+      "thai": "เคยเป็น",
+      "english": "used to be",
+      "german": "früher",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 32,
+      "thai": "ไม่เคย",
+      "english": "never",
+      "german": "niemals",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 33,
+      "thai": "ที่",
+      "english": "at",
+      "german": "bei",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 34,
+      "thai": "ของ",
+      "english": "of",
+      "german": "von",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 35,
+      "thai": "และ",
+      "english": "and",
+      "german": "Und",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 36,
+      "thai": "แล้วก็",
+      "english": "then, and, so.",
+      "german": "dann, und so.",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 37,
+      "thai": "หรือ",
+      "english": "or",
+      "german": "oder",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 38,
+      "thai": "จนถึง",
+      "english": "until",
+      "german": "bis",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 39,
+      "thai": "กับ",
+      "english": "with",
+      "german": "mit",
+      "notes": "sometimes ( and) if talk only 2 things",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 40,
+      "thai": "จะ",
+      "english": "will/shall",
+      "german": "will/shall",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 41,
+      "thai": "น่าจะ",
+      "english": "Maybe",
+      "german": "Vielleicht",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 42,
+      "thai": "อาจจะ",
+      "english": "Maybe",
+      "german": "Vielleicht",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 43,
+      "thai": "เกี่ยวกับ",
+      "english": "about",
+      "german": "um",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 44,
+      "thai": "ประมาณ",
+      "english": "about (aproximately)",
+      "german": "ungefähr",
+      "notes": "ประมาณ (number)",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 45,
+      "thai": "โดน",
+      "english": "[to] be in trouble ; get in trouble\r\n(auxiliary that indicates the following verb is in the passive voice)",
+      "german": "[to] in Schwierigkeiten sein; in Schwierigkeiten geraten\n(Hilfsverb, das anzeigt, dass das folgende Verb im Passiv steht)",
+      "notes": "Ex. got hit, got scam, burn",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 46,
+      "thai": "แห้ง",
+      "english": "dry",
+      "german": "trocken",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 47,
+      "thai": "เปียก",
+      "english": "wet",
+      "german": "nass",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 48,
+      "thai": "เหนือ",
+      "english": "North",
+      "german": "Norden",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 49,
+      "thai": "ใต้",
+      "english": "South",
+      "german": "Süden",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 50,
+      "thai": "ตะวันออก",
+      "english": "East",
+      "german": "Ost",
+      "notes": "Sun + exit",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 51,
+      "thai": "ตะวันตก",
+      "english": "West",
+      "german": "Westen",
+      "notes": "Sun + fall",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 52,
+      "thai": "ง่วง",
+      "english": "Sleepy",
+      "german": "Schläfrig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 53,
+      "thai": "หิว",
+      "english": "hungry",
+      "german": "hungrig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 54,
+      "thai": "หิวน้ำ",
+      "english": "thirsty",
+      "german": "durstig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 55,
+      "thai": "เยอะ",
+      "english": "a lot, many",
+      "german": "viele",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 56,
+      "thai": "น้อย",
+      "english": "less, few",
+      "german": "weniger, wenige",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 57,
+      "thai": "น้อยกว่า",
+      "english": "less than",
+      "german": "weniger als",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 58,
+      "thai": "มาก",
+      "english": "very",
+      "german": "sehr",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 59,
+      "thai": "มากกว่า",
+      "english": "more than",
+      "german": "mehr als",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 60,
+      "thai": "เกินไป",
+      "english": "too much;excessively",
+      "german": "zu viel; übermäßig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 61,
+      "thai": "แพง",
+      "english": "Expensive",
+      "german": "Teuer",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 62,
+      "thai": "ถูก",
+      "english": "Cheap",
+      "german": "Billig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 63,
+      "thai": "ใหม่",
+      "english": "New",
+      "german": "Neu",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 64,
+      "thai": "เก่า",
+      "english": "old",
+      "german": "alt",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 65,
+      "thai": "ผัด",
+      "english": "stir fry",
+      "german": "pfannenrühren",
+      "notes": "less oil",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 66,
+      "thai": "ทอด",
+      "english": "fry",
+      "german": "braten",
+      "notes": "lot of oil",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 67,
+      "thai": "เครียด",
+      "english": "Stressful",
+      "german": "Stressig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 68,
+      "thai": "นาน",
+      "english": "long",
+      "german": "lang",
+      "notes": "long for Time only",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 69,
+      "thai": "ที่นี่",
+      "english": "here",
+      "german": "Hier",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 70,
+      "thai": "แล้วแต่",
+      "english": "depend",
+      "german": "abhängen",
+      "notes": "// up to you",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 71,
+      "thai": "ดีขึ้น",
+      "english": "get better",
+      "german": "Besserung",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 72,
+      "thai": "ร้อน",
+      "english": "hot",
+      "german": "heiß",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 73,
+      "thai": "เย็น",
+      "english": "cold",
+      "german": "kalt",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 74,
+      "thai": "หนาว",
+      "english": "cold",
+      "german": "kalt",
+      "notes": "people feeling",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 75,
+      "thai": "เล็ก",
+      "english": "small",
+      "german": "klein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 76,
+      "thai": "ใหญ่",
+      "english": "big",
+      "german": "groß",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 77,
+      "thai": "ทั้งหมด",
+      "english": "total, all",
+      "german": "insgesamt",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 78,
+      "thai": "ทั้งวัน",
+      "english": "all day",
+      "german": "den ganzen Tag",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 79,
+      "thai": "แถว",
+      "english": "around an area",
+      "german": "rund um ein Gebiet",
+      "notes": "can say twice",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 80,
+      "thai": "เหนื่อย",
+      "english": "tired",
+      "german": "müde",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 81,
+      "thai": "รุ่น",
+      "english": "model, generation",
+      "german": "Modell, Generation",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 82,
+      "thai": "อันตราย",
+      "english": "dangerous",
+      "german": "gefährlich",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 83,
+      "thai": "เผ็ด",
+      "english": "Scpicy",
+      "german": "Scharf",
+      "notes": "🌶️",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 84,
+      "thai": "หวาน",
+      "english": "sweet",
+      "german": "süß",
+      "notes": "🍧",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 85,
+      "thai": "เปรี้ยว",
+      "english": "sour",
+      "german": "sauer",
+      "notes": "🍋‍🟩",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 86,
+      "thai": "ขม",
+      "english": "bitter",
+      "german": "bitter",
+      "notes": "😣",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 87,
+      "thai": "เค็ม",
+      "english": "salty",
+      "german": "salzig",
+      "notes": "🧂",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 88,
+      "thai": "ทุก+",
+      "english": "every~",
+      "german": "jeden~",
+      "notes": "ทุกวัน, ทุกคน",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 89,
+      "thai": "บาง+",
+      "english": "Some~",
+      "german": "Einige~",
+      "notes": "บางวัน, บางคน",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 90,
+      "thai": "เจ็บ",
+      "english": "painful",
+      "german": "schmerzhaft",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 91,
+      "thai": "อีก",
+      "english": "more, other",
+      "german": "mehr, andere",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 92,
+      "thai": "เร็ว",
+      "english": "fast",
+      "german": "schnell",
+      "notes": "~Early",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 93,
+      "thai": "ช้า",
+      "english": "slow",
+      "german": "langsam",
+      "notes": "~Late",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 94,
+      "thai": "นี้",
+      "english": "This",
+      "german": "Das",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 95,
+      "thai": "นั้น",
+      "english": "That",
+      "german": "Das",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 96,
+      "thai": "ด้วยกัน",
+      "english": "together",
+      "german": "zusammen",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 97,
+      "thai": "ขี้เกียจ",
+      "english": "Lazy",
+      "german": "Faul",
+      "notes": "A. ขก.",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 98,
+      "thai": "ตลก",
+      "english": "funny",
+      "german": "lustig",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 99,
+      "thai": "เช่น",
+      "english": "for example. such as",
+      "german": "zum Beispiel.",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 100,
+      "thai": "เหมือนกัน",
+      "english": "also;as well;too",
+      "german": "auch; ebenso; auch",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 101,
+      "thai": "เหมือนเดิม",
+      "english": "the same as before",
+      "german": "das Gleiche wie zuvor",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 102,
+      "thai": "เสีย",
+      "english": "spoil, bad",
+      "german": "verderben, schlecht",
+      "notes": "ท้อง + เสีย = stomach + bad = diarrhea",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 103,
+      "thai": "อื่น",
+      "english": "others",
+      "german": "andere",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 104,
+      "thai": "เกือบ",
+      "english": "almost",
+      "german": "fast",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 105,
+      "thai": "พอใจ",
+      "english": "satisfied",
+      "german": "befriedigt",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 106,
+      "thai": "พอ",
+      "english": "[to be] enough;sufficient",
+      "german": "ausreichend sein; ausreichend",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 107,
+      "thai": "แย่",
+      "english": "bad",
+      "german": "schlecht",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 108,
+      "thai": "ปกติ",
+      "english": "usually, normally, commonly, [to be] normal",
+      "german": "gewöhnlich, normalerweise, üblicherweise, normal",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 109,
+      "thai": "เผลอ",
+      "english": "[to be] careless",
+      "german": "[sich] unvorsichtig verhalten",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 110,
+      "thai": "ต่อ",
+      "english": "per",
+      "german": "pro",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 111,
+      "thai": "พร้อม",
+      "english": "at the same time/ [to be] ready",
+      "german": "gleichzeitig/ bereit sein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 112,
+      "thai": "งง",
+      "english": "[to be] confused",
+      "german": "verwirrt sein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 113,
+      "thai": "หนัก",
+      "english": "[to be] heavy;hard",
+      "german": "schwer sein; hart",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 114,
+      "thai": "สนุก",
+      "english": "[to be] fun;enjoyable",
+      "german": "Spaß machen; angenehm sein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 115,
+      "thai": "สว่าง",
+      "english": "[to] be bright",
+      "german": "hell sein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 116,
+      "thai": "แรก",
+      "english": "the first",
+      "german": "der erste",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 117,
+      "thai": "สุดท้าย",
+      "english": "the last",
+      "german": "der letzte",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 118,
+      "thai": "เศร้า",
+      "english": "[to be] sad",
+      "german": "traurig sein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 119,
+      "thai": "ดีใจ",
+      "english": "[to be] happy",
+      "german": "glücklich sein",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 120,
+      "thai": "กลัว",
+      "english": "[to] be scared ; fear",
+      "german": "Angst haben; Furcht",
+      "notes": "",
+      "category": "general",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 121,
+      "thai": "เป็น",
+      "english": "(to) be",
+      "german": "(zu sein",
+      "notes": "Identity, roles, or characteristics\n(nationallity, position, having disese/ilness,relationship)",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 122,
+      "thai": "อยู่",
+      "english": "(to) be located",
+      "german": "(zu) befinden",
+      "notes": "Refers to location or existence",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 123,
+      "thai": "คือ",
+      "english": "(to) be/means",
+      "german": "(to) be/means",
+      "notes": "Definition or explanation",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 124,
+      "thai": "อาศัย",
+      "english": "to live",
+      "german": "zu leben",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 125,
+      "thai": "พัก",
+      "english": "to stay, to rest",
+      "german": "bleiben, sich ausruhen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 126,
+      "thai": "มี",
+      "english": "to have",
+      "german": "haben",
+      "notes": "~ There is/are",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 127,
+      "thai": "...ได้",
+      "english": "Can",
+      "german": "Kann",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 128,
+      "thai": "ได้",
+      "english": "to get",
+      "german": "zu bekommen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 129,
+      "thai": "ชอบ",
+      "english": "to like",
+      "german": "zum Zuschauen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 130,
+      "thai": "กิน",
+      "english": "to eat",
+      "german": "zum Essen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 131,
+      "thai": "ทำ",
+      "english": "to do/make",
+      "german": "zu tun/machen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 132,
+      "thai": "ไป",
+      "english": "to go",
+      "german": "zum Mitnehmen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 133,
+      "thai": "ใช้",
+      "english": "to use",
+      "german": "zu verwenden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 134,
+      "thai": "ซื้อ",
+      "english": "to buy",
+      "german": "zu kaufen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 135,
+      "thai": "จ่าย",
+      "english": "to pay",
+      "german": "zu bezahlen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 136,
+      "thai": "ขาย",
+      "english": "to sell",
+      "german": "zu verkaufen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 137,
+      "thai": "รู้",
+      "english": "to know",
+      "german": "zu wissen",
+      "notes": "knowledge, fact",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 138,
+      "thai": "รู้จัก",
+      "english": "to know",
+      "german": "zu wissen",
+      "notes": "name, person, place, thing",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 139,
+      "thai": "รู้สึก",
+      "english": "to feel",
+      "german": "fühlen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 140,
+      "thai": "เรียน",
+      "english": "to study/ learn",
+      "german": "studieren/lernen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 141,
+      "thai": "เริ่ม",
+      "english": "to start",
+      "german": "zum Starten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 142,
+      "thai": "หยุด",
+      "english": "to stop",
+      "german": "anhalten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 143,
+      "thai": "กลับ",
+      "english": "to return",
+      "german": "zurückkehren",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 144,
+      "thai": "ลืม",
+      "english": "to forget",
+      "german": "zu vergessen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 145,
+      "thai": "เล่น",
+      "english": "to play",
+      "german": "zu spielen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 146,
+      "thai": "จำ",
+      "english": "to remember",
+      "german": "zum Merken",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 147,
+      "thai": "พูด",
+      "english": "to speak, say",
+      "german": "sprechen, sagen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 148,
+      "thai": "คุย",
+      "english": "to talk",
+      "german": "zum Reden",
+      "notes": "have a conversation back and forth",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 149,
+      "thai": "บอก",
+      "english": "to tell",
+      "german": "zu erzählen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 150,
+      "thai": "เล่า",
+      "english": "to tell (story)",
+      "german": "(Geschichte) erzählen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 151,
+      "thai": "เอา",
+      "english": "to take",
+      "german": "zu nehmen",
+      "notes": "for order",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 152,
+      "thai": "อยาก",
+      "english": "to want",
+      "german": "wollen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 153,
+      "thai": "มา",
+      "english": "to come",
+      "german": "wird kommen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 154,
+      "thai": "เตรียม",
+      "english": "to get ready/ to prepare",
+      "german": "sich vorbereiten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 155,
+      "thai": "นอน",
+      "english": "to lay down/ sleep",
+      "german": "sich hinlegen/schlafen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 156,
+      "thai": "ตื่น",
+      "english": "to wake up",
+      "german": "aufwachen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 157,
+      "thai": "เดิน",
+      "english": "to walk",
+      "german": "zu Fuß",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 158,
+      "thai": "ถ่าย",
+      "english": "to film, take (photo/video)",
+      "german": "filmen, aufnehmen (Foto/Video)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 159,
+      "thai": "สอน",
+      "english": "to teach",
+      "german": "zu lehren",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 160,
+      "thai": "อบ",
+      "english": "to bake",
+      "german": "zum Backen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 161,
+      "thai": "รับ",
+      "english": "to receive/pick up(someone)",
+      "german": "jemanden in Empfang nehmen/abholen",
+      "notes": "to catch (if someone trow something to you)",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 162,
+      "thai": "ส่ง",
+      "english": "to send",
+      "german": "zum Senden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 163,
+      "thai": "เปิด",
+      "english": "to open",
+      "german": "zum Öffnen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 164,
+      "thai": "ปิด",
+      "english": "to close",
+      "german": "zum Schließen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 165,
+      "thai": "เผา",
+      "english": "to burn",
+      "german": "zum Verbrennen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 166,
+      "thai": "เจอ",
+      "english": "to meet, to be found",
+      "german": "sich treffen, gefunden werden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 167,
+      "thai": "หา",
+      "english": "to find",
+      "german": "zu finden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 168,
+      "thai": "มาหา",
+      "english": "come see(to)",
+      "german": "komm und sieh (um)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 169,
+      "thai": "ไปหา",
+      "english": "go see(to)",
+      "german": "gehe sehen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 170,
+      "thai": "ออก",
+      "english": "to exit",
+      "german": "zum Verlassen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 171,
+      "thai": "ขับ",
+      "english": "to drive",
+      "german": "zum Fahren",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 172,
+      "thai": "ขี่",
+      "english": "to ride",
+      "german": "zum Reiten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 173,
+      "thai": "เสร็จ",
+      "english": "to finish",
+      "german": "zum Abschluss",
+      "notes": "pronouce เส็ด (false clusster)",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 174,
+      "thai": "จบ",
+      "english": "[to] end;finish;come to an end",
+      "german": "enden; beenden; zu Ende kommen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 175,
+      "thai": "รอ",
+      "english": "to wait",
+      "german": "warten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 176,
+      "thai": "จอด",
+      "english": "to park",
+      "german": "zum Parken",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 177,
+      "thai": "ทำความสะอาด",
+      "english": "to clean",
+      "german": "zum Reinigen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 178,
+      "thai": "ทำงาน",
+      "english": "to work",
+      "german": "arbeiten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 179,
+      "thai": "ทำอาหาร",
+      "english": "to cook",
+      "german": "zum Kochen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 180,
+      "thai": "เก็บไว้",
+      "english": "to keep",
+      "german": "um zu behalten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 181,
+      "thai": "บิน",
+      "english": "to fly",
+      "german": "fliegen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 182,
+      "thai": "คิด",
+      "english": "to think",
+      "german": "zu denken",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 183,
+      "thai": "แนะนำ",
+      "english": "to recommend/ introduce",
+      "german": "empfehlen/einführen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 184,
+      "thai": "ตรวจจับ",
+      "english": "to detect",
+      "german": "zum Erkennen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 185,
+      "thai": "โยน",
+      "english": "to hurl",
+      "german": "werfen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 186,
+      "thai": "ขว้าง",
+      "english": "to throw",
+      "german": "werfen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 187,
+      "thai": "ปา",
+      "english": "to throw",
+      "german": "werfen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 188,
+      "thai": "ใส่",
+      "english": "to wear, put in/on",
+      "german": "tragen, anziehen/anziehen",
+      "notes": "cloth, glasses, ring",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 189,
+      "thai": "โทร",
+      "english": "to call (by phone)",
+      "german": "anrufen (telefonisch)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 190,
+      "thai": "ออกกำลัง",
+      "english": "to exercise",
+      "german": "zum Trainieren",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 191,
+      "thai": "เห็น",
+      "english": "to see",
+      "german": "um zu sehen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 192,
+      "thai": "ดู",
+      "english": "to look, watch",
+      "german": "schauen, beobachten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 193,
+      "thai": "เข้า",
+      "english": "to enter",
+      "german": "zum Eintragen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 194,
+      "thai": "เที่ยว",
+      "english": "to travel",
+      "german": "zu reisen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 195,
+      "thai": "คุม",
+      "english": "to control",
+      "german": "um zu kontrollieren",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 196,
+      "thai": "ตกปลา",
+      "english": "to fish",
+      "german": "zum Angeln",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 197,
+      "thai": "ตก",
+      "english": "to fall",
+      "german": "fallen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 198,
+      "thai": "จับ",
+      "english": "to catch",
+      "german": "um zu fangen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 199,
+      "thai": "เช่า",
+      "english": "to rent",
+      "german": "zu vermieten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 200,
+      "thai": "ลอง",
+      "english": "to try",
+      "german": "zu versuchen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 201,
+      "thai": "พา",
+      "english": "to take",
+      "german": "zu nehmen",
+      "notes": "someone",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 202,
+      "thai": "ยืน",
+      "english": "to stand",
+      "german": "stehen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 203,
+      "thai": "ถาม",
+      "english": "to ask",
+      "german": "zu fragen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 204,
+      "thai": "ตอบ",
+      "english": "to respond, anwser",
+      "german": "antworten, Antwort",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 205,
+      "thai": "ชิน",
+      "english": "to be used, to be familiar with",
+      "german": "zu verwenden, mit dem man vertraut sein sollte",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 206,
+      "thai": "เปลี่ยน",
+      "english": "to change, Switch",
+      "german": "zum Ändern, Umschalten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 207,
+      "thai": "ชน",
+      "english": "to collide with;hit;bump",
+      "german": "zusammenstoßen; treffen; anstoßen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 208,
+      "thai": "ปรึกษา",
+      "english": "to discuss",
+      "german": "zu besprechen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 209,
+      "thai": "พิมพ์",
+      "english": "to type, to text",
+      "german": "tippen, Text",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 210,
+      "thai": "ซ่อม",
+      "english": "to repair",
+      "german": "zu reparieren",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 211,
+      "thai": "สั่ง",
+      "english": "to order",
+      "german": "um zu bestellen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 212,
+      "thai": "ห้อย",
+      "english": "to hang",
+      "german": "zum Aufhängen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 213,
+      "thai": "ช่วย",
+      "english": "to help",
+      "german": "um zu helfen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 214,
+      "thai": "กังวล",
+      "english": "to worry (about);feel anxious (about)",
+      "german": "sich Sorgen machen (über); ängstlich sein (über)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 215,
+      "thai": "ให้ดู",
+      "english": "to show (just show)",
+      "german": "zeigen (einfach zeigen)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 216,
+      "thai": "อวด",
+      "english": "to show off",
+      "german": "um anzugeben",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 217,
+      "thai": "หาย",
+      "english": "to be lost, be cured",
+      "german": "Verloren sein, geheilt werden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 218,
+      "thai": "ต้อง",
+      "english": "must, have to",
+      "german": "müssen, müssen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 219,
+      "thai": "นั่ง",
+      "english": "to sit",
+      "german": "sitzen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 220,
+      "thai": "ซ้อน",
+      "english": "to sit behind the person who ride",
+      "german": "hinter der Person sitzen, die reitet",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 221,
+      "thai": "อาบน้ำ",
+      "english": "to shower",
+      "german": "zum Duschen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 222,
+      "thai": "ฝึก",
+      "english": "to train, practice",
+      "german": "trainieren, üben",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 223,
+      "thai": "สร้าง",
+      "english": "to create, build",
+      "german": "erschaffen, bauen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 224,
+      "thai": "หัวเราะ",
+      "english": "to laugh",
+      "german": "zum Lachen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 225,
+      "thai": "เลือก",
+      "english": "to select/ choose",
+      "german": "auswählen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 226,
+      "thai": "สมัคร",
+      "english": "[to] apply (for)",
+      "german": "[um] sich zu bewerben (für)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 227,
+      "thai": "เรียก",
+      "english": "[to] call",
+      "german": "[an] anrufen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 228,
+      "thai": "เรียกว่า",
+      "english": "[to] be called;be named",
+      "german": "genannt werden; benannt werden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 229,
+      "thai": "อ่าน",
+      "english": "to read",
+      "german": "zu lesen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 230,
+      "thai": "เชิญ",
+      "english": "[to] invite",
+      "german": "[einladen]",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 231,
+      "thai": "วางแผน",
+      "english": "[to] plan",
+      "german": "[zu] planen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 232,
+      "thai": "กัด",
+      "english": "[to] bitten",
+      "german": "gebissen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 233,
+      "thai": "ตัดสินใจ",
+      "english": "[to] decide",
+      "german": "entscheiden",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 234,
+      "thai": "ลาป่วย",
+      "english": "[to] take sick leave",
+      "german": "[um] Krankheitsurlaub zu nehmen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 235,
+      "thai": "ขอ",
+      "english": "[to] ask for;request for;ask",
+      "german": "[um] bitten; anfordern; fragen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 236,
+      "thai": "อุ้ม",
+      "english": "[to] carry;hold",
+      "german": "tragen; halten",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 237,
+      "thai": "ฟัง",
+      "english": "[to] listen",
+      "german": "zuhören",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 238,
+      "thai": "กระโดด",
+      "english": "[to] jump;leap",
+      "german": "springen;hüpfen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 239,
+      "thai": "ขยับ",
+      "english": "[to] move;shift (slightly)",
+      "german": "[bewegen; verschieben (leicht)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 240,
+      "thai": "เพิ่ม",
+      "english": "[to] increase, add",
+      "german": "[zu] erhöhen, hinzufügen",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 241,
+      "thai": "ได้ยิน",
+      "english": "[to] hear",
+      "german": "[zu] hören",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 242,
+      "thai": "เรียบร้อย",
+      "english": "[to be] ready;finish;completed\r\n(Referring to a task)",
+      "german": "bereit sein; fertig; abgeschlossen\n(Bezieht sich auf eine Aufgabe)",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 243,
+      "thai": "จอง",
+      "english": "[to] reserve;book;hold",
+      "german": "[reservieren; buchen; halten]",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 244,
+      "thai": "ปล่อย",
+      "english": "[to] release;let go;set free",
+      "german": "[freigeben]; loslassen; befreien",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 245,
+      "thai": "อธิบาย",
+      "english": "[to] explain",
+      "german": "[zu] erklären",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 246,
+      "thai": "แก้",
+      "english": "[to] fix;solve",
+      "german": "",
+      "notes": "",
+      "category": "verbs",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 247,
+      "thai": "ก๋วยเตี๋ยว",
+      "english": "noodle",
+      "german": "Nudel",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 248,
+      "thai": "เครื่องบิน",
+      "english": "Airplane",
+      "german": "Flugzeug",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 249,
+      "thai": "หน้าต่าง",
+      "english": "Window",
+      "german": "Fenster",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 250,
+      "thai": "หลอดไฟ",
+      "english": "Light bulb",
+      "german": "Glühbirne",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 251,
+      "thai": "นาฬิกา",
+      "english": "watch/clock/ o'clock",
+      "german": "Uhr/Uhrzeit",
+      "notes": "use as a Noun/ for tells time 24 hr. system",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 252,
+      "thai": "มังสวิรัติ",
+      "english": "vegetarian",
+      "german": "Vegetarier",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 253,
+      "thai": "แวมไพร์",
+      "english": "Vampire",
+      "german": "Vampir",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 254,
+      "thai": "ม้า",
+      "english": "horse",
+      "german": "Pferd",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 255,
+      "thai": "หมา",
+      "english": "dog",
+      "german": "Hund",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 256,
+      "thai": "วัว",
+      "english": "cow",
+      "german": "Kuh",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 257,
+      "thai": "ไก่",
+      "english": "chicken",
+      "german": "Huhn",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 258,
+      "thai": "หมู",
+      "english": "pig",
+      "german": "Schwein",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 259,
+      "thai": "เนื้อ",
+      "english": "meat/beef",
+      "german": "Fleisch/Rindfleisch",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 260,
+      "thai": "เนื้อวัว",
+      "english": "beef",
+      "german": "Rindfleisch",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 261,
+      "thai": "ผัก",
+      "english": "Vegetable",
+      "german": "Gemüse",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 262,
+      "thai": "ข้าวเหนียว",
+      "english": "Sticky rice",
+      "german": "Klebreis",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 263,
+      "thai": "หมอ",
+      "english": "Doctor",
+      "german": "Arzt",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 264,
+      "thai": "เก้าอี้",
+      "english": "Chair",
+      "german": "Stuhl",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 265,
+      "thai": "บันได",
+      "english": "Ladder",
+      "german": "Leiter",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 266,
+      "thai": "โต๊ะ",
+      "english": "Table",
+      "german": "Tisch",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 267,
+      "thai": "ตู้",
+      "english": "Cabinet",
+      "german": "Kabinett",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 268,
+      "thai": "ประตู",
+      "english": "Door",
+      "german": "Tür",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 269,
+      "thai": "รถ",
+      "english": "Car",
+      "german": "Auto",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 270,
+      "thai": "จอ",
+      "english": "Monitor/screen",
+      "german": "Monitor/Bildschirm",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 271,
+      "thai": "พัดลม",
+      "english": "Fan",
+      "german": "Lüfter",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 272,
+      "thai": "ตู้เย็น",
+      "english": "Refrigerator",
+      "german": "Kühlschrank",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 273,
+      "thai": "งาน",
+      "english": "work",
+      "german": "arbeiten",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 274,
+      "thai": "มือถือ",
+      "english": "phone (mobile)",
+      "german": "Telefon (Mobiltelefon)",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 275,
+      "thai": "โทรศัพท์",
+      "english": "phone (any kind)",
+      "german": "Telefon (jeglicher Art)",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 276,
+      "thai": "โรงแรม",
+      "english": "hotel",
+      "german": "Hotel",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 277,
+      "thai": "โรงหนัง",
+      "english": "cinema",
+      "german": "Kino",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 278,
+      "thai": "โรงงาน",
+      "english": "Factory",
+      "german": "Fabrik",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 279,
+      "thai": "โรงเรียน",
+      "english": "School",
+      "german": "Schule",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 280,
+      "thai": "โรงพยาบาล",
+      "english": "Hospital",
+      "german": "Krankenhaus",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 281,
+      "thai": "ห้องน้ำ",
+      "english": "restroom, toilet, bathroom",
+      "german": "Toilette, Badezimmer",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 282,
+      "thai": "ห้องครัว",
+      "english": "kitchen",
+      "german": "Küche",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 283,
+      "thai": "ห้องนั่งเล่น",
+      "english": "Living room",
+      "german": "Wohnzimmer",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 284,
+      "thai": "ห้อง",
+      "english": "room",
+      "german": "Zimmer",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 285,
+      "thai": "คนเดียว",
+      "english": "Alone, only person",
+      "german": "Allein, einzige Person",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 286,
+      "thai": "ตัวเดียว",
+      "english": "only animal",
+      "german": "einziges Tier",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 287,
+      "thai": "ครู",
+      "english": "Teacher",
+      "german": "Lehrer",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 288,
+      "thai": "แม่",
+      "english": "mother",
+      "german": "Mutter",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 289,
+      "thai": "พ่อ",
+      "english": "father",
+      "german": "Vater",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 290,
+      "thai": "เมือง",
+      "english": "City",
+      "german": "Stadt",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 291,
+      "thai": "เวลา",
+      "english": "Time",
+      "german": "Zeit",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 292,
+      "thai": "ยา",
+      "english": "medicine",
+      "german": "Medizin",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 293,
+      "thai": "ครึ่ง",
+      "english": "half",
+      "german": "Hälfte",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 294,
+      "thai": "สูง",
+      "english": "tall",
+      "german": "groß",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 295,
+      "thai": "น้ำหนัก",
+      "english": "weight",
+      "german": "Gewicht",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 296,
+      "thai": "คำ",
+      "english": "word",
+      "german": "Wort",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 297,
+      "thai": "เงินสด",
+      "english": "Cash",
+      "german": "Kasse",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 298,
+      "thai": "ชื่อ",
+      "english": "name",
+      "german": "Name",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 299,
+      "thai": "ข้าว",
+      "english": "rice",
+      "german": "Reis",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 300,
+      "thai": "เพื่อน",
+      "english": "Friend",
+      "german": "Freund",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 301,
+      "thai": "แฟน",
+      "english": "Girl/Boy friend",
+      "german": "Freundin/Freund",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 302,
+      "thai": "นักเรียน",
+      "english": "student",
+      "german": "Student",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 303,
+      "thai": "ขนมปัง",
+      "english": "Bread",
+      "german": "Brot",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 304,
+      "thai": "ราคา",
+      "english": "price",
+      "german": "Preis",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 305,
+      "thai": "แว่นตา",
+      "english": "Glasses",
+      "german": "Gläser",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 306,
+      "thai": "หนังสือ",
+      "english": "book",
+      "german": "Buch",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 307,
+      "thai": "หนัง",
+      "english": "movie",
+      "german": "Film",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 308,
+      "thai": "กระเป๋า",
+      "english": "Bag",
+      "german": "Tasche",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 309,
+      "thai": "เป้",
+      "english": "backpack",
+      "german": "Rucksack",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 310,
+      "thai": "เงิน",
+      "english": "Money",
+      "german": "Geld",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 311,
+      "thai": "ตังค์",
+      "english": "Money",
+      "german": "Geld",
+      "notes": "casual",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 312,
+      "thai": "ภาคเหนือ",
+      "english": "Northern",
+      "german": "Nördlich",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 313,
+      "thai": "ภาคใต้",
+      "english": "Southen",
+      "german": "Südlich",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 314,
+      "thai": "ภาคตะวันออก",
+      "english": "Eastern",
+      "german": "Östlich",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 315,
+      "thai": "ภาคตะวันตก",
+      "english": "Western",
+      "german": "Western",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 316,
+      "thai": "ประเทศ",
+      "english": "Country",
+      "german": "Land",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 317,
+      "thai": "จังหวัด",
+      "english": "province",
+      "german": "Provinz",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 318,
+      "thai": "แดด",
+      "english": "sunlight",
+      "german": "Sonnenlicht",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 319,
+      "thai": "วันเกิด",
+      "english": "Birthday",
+      "german": "Geburtstag",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 320,
+      "thai": "ฝน",
+      "english": "rain",
+      "german": "Regen",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 321,
+      "thai": "ฤดู",
+      "english": "season",
+      "german": "Jahreszeit",
+      "notes": "read as รึดู",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 322,
+      "thai": "ฤดูใบไม้ร่วง",
+      "english": "Autumn",
+      "german": "Herbst",
+      "notes": "leaves Falling",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 323,
+      "thai": "ฤดูใบไม่ผลิ",
+      "english": "Spring",
+      "german": "Frühling",
+      "notes": "leaves blossom",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 324,
+      "thai": "หน้า",
+      "english": "season(casual)",
+      "german": "Saison (Freizeit)",
+      "notes": "only ร้อน, ฝน, หนาว",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 325,
+      "thai": "ธนาคา",
+      "english": "Bank",
+      "german": "Bank",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 326,
+      "thai": "ผู้หญิง",
+      "english": "woman/female",
+      "german": "Frau/weiblich",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 327,
+      "thai": "ผู้ชาย",
+      "english": "man/male",
+      "german": "Mann/männlich",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 328,
+      "thai": "ส่วน",
+      "english": "part",
+      "german": "Teil",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 329,
+      "thai": "ชายหาด",
+      "english": "beach",
+      "german": "Strand",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 330,
+      "thai": "ทะเล",
+      "english": "sea, ocean",
+      "german": "Meer, Ozean",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 331,
+      "thai": "แม่น้ำ",
+      "english": "River",
+      "german": "Fluss",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 332,
+      "thai": "กุ้ง",
+      "english": "shrimp, prawn",
+      "german": "Garnelen, Krabben",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 333,
+      "thai": "ปลา",
+      "english": "fish",
+      "german": "Fisch",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 334,
+      "thai": "น้ำตก",
+      "english": "waterfall",
+      "german": "Wasserfall",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 335,
+      "thai": "เรือ",
+      "english": "ship, boat",
+      "german": "Schiff, Boot",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 336,
+      "thai": "มหาวิทยาลัย",
+      "english": "University",
+      "german": "Universität",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 337,
+      "thai": "มหาลัย",
+      "english": "University",
+      "german": "Universität",
+      "notes": "speaking",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 338,
+      "thai": "ม.",
+      "english": "University",
+      "german": "Universität",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 339,
+      "thai": "ขี้",
+      "english": "shit, poop",
+      "german": "Scheiße, Kacke",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 340,
+      "thai": "ถนน",
+      "english": "street, road",
+      "german": "Straße, Weg",
+      "notes": "ถะ - หนน",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 341,
+      "thai": "ตัวอย่าง",
+      "english": "example",
+      "german": "Beispiel",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 342,
+      "thai": "กระจก",
+      "english": "mirror",
+      "german": "Spiegel",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 343,
+      "thai": "ใบเสนอราคา",
+      "english": "quotation",
+      "german": "Zitat",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 344,
+      "thai": "แผน",
+      "english": "plan",
+      "german": "planen",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 345,
+      "thai": "วันหยุด",
+      "english": "holiday;vacation",
+      "german": "Urlaub; Ferien",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 346,
+      "thai": "อดีต",
+      "english": "the past, Ex..",
+      "german": "die Vergangenheit, z. B.",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 347,
+      "thai": "ท้อง",
+      "english": "belly, abs",
+      "german": "Bauch, Bauchmuskeln",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 348,
+      "thai": "ความคืบหน้า",
+      "english": "Progress",
+      "german": "Fortschritt",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 349,
+      "thai": "ประชุม",
+      "english": "a meeting",
+      "german": "ein Treffen",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 350,
+      "thai": "เพื่อนร่วมงาน",
+      "english": "colleague",
+      "german": "Kollege",
+      "notes": "friend join work",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 351,
+      "thai": "ค่าไฟ",
+      "english": "electricity bill",
+      "german": "Stromrechnung",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 352,
+      "thai": "ค่าน้ำ",
+      "english": "water bill",
+      "german": "Wasserrechnung",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 353,
+      "thai": "ค่าปรับ",
+      "english": "a fine",
+      "german": "eine Geldstrafe",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 354,
+      "thai": "กล่อง",
+      "english": "box",
+      "german": "Kasten",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 355,
+      "thai": "ข้อความ",
+      "english": "message",
+      "german": "Nachricht",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 356,
+      "thai": "จดหมาย",
+      "english": "mail, post",
+      "german": "Post",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 357,
+      "thai": "ตำรวจ",
+      "english": "Police",
+      "german": "Polizei",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 358,
+      "thai": "ชามอาหารแมว",
+      "english": "Cat food bowl",
+      "german": "Katzenfutternapf",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 359,
+      "thai": "ช่าง",
+      "english": "technician;mechanic;engineer",
+      "german": "Techniker; Mechaniker; Ingenieur",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 360,
+      "thai": "เจ้าของ",
+      "english": "owner",
+      "german": "Eigentümer",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 361,
+      "thai": "เลข",
+      "english": "number",
+      "german": "Nummer",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 362,
+      "thai": "ปัญหา",
+      "english": "question;trouble",
+      "german": "Frage; Problem",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 363,
+      "thai": "มือ",
+      "english": "hand",
+      "german": "Hand",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 364,
+      "thai": "ผลไม้",
+      "english": "Fruit",
+      "german": "Frucht",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 365,
+      "thai": "ฝรั่ง",
+      "english": "guava",
+      "german": "Guave",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 366,
+      "thai": "กล้วย",
+      "english": "banana",
+      "german": "Banane",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 367,
+      "thai": "มะพร้าว",
+      "english": "Coconut",
+      "german": "Kokosnuss",
+      "notes": "",
+      "category": "nouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 368,
+      "thai": "ผม",
+      "english": "I",
+      "german": "ICH",
+      "notes": "polite (for male speaker)",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 369,
+      "thai": "ฉัน",
+      "english": "I",
+      "german": "ICH",
+      "notes": "polite (for female speaker)",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 370,
+      "thai": "คุณ",
+      "english": "you",
+      "german": "Du",
+      "notes": "polite",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 371,
+      "thai": "เขา",
+      "english": "He/She",
+      "german": "Er/Sie",
+      "notes": "",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 372,
+      "thai": "เธอ",
+      "english": "She",
+      "german": "Sie",
+      "notes": "usally book",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 373,
+      "thai": "(พวก)เรา",
+      "english": "We",
+      "german": "Wir",
+      "notes": "",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 374,
+      "thai": "(พวก)เขา",
+      "english": "They",
+      "german": "Sie",
+      "notes": "",
+      "category": "pronouns",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 375,
+      "thai": "คน",
+      "english": "people",
+      "german": "Menschen",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 376,
+      "thai": "ตัว",
+      "english": "classifier every type of animal, all pieces of clothing...",
+      "german": "Klassifikator: alle Tierarten...",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 377,
+      "thai": "อัน",
+      "english": "used for many small objects",
+      "german": "wird für viele kleine Gegenstände verwendet",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 378,
+      "thai": "กิโลกรัม",
+      "english": "Kilogram",
+      "german": "Kilogramm",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 379,
+      "thai": "กรัม",
+      "english": "gram",
+      "german": "Gramm",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 380,
+      "thai": "ลูก",
+      "english": "small and round shaped - mostly fruit and types of balls.",
+      "german": "klein und rundlich - meist Früchte und verschiedene Arten von Bällen.",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 381,
+      "thai": "เครื่อง",
+      "english": "electrical appliances like TVs, computers, phones...",
+      "german": "Elektrische Geräte wie Fernseher, Computer, Telefone...",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 382,
+      "thai": "คัน",
+      "english": "cars and other vehicles except planes or boats.",
+      "german": "Autos und andere Fahrzeuge ausgenommen Flugzeuge und Boote.",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 383,
+      "thai": "ปี",
+      "english": "years and years of age",
+      "german": "Jahre und Jahre alt",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 384,
+      "thai": "วัน",
+      "english": "Day",
+      "german": "Tag",
+      "notes": ".",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 385,
+      "thai": "เดือน",
+      "english": "Month",
+      "german": "Monat",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 386,
+      "thai": "แก้ว",
+      "english": "Glass/cup",
+      "german": "Glas/Tasse",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 387,
+      "thai": "ขวด",
+      "english": "bottle",
+      "german": "Flasche",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 388,
+      "thai": "ใบ",
+      "english": "types of containers (bags, boxes, bowls, buckets, cans, cups etc)",
+      "german": "Arten von Behältern...",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 389,
+      "thai": "อย่าง",
+      "english": "referring to types, kinds or sorts of objects.",
+      "german": "sich auf Arten, Sorten oder Arten von Objekten beziehend.",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 390,
+      "thai": "ชนิด",
+      "english": "for a type, sort or kind of something..",
+      "german": "für eine Art, Sorte oder Art von etwas..",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 391,
+      "thai": "แบบ",
+      "english": "model;style;way",
+      "german": "Modell; Stil; Art",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 392,
+      "thai": "ชิ้น",
+      "english": "classifier for a piece of something",
+      "german": "Klassifikator für ein Stück von etwas",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 393,
+      "thai": "มื้อ",
+      "english": "meal (Classifier for a meal)",
+      "german": "Mahlzeit (Klassifikator für eine Mahlzeit)",
+      "notes": "",
+      "category": "classifiers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 394,
+      "thai": "ระหว่าง",
+      "english": "in between",
+      "german": "dazwischen",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 395,
+      "thai": "ข้างๆ",
+      "english": "beside-next to, side",
+      "german": "neben, neben, Seite",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 396,
+      "thai": "ตรงข้าม",
+      "english": "opposite",
+      "german": "Gegenteil",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 397,
+      "thai": "ใน",
+      "english": "in",
+      "german": "In",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 398,
+      "thai": "หลัง",
+      "english": "behide, back",
+      "german": "dahinter, zurück",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 399,
+      "thai": "บน",
+      "english": "on top",
+      "german": "oben",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 400,
+      "thai": "ขึ้น",
+      "english": "up",
+      "german": "hoch",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 401,
+      "thai": "ลง",
+      "english": "down",
+      "german": "runter",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 402,
+      "thai": "จาก",
+      "english": "from",
+      "german": "aus",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 403,
+      "thai": "ใกล้",
+      "english": "near",
+      "german": "nahe",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 404,
+      "thai": "ไกล",
+      "english": "far",
+      "german": "weit",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 405,
+      "thai": "รอบ",
+      "english": "around;round",
+      "german": "rundherum;rund",
+      "notes": "",
+      "category": "prepositions",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 406,
+      "thai": "ช่วงนี้",
+      "english": "lately, recently",
+      "german": "in letzter Zeit, kürzlich",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 407,
+      "thai": "ช่วงก่อน",
+      "english": "a little while ago (not conect with the present)",
+      "german": "",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 408,
+      "thai": "วันนี้",
+      "english": "Today",
+      "german": "Heute",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 409,
+      "thai": "พรุ่งนี้",
+      "english": "Tomorrow",
+      "german": "Morgen",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 410,
+      "thai": "วันมะรืน",
+      "english": "Day after tomorrow",
+      "german": "Übermorgen",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 411,
+      "thai": "เมื่อวาน",
+      "english": "Yesterday",
+      "german": "Gestern",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 412,
+      "thai": "เมื่อวานซืน",
+      "english": "Day before yesterday",
+      "german": "Vorgestern",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 413,
+      "thai": "เมื่อคืน",
+      "english": "Last night",
+      "german": "Letzte Nacht",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 414,
+      "thai": "เมื่อกี้",
+      "english": "just now;a moment ago",
+      "german": "eben; vor einem Augenblick",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 415,
+      "thai": "ตอนเช้า",
+      "english": "Morning",
+      "german": "Morgen",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 416,
+      "thai": "ตอนกลางวัน",
+      "english": "afternoon/ day time",
+      "german": "Nachmittag/Tag",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 417,
+      "thai": "ตอนเย็น",
+      "english": "Evening",
+      "german": "Abend",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 418,
+      "thai": "ตอนกลางคืน",
+      "english": "Night",
+      "german": "Nacht",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 419,
+      "thai": "ตอนนี้",
+      "english": "Now",
+      "german": "Jetzt",
+      "notes": "When + This",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 420,
+      "thai": "หลังจากนี้",
+      "english": "After this",
+      "german": "Danach",
+      "notes": "Back + from + This",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 421,
+      "thai": "ก่อนหน้านี้",
+      "english": "Before this",
+      "german": "Vorher",
+      "notes": "Before + front + This",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 422,
+      "thai": "นาที",
+      "english": "minute",
+      "german": "Minute",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 423,
+      "thai": "ชั่วโมง",
+      "english": "hour",
+      "german": "Stunde",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 424,
+      "thai": "สัปดาห์",
+      "english": "Week",
+      "german": "Woche",
+      "notes": "proper word",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 425,
+      "thai": "สุดสัปดาห์",
+      "english": "Weekend",
+      "german": "Wochenende",
+      "notes": "proper language",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 426,
+      "thai": "เสาร์อาทิตย์",
+      "english": "Weekend",
+      "german": "Wochenende",
+      "notes": "speaking language",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 427,
+      "thai": "วันธรรมดา",
+      "english": "Weekday",
+      "german": "Wochentag",
+      "notes": "proper language",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 428,
+      "thai": "วันทำงาน",
+      "english": "Weekday",
+      "german": "Wochentag",
+      "notes": "speaking language",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 429,
+      "thai": "อาทิตย์หน้า",
+      "english": "Next week",
+      "german": "Nächste Woche",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 430,
+      "thai": "อาทิตย์หน้าของหน้า",
+      "english": "Week afer next week",
+      "german": "Übernächste Woche",
+      "notes": "speaking language",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 431,
+      "thai": "เดือนหน้า",
+      "english": "next month",
+      "german": "nächsten Monat",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 432,
+      "thai": "ปีที่แล้ว",
+      "english": "last/previous year",
+      "german": "letztes/vorheriges Jahr",
+      "notes": "",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 433,
+      "thai": "ครั้ง",
+      "english": "Time, occasion",
+      "german": "Zeit, Anlass",
+      "notes": "ex. 3 times, 8 times",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 434,
+      "thai": "ตี",
+      "english": "1 a.m. - 5 a.m.",
+      "german": "1 Uhr - 5 Uhr",
+      "notes": "ตี + number",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 435,
+      "thai": "โมงเช้า",
+      "english": "6 a.m. - 11 a.m.",
+      "german": "6 Uhr - 11 Uhr",
+      "notes": "number + โมงเช้า",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 436,
+      "thai": "เที่ยงวัน",
+      "english": "12 p.m.",
+      "german": "12 Uhr mittags",
+      "notes": "midday",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 437,
+      "thai": "บ่าย",
+      "english": "1 p.m. - 4 p.m.",
+      "german": "13 Uhr - 16 Uhr",
+      "notes": "บ่าย + number",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 438,
+      "thai": "โมงเย็น",
+      "english": "5 p.m. - 6 p.m.",
+      "german": "17 Uhr - 18 Uhr",
+      "notes": "number + โมงเย็น",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 439,
+      "thai": "ทุ่ม",
+      "english": "7 p.m. - 11 p.m.",
+      "german": "19 Uhr - 23 Uhr",
+      "notes": "number + ทุ่ม",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 440,
+      "thai": "เที่ยงคืน",
+      "english": "00 a.m.",
+      "german": "0 Uhr",
+      "notes": "midnight",
+      "category": "time",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 441,
+      "thai": "สีดำ",
+      "english": "Black",
+      "german": "Schwarz",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 442,
+      "thai": "สีขาว",
+      "english": "White",
+      "german": "Weiß",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 443,
+      "thai": "สีส้ม",
+      "english": "Orange",
+      "german": "Orange",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 444,
+      "thai": "สีเขียว",
+      "english": "green",
+      "german": "Grün",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 445,
+      "thai": "สีฟ้า",
+      "english": "blue sky",
+      "german": "blauer Himmel",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 446,
+      "thai": "สีน้ำเงิน",
+      "english": "ิblue",
+      "german": "Blau",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 447,
+      "thai": "สีเหลือง",
+      "english": "yellow",
+      "german": "Gelb",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 448,
+      "thai": "สีม่วง",
+      "english": "purple",
+      "german": "lila",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 449,
+      "thai": "สีแดง",
+      "english": "red",
+      "german": "Rot",
+      "notes": "",
+      "category": "colors",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 450,
+      "thai": "ไม่แน่ใจ",
+      "english": "Not sure",
+      "german": "Ich bin mir nicht sicher.",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 451,
+      "thai": "ความจริง",
+      "english": "truth, fact, reality",
+      "german": "Wahrheit, Fakt, Realität",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 452,
+      "thai": "ไปเลย",
+      "english": "you go (I won't)",
+      "german": "Du gehst (ich nicht)",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 453,
+      "thai": "แปปนึง",
+      "english": "a moment",
+      "german": "einen Moment",
+      "notes": "casual",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 454,
+      "thai": "ใครมา",
+      "english": "~ Who is that?",
+      "german": "~ Wer ist das?",
+      "notes": "Who + come",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 455,
+      "thai": "มาแล้ว",
+      "english": "~ I'm back",
+      "german": "Ich bin zurück",
+      "notes": "come + already",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 456,
+      "thai": "ล้อเล่น",
+      "english": "~ just kidding",
+      "german": "~ Nur ein Scherz",
+      "notes": "casual",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 457,
+      "thai": "สติแตก",
+      "english": "~ goes crazy, freak out",
+      "german": "~ dreht durch, flippt aus",
+      "notes": "consciousness + break",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 458,
+      "thai": "ทุกอย่าง",
+      "english": "~ everything",
+      "german": "~ alles",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 459,
+      "thai": "ก็เลย",
+      "english": "~ So.. , as a result",
+      "german": "Also… als Ergebnis",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 460,
+      "thai": "พูดอีกครั้งได้ไหม",
+      "english": "~ can you repeat?",
+      "german": "Können Sie das wiederholen?",
+      "notes": "say another time Can ?",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 461,
+      "thai": "แค่นี้",
+      "english": "only this, thats all",
+      "german": "Nur das, das ist alles.",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 462,
+      "thai": "นานมาแล้ว",
+      "english": "Long time ago",
+      "german": "Vor langer Zeit",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 463,
+      "thai": "เข้าใจได้",
+      "english": "Makes sense",
+      "german": "Das macht Sinn",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 464,
+      "thai": "แน่นอน",
+      "english": "~Of course! definitely",
+      "german": "Natürlich! Auf jeden Fall.",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 465,
+      "thai": "คิดว่ายังไง",
+      "english": "~What do you think?",
+      "german": "Was denkst du?",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 466,
+      "thai": "ใครบางคน",
+      "english": "~ Someone",
+      "german": "~ Jemand",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 467,
+      "thai": "อะไรบางอย่าง",
+      "english": "~ Something",
+      "german": "~ Etwas",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 468,
+      "thai": "เกิดอะไรขึ้น",
+      "english": "~ What happened",
+      "german": "Was geschah?",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 469,
+      "thai": "ว่าแล้ว",
+      "english": "~ I said it. like I said. I knew it",
+      "german": "",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 470,
+      "thai": "จริงๆแล้ว",
+      "english": "~ Actually",
+      "german": "",
+      "notes": "",
+      "category": "phrases",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 471,
+      "thai": "แล้ว",
+      "english": "so..",
+      "german": "Also..",
+      "notes": "",
+      "category": "fillers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 472,
+      "thai": "อ่า",
+      "english": "aaaa",
+      "german": "aaaa",
+      "notes": "",
+      "category": "fillers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 473,
+      "thai": "แบบว่า",
+      "english": "like",
+      "german": "wie",
+      "notes": "",
+      "category": "fillers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 474,
+      "thai": "แบบนี้",
+      "english": "like this",
+      "german": "so was",
+      "notes": "",
+      "category": "fillers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 475,
+      "thai": "อะไรแบบนี้",
+      "english": "something like this/that",
+      "german": "so etwas/das",
+      "notes": "",
+      "category": "fillers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 476,
+      "thai": "นั่นไง",
+      "english": "right there!",
+      "german": "Genau da!",
+      "notes": "",
+      "category": "fillers",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 477,
+      "thai": "ขา",
+      "english": "Leg",
+      "german": "Bein",
+      "notes": "",
+      "category": "body",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 478,
+      "thai": "หัวไหล่",
+      "english": "shoulder",
+      "german": "Schulter",
+      "notes": "",
+      "category": "body",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 479,
+      "thai": "หัว",
+      "english": "head",
+      "german": "Kopf",
+      "notes": "",
+      "category": "body",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 480,
+      "thai": "คอ",
+      "english": "neck",
+      "german": "Nacken",
+      "notes": "",
+      "category": "body",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 481,
+      "thai": "ตา",
+      "english": "eyes",
+      "german": "Augen",
+      "notes": "",
+      "category": "body",
+      "source": "Wordrecap"
+    },
+    {
+      "id": 482,
+      "thai": "ตัวเลข",
+      "english": "Number (transliteration)",
+      "german": "Deutsch",
+      "notes": "romanization: transliteration",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 483,
+      "thai": "ศูนย์",
+      "english": "0 (Ṣ̄ūny̒)",
+      "german": "Null",
+      "notes": "romanization: Ṣ̄ūny̒",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 484,
+      "thai": "หนึ่ง",
+      "english": "1 (nèung)",
+      "german": "Eins",
+      "notes": "romanization: nèung",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 485,
+      "thai": "สอง",
+      "english": "2 (sŏng)",
+      "german": "Zwei",
+      "notes": "romanization: sŏng",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 486,
+      "thai": "สาม",
+      "english": "3 (săam)",
+      "german": "Drei",
+      "notes": "romanization: săam",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 487,
+      "thai": "สี่",
+      "english": "4 (sèe)",
+      "german": "Vier",
+      "notes": "romanization: sèe",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 488,
+      "thai": "ห้า",
+      "english": "5 (hâa)",
+      "german": "Fünf",
+      "notes": "romanization: hâa",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 489,
+      "thai": "หก",
+      "english": "6 (hòk)",
+      "german": "Sechs",
+      "notes": "romanization: hòk",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 490,
+      "thai": "เจ็ด",
+      "english": "7 (jèt)",
+      "german": "Sieben",
+      "notes": "romanization: jèt",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 491,
+      "thai": "แปด",
+      "english": "8 (bpàet)",
+      "german": "Acht",
+      "notes": "romanization: bpàet",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 492,
+      "thai": "เก้า",
+      "english": "9 (gâo)",
+      "german": "Neun",
+      "notes": "romanization: gâo",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 493,
+      "thai": "สิบ",
+      "english": "10 (sìp)",
+      "german": "Zehn",
+      "notes": "romanization: sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 494,
+      "thai": "สิบเอ็ด",
+      "english": "*11 (sìp-èt)",
+      "german": "Elf",
+      "notes": "romanization: sìp-èt",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 495,
+      "thai": "สิบสอง",
+      "english": "12 (sìp sŏng)",
+      "german": "Zwölf",
+      "notes": "romanization: sìp sŏng",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 496,
+      "thai": "สิบสาม",
+      "english": "13 (sìp săam)",
+      "german": "Dreizehn",
+      "notes": "romanization: sìp săam",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 497,
+      "thai": "สิบสี่",
+      "english": "14 (sìp sèe)",
+      "german": "Vierzehn",
+      "notes": "romanization: sìp sèe",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 498,
+      "thai": "สิบห้า",
+      "english": "15 (sìp hâa)",
+      "german": "Fünfzehn",
+      "notes": "romanization: sìp hâa",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 499,
+      "thai": "สิบหก",
+      "english": "16 (sìp hòk)",
+      "german": "Sechenzehen",
+      "notes": "romanization: sìp hòk",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 500,
+      "thai": "สิบเจ็ด",
+      "english": "17 (sìp jèt)",
+      "german": "Siebzehn",
+      "notes": "romanization: sìp jèt",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 501,
+      "thai": "สิบแปด",
+      "english": "18 (sìp bpàet)",
+      "german": "Achtzehn",
+      "notes": "romanization: sìp bpàet",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 502,
+      "thai": "สิบเก้า",
+      "english": "19 (sìp gâo)",
+      "german": "Neunzehn",
+      "notes": "romanization: sìp gâo",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 503,
+      "thai": "ยี่สิบ",
+      "english": "*20 (yêe sìp)",
+      "german": "Zwanzig",
+      "notes": "romanization: yêe sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 504,
+      "thai": "ยี่สิบเอ็ด",
+      "english": "21 (yêe sìp-èt)",
+      "german": "Ein und zwanzig",
+      "notes": "romanization: yêe sìp-èt",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 505,
+      "thai": "ยี่สิบสอง",
+      "english": "22 (yêe sìp sŏng)",
+      "german": "",
+      "notes": "romanization: yêe sìp sŏng",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 506,
+      "thai": "สามสิบ",
+      "english": "30 (săam sìp)",
+      "german": "",
+      "notes": "romanization: săam sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 507,
+      "thai": "สี่สิบ",
+      "english": "40 (sèe sìp)",
+      "german": "",
+      "notes": "romanization: sèe sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 508,
+      "thai": "ห้าสิบ",
+      "english": "50 (hâa sìp)",
+      "german": "",
+      "notes": "romanization: hâa sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 509,
+      "thai": "หกสิบ",
+      "english": "60 (hòk sìp)",
+      "german": "",
+      "notes": "romanization: hòk sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 510,
+      "thai": "เจ็ดสิบ",
+      "english": "70 (jèt sìp)",
+      "german": "",
+      "notes": "romanization: jèt sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 511,
+      "thai": "แปดสิบ",
+      "english": "80 (bpàet sìp)",
+      "german": "",
+      "notes": "romanization: bpàet sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 512,
+      "thai": "เก้าสิบ",
+      "english": "90 (gâo sìp)",
+      "german": "",
+      "notes": "romanization: gâo sìp",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 513,
+      "thai": "(หนึ่ง)ร้อย",
+      "english": "100 ((nèung)rói)",
+      "german": "",
+      "notes": "romanization: (nèung)rói",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 514,
+      "thai": "(หนึ่ง)พัน",
+      "english": "1,000 ((nèung)pan)",
+      "german": "",
+      "notes": "romanization: (nèung)pan",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 515,
+      "thai": "(หนึ่ง)หมื่น",
+      "english": "10,000 ((nèung)mèun)",
+      "german": "",
+      "notes": "romanization: (nèung)mèun",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 516,
+      "thai": "(หนึ่ง)แสน",
+      "english": "100,000 ((nèung)săen)",
+      "german": "",
+      "notes": "romanization: (nèung)săen",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 517,
+      "thai": "(หนึ่ง)ล้าน",
+      "english": "1,000,000 ((nèung)láan)",
+      "german": "",
+      "notes": "romanization: (nèung)láan",
+      "category": "numbers",
+      "source": "Number"
+    },
+    {
+      "id": 518,
+      "thai": "วันจันทร์",
+      "english": "Monday",
+      "german": "Montag",
+      "notes": "romanization: wan jan",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 519,
+      "thai": "วันอังคาร",
+      "english": "Tuesday",
+      "german": "Dienstag",
+      "notes": "romanization: wan ang-kaan",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 520,
+      "thai": "วันพุธ",
+      "english": "Wednesday",
+      "german": "Mittwoch",
+      "notes": "romanization: wan pút",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 521,
+      "thai": "วันพฤหัส(บดี)",
+      "english": "Thursday",
+      "german": "Donnerstag",
+      "notes": "romanization: wan pá-réu-hàt-(sà-bor-dee)",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 522,
+      "thai": "วันศุกร์",
+      "english": "Friday",
+      "german": "Freitag",
+      "notes": "romanization: wan sùk",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 523,
+      "thai": "วันเสาร์",
+      "english": "Saturday",
+      "german": "Samstag",
+      "notes": "romanization: wan săo",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 524,
+      "thai": "วันอาทิตย์",
+      "english": "Sunday",
+      "german": "Sonntag",
+      "notes": "romanization: wan aa-tít",
+      "category": "days",
+      "source": "Day/month"
+    },
+    {
+      "id": 525,
+      "thai": "มกราคม",
+      "english": "January",
+      "german": "Januar",
+      "notes": "romanization: mók-gà-raa kom",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 526,
+      "thai": "กุมภาพันธ์",
+      "english": "February",
+      "german": "Februar",
+      "notes": "romanization: gum-paa pan",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 527,
+      "thai": "มีนาคม",
+      "english": "March",
+      "german": "März",
+      "notes": "romanization: mee-naa kom",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 528,
+      "thai": "เมษายน",
+      "english": "April",
+      "german": "April",
+      "notes": "romanization: may-săa-yon",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 529,
+      "thai": "พฤษภาคม",
+      "english": "May",
+      "german": "Mai",
+      "notes": "romanization: préut-sà-paa kom",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 530,
+      "thai": "มิถุนายน",
+      "english": "June",
+      "german": "Juni",
+      "notes": "romanization: mí-tù-naa-yon",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 531,
+      "thai": "กรกฎาคม",
+      "english": "July",
+      "german": "Juli",
+      "notes": "romanization: gà-rá-gà-daa-kom",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 532,
+      "thai": "สิงหาคม",
+      "english": "August",
+      "german": "August",
+      "notes": "romanization: sĭng hăa kom",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 533,
+      "thai": "กันยายน",
+      "english": "September",
+      "german": "September",
+      "notes": "romanization: gan-yaa-yon",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 534,
+      "thai": "ตุลาคม",
+      "english": "October",
+      "german": "Oktober",
+      "notes": "romanization: dtù-laa-kom",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 535,
+      "thai": "พฤศจิกายน",
+      "english": "November",
+      "german": "November",
+      "notes": "romanization: préut-sà-jì-gaa-yon",
+      "category": "months",
+      "source": "Day/month"
+    },
+    {
+      "id": 536,
+      "thai": "ธันวาคม",
+      "english": "December",
+      "german": "Dezember",
+      "notes": "romanization: tan-waa kom",
+      "category": "months",
+      "source": "Day/month"
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "thai": "ผมขอ...sth you need.. หน่อย",
+      "english": "Can I please have ...st you need..",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 2,
+      "thai": "จาก..place..ไป..place..",
+      "english": "from..place..to..place",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 3,
+      "thai": "(person)หา..(obj)..ไม่เจอ",
+      "english": "(person)cannot find..(obj)..",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 4,
+      "thai": "Verb.. รึยัง",
+      "english": "Have you ..Verb.. yet?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 5,
+      "thai": "ผมส่ง..st..ให้คุณ",
+      "english": "I send..st..to you",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 6,
+      "thai": "V. เล่นๆ",
+      "english": "V. not serious(for fun)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 7,
+      "thai": "ไม่มีอะไร ..verb..",
+      "english": "There's nothing to ..verb..",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 8,
+      "thai": "ทำงานกี่โมงถึงกี่โมง",
+      "english": "Work from What time to What time",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 9,
+      "thai": "เอากาแฟร้อน 1 แก้วไม่หวาน อีก 1 แก้วหวาน",
+      "english": "Take coffee 1 cup no sweet another 1 cup sweet",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 10,
+      "thai": "ผมคิดว่า..explain things you think",
+      "english": "I think (that)....",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 11,
+      "thai": "ผมรู้ว่า..explain things you know",
+      "english": "I know (that) ....",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 12,
+      "thai": "จะถึง....เมื่อไหร่",
+      "english": "Will arrive ..... When?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 13,
+      "thai": "Verb..อีกแล้วเหรอ",
+      "english": "Verb..Again already really?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 14,
+      "thai": "Verb..อีกครั้งได้ไหม",
+      "english": "Verb..more  time Can ?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 15,
+      "thai": "Verb..อีก 3 ครั้งได้ไหม",
+      "english": "Verb.. more 3 time Can ?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 16,
+      "thai": "เขาโทรหาผม",
+      "english": "He calls (to find) Me",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 17,
+      "thai": "ผมก็ไปออกกำลัง",
+      "english": "I also go exercise",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 18,
+      "thai": "เคย..Verb.. ไหม",
+      "english": "You ever ..Verb.. ?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 19,
+      "thai": "P1 ให้ P2 ช่วย ..",
+      "english": "P1 ask for help from P2",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 20,
+      "thai": "P1 ให้ P2 ช่วย... ไหม",
+      "english": "P2 offer help to  P1",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 21,
+      "thai": "P1 ช่วย P2... ได้ไหม",
+      "english": "P1 help P2 ... Can?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 22,
+      "thai": "ผมมีแมว 1 ตัว",
+      "english": "I have cat 1 (cf)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 23,
+      "thai": "ผมมีแมวตัวเดียว",
+      "english": "I have cat (cf) only",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 24,
+      "thai": "ใช้เวลากี่ชั่วโมง/นาที/วัน",
+      "english": "How many hours/minute/days does it take?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 25,
+      "thai": "ใช้เวลาเท่าไร",
+      "english": "How long does it take?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 26,
+      "thai": "ผมโดนหมากัด",
+      "english": "I got bitten by a dog",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 27,
+      "thai": "ผมโดนตำรวจปรับ",
+      "english": "I got fined by a police",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 28,
+      "thai": "BYD คันนี้เป็นแบบที่ผมชอบ",
+      "english": "This BYD is the type that I like.",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 29,
+      "thai": "ผู้หญิงคนนี้เป็นคนที่ผมรักที่สุด",
+      "english": "This woman is the person that I love most.",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 30,
+      "thai": "อาหารไทยจานนี้เป็นอาหารชนิดที่ผมชอบที่สุด",
+      "english": "This Thai dish is the type that I like the most.",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 31,
+      "thai": "เยอรมันเป็นภาษาที่ยากที่สุด",
+      "english": "German is the language that's the hardest.",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 32,
+      "thai": "ที่นี่เป็นที่ที่ผมชอบที่สุด",
+      "english": "This is the place where I like the most.",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 33,
+      "thai": "กำลัง..Verb..อะไรกัน",
+      "english": "What are you(guys) ..Verb..ing",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 34,
+      "thai": "คุณกินอะไร(บ้าง)",
+      "english": "You eat What (any)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 35,
+      "thai": "ผมไม่ได้กินอะไรเลย",
+      "english": "I not did eat anything at all",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 36,
+      "thai": "ที่บ้านมีใครอยู่(บ้าง)",
+      "english": "at home have Who be (any)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 37,
+      "thai": "ที่บ้านไม่มีใครอยู่เลย",
+      "english": "at home No have someone be at all",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 38,
+      "thai": "ในSW มีเกมอะไร(บ้าง)",
+      "english": "in SW have game What (any)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 39,
+      "thai": "ในSW ไม่มีเกมอะไรเลย",
+      "english": "in SW No have game anthing at all",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 40,
+      "thai": "วันนี้ได้ออกกำลัง(บ้าง)ไหม",
+      "english": "Today did workout (any)?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 41,
+      "thai": "วันนี้ไม่ได้ออกกำลังเลย",
+      "english": "Today No did workout at all",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 42,
+      "thai": "สอนนักเรียนกี่ชั่วโมงต่อคน",
+      "english": "teach student How many hour per person",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 43,
+      "thai": "ทำงานกี่ชั่วโมงต่อวัน",
+      "english": "Work How many hour per day",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 44,
+      "thai": "นั่นคือทั้งหมดที่กินวันนี้ไหม",
+      "english": "That is all that eat today ?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 45,
+      "thai": "ไปไหนมา",
+      "english": "Where have you been (very recently)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 46,
+      "thai": "กินซูชิ(ที่)ไหนมา",
+      "english": "Where did you eat sushi (last place/recently)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 47,
+      "thai": "สั่งมาแล้ว",
+      "english": "I've already ordered(an item is with you/on the way)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 48,
+      "thai": "จะไปกินข้าวหรือยัง",
+      "english": "Will go eat or not",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 49,
+      "thai": "จะไปแล้ว",
+      "english": "will go NOW (about to go)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 50,
+      "thai": "ยังไม่ไป",
+      "english": "still no go (not yet)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 51,
+      "thai": "ผมพรีเซนต์ให้คนฟัง",
+      "english": "I present for people to listen",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 52,
+      "thai": "ผมทำหนังให้แม่ผมดู",
+      "english": "I make movie for mom me to listen",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 53,
+      "thai": "ผมซื้อเสื้อตัวนี้ให้คุณใส่",
+      "english": "I buy shirt this for you to wear",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 54,
+      "thai": "โทรศัพท์ใช้ได้ไหม",
+      "english": "Is the phone usable?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 55,
+      "thai": "ใช้โทรศัพท์ได้ไหม",
+      "english": "Can I use the phone",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 56,
+      "thai": "เล่นกีตาร์เป็นไหม",
+      "english": "Do you know how to play the guitar?",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 57,
+      "thai": "เล่นกีตาร์ได้ไหม",
+      "english": "Can you play the guitar. (now)",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 58,
+      "thai": "โต๊ะนี้คือโต๊ะเดียวกันกับโต๊ะนั้น",
+      "english": "This table is the same one as that table.",
+      "german": "",
+      "source": "Sentence"
+    },
+    {
+      "id": 59,
+      "thai": "คนนี้คือคนเดียวกันกับคนนั้น",
+      "english": "This person is the same one as that person .",
+      "german": "",
+      "source": "Sentence"
+    }
+  ],
+  "recall": [
+    {
+      "id": 1,
+      "date": "03.09.2026",
+      "thai": "วันนี้ทั้งวันผมไม่กินอะไรเลย",
+      "keyword": "ทั้งวัน",
+      "keyTranslation": "all day"
+    },
+    {
+      "id": 2,
+      "date": "03.09.2026",
+      "thai": "วันนี้ทั้งวันผมไม่กินอะไรเลย",
+      "keyword": "อะไรเลย",
+      "keyTranslation": "anything at all"
+    },
+    {
+      "id": 3,
+      "date": "03.09.2026",
+      "thai": "วันนี้อย่างแรกผมไปที่ DLT",
+      "keyword": "อย่างแรก",
+      "keyTranslation": "first thing first"
+    },
+    {
+      "id": 4,
+      "date": "03.09.2026",
+      "thai": "ยังไม่กลับบ้าน",
+      "keyword": "ยัง",
+      "keyTranslation": "still"
+    },
+    {
+      "id": 5,
+      "date": "03.09.2026",
+      "thai": "ผมสอน5คนแบบไม่หยุด",
+      "keyword": "แบบไม่หยุด",
+      "keyTranslation": "like Nonstop"
+    },
+    {
+      "id": 6,
+      "date": "03.09.2026",
+      "thai": "ผมเป็นคนสุดท้าย",
+      "keyword": "สุดท้าย",
+      "keyTranslation": "the last"
+    },
+    {
+      "id": 7,
+      "date": "03.09.2026",
+      "thai": "ผมเป็นนักเรียนคนสุดท้าย",
+      "keyword": "นักเรียน",
+      "keyTranslation": "student"
+    },
+    {
+      "id": 8,
+      "date": "03.09.2026",
+      "thai": "ผมเป็นคนรองสุดท้าย",
+      "keyword": "รองสุดท้าย",
+      "keyTranslation": "second last"
+    },
+    {
+      "id": 9,
+      "date": "03.09.2026",
+      "thai": "ผมคิดว่า My hero : vigilantes เป็นเรื่องก่อนหน้า academia",
+      "keyword": "เรื่อง",
+      "keyTranslation": "story, matter"
+    },
+    {
+      "id": 10,
+      "date": "03.09.2026",
+      "thai": "ผมคิดว่า My hero : vigilantes เป็นเรื่องก่อนหน้า academia",
+      "keyword": "ก่อนหน้า",
+      "keyTranslation": "before"
+    },
+    {
+      "id": 11,
+      "date": "03.09.2026",
+      "thai": "ผมเล่น RE :9 จบ 2 ครั้ง แล้ว",
+      "keyword": "จบ",
+      "keyTranslation": "to end , finish (from start to the end)"
+    },
+    {
+      "id": 12,
+      "date": "03.09.2026",
+      "thai": "RE :9 ไม่เครียดแต่น่ากลัว",
+      "keyword": "น่ากลัว",
+      "keyTranslation": "scary"
+    },
+    {
+      "id": 13,
+      "date": "03.09.2026",
+      "thai": "RE :9 ไม่เครียดแต่น่ากลัว",
+      "keyword": "แต่",
+      "keyTranslation": "but"
+    },
+    {
+      "id": 14,
+      "date": "03.13.2026",
+      "thai": "อยากเล่นแต่ไม่รู้จะเล่นเมื่อไหร่",
+      "keyword": "เมื่อไหร่",
+      "keyTranslation": "When"
+    },
+    {
+      "id": 15,
+      "date": "03.13.2026",
+      "thai": "ขอ..example.. หน่อย",
+      "keyword": "ขอ",
+      "keyTranslation": "to beg/ask for"
+    },
+    {
+      "id": 16,
+      "date": "03.13.2026",
+      "thai": "ทั้งอาทิตย์ผมทำแค่งาน",
+      "keyword": "ทั้ง",
+      "keyTranslation": "a whole"
+    },
+    {
+      "id": 17,
+      "date": "03.13.2026",
+      "thai": "แฟนเพื่อน",
+      "keyword": "",
+      "keyTranslation": "friend's GF"
+    },
+    {
+      "id": 18,
+      "date": "03.13.2026",
+      "thai": "แฟนใหม่เพื่อน",
+      "keyword": "",
+      "keyTranslation": "friend's new GF"
+    },
+    {
+      "id": 19,
+      "date": "03.13.2026",
+      "thai": "แฟนใหม่เพื่อนผม",
+      "keyword": "",
+      "keyTranslation": "My friend's new GF"
+    },
+    {
+      "id": 20,
+      "date": "03.13.2026",
+      "thai": "บ้านใหม่แฟนผม",
+      "keyword": "",
+      "keyTranslation": "My GF's new House"
+    },
+    {
+      "id": 21,
+      "date": "03.13.2026",
+      "thai": "มือถือใหม่แฟนเพื่อนผม",
+      "keyword": "",
+      "keyTranslation": "My friend's GF new phone"
+    },
+    {
+      "id": 22,
+      "date": "03.17.2026",
+      "thai": "มื้อแรก(ของ)วันนี้ของผม",
+      "keyword": "",
+      "keyTranslation": "My today's 1st meal"
+    },
+    {
+      "id": 23,
+      "date": "03.17.2026",
+      "thai": "น้ำอย่างแรก(ของ)วันนี้ของคุณคืออะไร",
+      "keyword": "น้ำอย่างแรก",
+      "keyTranslation": "Water type(cf) 1st \n~ First drink"
+    },
+    {
+      "id": 24,
+      "date": "03.17.2026",
+      "thai": "คุณซื้อมัทฉะเมื่อไหร่",
+      "keyword": "",
+      "keyTranslation": ""
+    },
+    {
+      "id": 25,
+      "date": "03.17.2026",
+      "thai": "คุณซื้อมัทฉะ[แก้วนี้]เมื่อไหร่",
+      "keyword": "",
+      "keyTranslation": "matcha cup this"
+    },
+    {
+      "id": 26,
+      "date": "03.17.2026",
+      "thai": "คุณซื้อมัทฉะ[แก้วนี้]ที่ไหน",
+      "keyword": "",
+      "keyTranslation": "matcha cup this"
+    },
+    {
+      "id": 27,
+      "date": "03.17.2026",
+      "thai": "คุณซื้อมัทฉะ[แก้วนี้]กี่โมง",
+      "keyword": "",
+      "keyTranslation": "matcha cup this"
+    },
+    {
+      "id": 28,
+      "date": "03.17.2026",
+      "thai": "คุณซื้อมัทฉะ[แก้วนี้]ทำไม",
+      "keyword": "",
+      "keyTranslation": "matcha cup this"
+    },
+    {
+      "id": 29,
+      "date": "03.17.2026",
+      "thai": "ถ้าผมอยู่ที่บ้าน ผมกิน americano",
+      "keyword": "ถ้า",
+      "keyTranslation": "if"
+    },
+    {
+      "id": 30,
+      "date": "03.17.2026",
+      "thai": "เมื่อวานผมเบื่อ americano",
+      "keyword": "เบื่อ",
+      "keyTranslation": "[to] be bored (of)"
+    },
+    {
+      "id": 31,
+      "date": "03.17.2026",
+      "thai": "ร้านนี้ขายมัทฉะ",
+      "keyword": "ขาย",
+      "keyTranslation": "to sell"
+    },
+    {
+      "id": 32,
+      "date": "03.17.2026",
+      "thai": "ร้านนี้ขายแค่มัทฉะ",
+      "keyword": "แค่",
+      "keyTranslation": "only"
+    },
+    {
+      "id": 33,
+      "date": "03.17.2026",
+      "thai": "ผมอยากลองมัทฉะ(1)แก้ว ละ 1,000 บาท",
+      "keyword": "ลอง",
+      "keyTranslation": "to try\nละ - per don't forget to flip order\nEng 1,000 per 1 cup\nThai 1 cup ละ 1,000"
+    },
+    {
+      "id": 34,
+      "date": "03.17.2026",
+      "thai": "วัน ละ กี่มื้อ",
+      "keyword": "",
+      "keyTranslation": "How many meal per day"
+    },
+    {
+      "id": 35,
+      "date": "03.17.2026",
+      "thai": "วัน ละ 2 มื้อ",
+      "keyword": "",
+      "keyTranslation": "2 meal per day"
+    },
+    {
+      "id": 36,
+      "date": "03.17.2026",
+      "thai": "วัน ละ กี่ ชม.",
+      "keyword": "ชม. =  ชั่วโมง",
+      "keyTranslation": "hour"
+    },
+    {
+      "id": 37,
+      "date": "03.17.2026",
+      "thai": "วัน ละ 8 ชม.",
+      "keyword": "",
+      "keyTranslation": ""
+    },
+    {
+      "id": 38,
+      "date": "03.17.2026",
+      "thai": "ถ้าเล่นเกม ผมเล่นแค่ วันละ 30 นาที",
+      "keyword": "ถ้า",
+      "keyTranslation": "if\nแค่ - only"
+    },
+    {
+      "id": 39,
+      "date": "03.17.2026",
+      "thai": "Meeting ส่วนใหญ่",
+      "keyword": "",
+      "keyTranslation": "part + big ~ majority.."
+    },
+    {
+      "id": 40,
+      "date": "03.17.2026",
+      "thai": "ไม่ค่อยได้อะไร",
+      "keyword": "",
+      "keyTranslation": "not really get sth"
+    },
+    {
+      "id": 41,
+      "date": "03.17.2026",
+      "thai": "ไม่ค่อยมีอะไร",
+      "keyword": "",
+      "keyTranslation": "not really have sth"
+    },
+    {
+      "id": 42,
+      "date": "03.17.2026",
+      "thai": "บางMeetingไม่จำเป็น",
+      "keyword": "",
+      "keyTranslation": "necessary"
+    },
+    {
+      "id": 43,
+      "date": "03.17.2026",
+      "thai": "เกมในPS5 ไม่ใหม่ แต่ เกมในPC ใหม่",
+      "keyword": "",
+      "keyTranslation": "[to be] new"
+    },
+    {
+      "id": 44,
+      "date": "03.17.2026",
+      "thai": "มาวันไหน",
+      "keyword": "",
+      "keyTranslation": "come day which\n~ When it be released"
+    },
+    {
+      "id": 45,
+      "date": "03.23.2026",
+      "thai": "ผมหิว ก็เลย ไปกินข้าว",
+      "keyword": "ก็เลย",
+      "keyTranslation": "so, therefore"
+    },
+    {
+      "id": 46,
+      "date": "03.23.2026",
+      "thai": "ผมเห็นบางอย่างบนอันนี้ ก็เลย checkใต้ laptop",
+      "keyword": "ก็เลย",
+      "keyTranslation": "so, therefore"
+    },
+    {
+      "id": 47,
+      "date": "03.23.2026",
+      "thai": "ผมไม่เคยได้ยิน",
+      "keyword": "เคย",
+      "keyTranslation": "ever / used to"
+    },
+    {
+      "id": 48,
+      "date": "03.23.2026",
+      "thai": "ผมไม่เคยได้ยิน",
+      "keyword": "ได้ยิน",
+      "keyTranslation": "to hear"
+    },
+    {
+      "id": 49,
+      "date": "03.27.2026",
+      "thai": "เพื่อนผมพิมพ์หาผม",
+      "keyword": "พิมพ์หา",
+      "keyTranslation": "to type to.."
+    },
+    {
+      "id": 50,
+      "date": "03.27.2026",
+      "thai": "เราไปกินกาแฟด้วยกัน",
+      "keyword": "ด้วยกัน",
+      "keyTranslation": "together"
+    },
+    {
+      "id": 51,
+      "date": "03.27.2026",
+      "thai": "ผมว่าง จ. พ. ศ.",
+      "keyword": "ว่าง",
+      "keyTranslation": "to be free [time]"
+    },
+    {
+      "id": 52,
+      "date": "03.27.2026",
+      "thai": "ผมเจอ จ. พ. ศ.  ได้",
+      "keyword": "เจอ...ได้",
+      "keyTranslation": "able to meet"
+    },
+    {
+      "id": 53,
+      "date": "03.27.2026",
+      "thai": "จะบอกอีกที",
+      "keyword": "",
+      "keyTranslation": "will tell later/anther time"
+    },
+    {
+      "id": 54,
+      "date": "03.27.2026",
+      "thai": "ผมสังเกตว่า...",
+      "keyword": "สังเกต",
+      "keyTranslation": "to notice"
+    },
+    {
+      "id": 55,
+      "date": "03.27.2026",
+      "thai": "ผมรอเพื่อนพิมพ์หาผมมาทั้งอาทิตย์",
+      "keyword": "",
+      "keyTranslation": "มา in this case to show the time has been travelling from past >> present"
+    },
+    {
+      "id": 56,
+      "date": "03.27.2026",
+      "thai": "ผม โดน เพื่อน เมิน",
+      "keyword": "",
+      "keyTranslation": "~ I'm being ignored by my friends."
+    },
+    {
+      "id": 57,
+      "date": "03.27.2026",
+      "thai": "เพื่อนผมสัญญาผมแล้ว",
+      "keyword": "สัญญา",
+      "keyTranslation": "to promise"
+    },
+    {
+      "id": 58,
+      "date": "03.27.2026",
+      "thai": "เพื่อนผมบอกว่าผมผิด",
+      "keyword": "ผิด",
+      "keyTranslation": "[to be] wrong"
+    },
+    {
+      "id": 59,
+      "date": "03.27.2026",
+      "thai": "เปิดไฟเลี้ยว",
+      "keyword": "",
+      "keyTranslation": "turn-on light turn"
+    },
+    {
+      "id": 60,
+      "date": "03.30.2026",
+      "thai": "ช่วงนี้มีงานหนังสือ",
+      "keyword": "ช่วงนี้",
+      "keyTranslation": "Lately"
+    },
+    {
+      "id": 61,
+      "date": "03.30.2026",
+      "thai": "ไม่ดูข่าว",
+      "keyword": "ข่าว",
+      "keyTranslation": "News"
+    },
+    {
+      "id": 62,
+      "date": "03.30.2026",
+      "thai": "แบต 1 ลูก ราคา 20,000",
+      "keyword": "ลูก",
+      "keyTranslation": "cf- for battery (in this case)\nราคา - price"
+    },
+    {
+      "id": 63,
+      "date": "03.30.2026",
+      "thai": "ก่อนเมื่อวาน ผมเล่นเกมนี้จบ 5 ครั้งแล้ว",
+      "keyword": "ก่อนเมื่อวาน",
+      "keyTranslation": "Before yesterday"
+    },
+    {
+      "id": 64,
+      "date": "03.30.2026",
+      "thai": "เคยเล่น sekiro มาก่อนไหม",
+      "keyword": "",
+      "keyTranslation": "เคย+verb+....มาก่อนไหม \nhave you ever + Verb... before?"
+    },
+    {
+      "id": 65,
+      "date": "03.30.2026",
+      "thai": "ผมส่งเงินให้คุณ",
+      "keyword": "ให้",
+      "keyTranslation": "to give (in this case works like \"to\")"
+    },
+    {
+      "id": 66,
+      "date": "03.30.2026",
+      "thai": "ผมซื้อดอกไม้ให้มาย",
+      "keyword": "ให้",
+      "keyTranslation": "to give (in this case works like \"to\")\nดอกไม้ - flower"
+    },
+    {
+      "id": 67,
+      "date": "03.30.2026",
+      "thai": "ผมทำผัดกะเพราะให้คุณ",
+      "keyword": "ให้",
+      "keyTranslation": "to give (in this case works like \"to\")"
+    },
+    {
+      "id": 68,
+      "date": "04.04.2026",
+      "thai": "บางครั้งร่างกายผมต้องนอน 10 ชั่วโมง",
+      "keyword": "ร่างกาย",
+      "keyTranslation": "body"
+    },
+    {
+      "id": 69,
+      "date": "04.04.2026",
+      "thai": "บางครั้งร่างกายผมต้องนอน 10 ชั่วโมง",
+      "keyword": "ต้อง",
+      "keyTranslation": "must / have to + V."
+    },
+    {
+      "id": 70,
+      "date": "04.04.2026",
+      "thai": "ผมลืมชื่อบริษัท",
+      "keyword": "บริษัท",
+      "keyTranslation": "company"
+    },
+    {
+      "id": 71,
+      "date": "04.04.2026",
+      "thai": "ผมจำชื่อบริษัทไม่ได้",
+      "keyword": "จำ...ไม่ได้",
+      "keyTranslation": "Don't remember"
+    },
+    {
+      "id": 72,
+      "date": "04.04.2026",
+      "thai": "อันดับที่1",
+      "keyword": "",
+      "keyTranslation": "1st step"
+    },
+    {
+      "id": 73,
+      "date": "04.04.2026",
+      "thai": "อันดับแรก",
+      "keyword": "",
+      "keyTranslation": ""
+    },
+    {
+      "id": 74,
+      "date": "04.04.2026",
+      "thai": "ผมรู้จักเขาแค่ 3 เดือน",
+      "keyword": "แค่",
+      "keyTranslation": "only"
+    },
+    {
+      "id": 75,
+      "date": "04.10.2026",
+      "thai": "มานูเป็นเจ้าของใหม่",
+      "keyword": "เจ้าของ",
+      "keyTranslation": "owner"
+    },
+    {
+      "id": 76,
+      "date": "04.10.2026",
+      "thai": "เจ้าของเก่าใช้แค่ 4 เดือน",
+      "keyword": "เก่า",
+      "keyTranslation": "old(thing) /ex / former"
+    },
+    {
+      "id": 77,
+      "date": "04.10.2026",
+      "thai": "ทางเข้า",
+      "keyword": "",
+      "keyTranslation": ""
+    },
+    {
+      "id": 78,
+      "date": "04.10.2026",
+      "thai": "ทางออก",
+      "keyword": "",
+      "keyTranslation": ""
+    },
+    {
+      "id": 79,
+      "date": "04.10.2026",
+      "thai": "บริษัทส่งออกรถ",
+      "keyword": "",
+      "keyTranslation": "Car export company"
+    },
+    {
+      "id": 80,
+      "date": "04.10.2026",
+      "thai": "วันที่ 13 ไปเล่นน้ำที่สีลม",
+      "keyword": "วันที่",
+      "keyTranslation": "date"
+    },
+    {
+      "id": 81,
+      "date": "04.10.2026",
+      "thai": "ผมไม่เป็นเพื่อนกับเขาอีกต่อไป",
+      "keyword": "อีกต่อไป",
+      "keyTranslation": "anymore"
+    },
+    {
+      "id": 82,
+      "date": "04.10.2026",
+      "thai": "ยังมี Line ของเขาไหม",
+      "keyword": "เขา",
+      "keyTranslation": "he/she/him/her (3rd person)"
+    },
+    {
+      "id": 83,
+      "date": "04.10.2026",
+      "thai": "ถ้าขายจอ จะขายกี่บาท",
+      "keyword": "ถ้า",
+      "keyTranslation": "if\nจอ - screen / monitor"
+    },
+    {
+      "id": 84,
+      "date": "04.10.2026",
+      "thai": "Pebble มีปัญหาอะไร",
+      "keyword": "ปัญหา",
+      "keyTranslation": "problem"
+    },
+    {
+      "id": 85,
+      "date": "04.10.2026",
+      "thai": "คุณเป็นใคร",
+      "keyword": "",
+      "keyTranslation": "You are Who"
+    },
+    {
+      "id": 86,
+      "date": "04.17.2026",
+      "thai": "รู้สึกว่า..คนที่เล่นน้ำ ไม่ใช่คนไทย",
+      "keyword": "",
+      "keyTranslation": "people who play water"
+    },
+    {
+      "id": 87,
+      "date": "04.17.2026",
+      "thai": "คนส่วนใหญ่",
+      "keyword": "",
+      "keyTranslation": "people + part + big"
+    },
+    {
+      "id": 88,
+      "date": "04.17.2026",
+      "thai": "ิที่เชียงใหม่เล่นน้ำทั้งอาทิตย์ไหม",
+      "keyword": "",
+      "keyTranslation": "at chiangmai play water a whole week ?"
+    },
+    {
+      "id": 89,
+      "date": "04.17.2026",
+      "thai": "ไม่มีเหตุผล",
+      "keyword": "เหตุผล",
+      "keyTranslation": "reason"
+    },
+    {
+      "id": 90,
+      "date": "04.17.2026",
+      "thai": "A อยากให้ B พูด",
+      "keyword": "",
+      "keyTranslation": "A want B to speak"
+    },
+    {
+      "id": 91,
+      "date": "04.17.2026",
+      "thai": "ผมอยากให้นิติ Fix Taobin ให้ผม",
+      "keyword": "นิติ",
+      "keyTranslation": "juristic person"
+    },
+    {
+      "id": 92,
+      "date": "04.17.2026",
+      "thai": "ผมอยากให้นิติ Fix Taobin ให้ผม",
+      "keyword": "อยากให้",
+      "keyTranslation": "Want\nให้ - for/to"
+    }
+  ]
+}
