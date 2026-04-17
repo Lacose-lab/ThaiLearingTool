@@ -6,7 +6,7 @@ const KEYS = {
 };
 
 export function getApiKey() {
-  return localStorage.getItem(KEYS.apiKey) || '';
+  return localStorage.getItem(KEYS.apiKey) || '__ANTHROPIC_API_KEY__';
 }
 
 export function saveApiKey(key) {
