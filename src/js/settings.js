@@ -1,7 +1,12 @@
 import { getApiKey, saveApiKey, clearProgress, exportProgressCSV, getProgress } from './storage.js';
+import { fetchLiveVocab, getLastSync } from './sheets.js';
 
 export function render(container, vocab) {
   const currentKey = getApiKey();
+  const lastSync = getLastSync();
+  const syncLabel = lastSync
+    ? lastSync.toLocaleString()
+    : 'Never — will sync on next load';
 
   container.innerHTML = `
     <h1>Settings</h1>
@@ -16,6 +21,15 @@ export function render(container, vocab) {
       <div class="muted" style="font-size:0.75rem;margin-top:0.5rem">
         Sent only to api.anthropic.com — never stored elsewhere.
       </div>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <h2 style="margin-bottom:0.75rem">Vocabulary Sync</h2>
+      <div class="muted" style="font-size:0.875rem;margin-bottom:0.75rem">
+        <span id="word-count">${vocab.words.length}</span> words loaded &middot; Last synced: <span id="sync-time">${syncLabel}</span>
+      </div>
+      <button class="btn btn-ghost" id="sync-btn">&#8635; Sync from Google Sheets</button>
+      <div id="sync-status" class="muted" style="font-size:0.8rem;margin-top:0.5rem"></div>
     </div>
 
     <div class="card" style="margin-bottom:1rem">
@@ -45,13 +59,28 @@ export function render(container, vocab) {
 
   document.getElementById('save-key').onclick = () => {
     const key = document.getElementById('api-key-input').value.trim();
-    if (!key) {
-      document.getElementById('key-status').textContent = 'Please enter a key.';
-      return;
-    }
+    if (!key) { document.getElementById('key-status').textContent = 'Please enter a key.'; return; }
     saveApiKey(key);
     document.getElementById('key-status').textContent = 'Key saved.';
     setTimeout(() => { document.getElementById('key-status').textContent = ''; }, 2000);
+  };
+
+  document.getElementById('sync-btn').onclick = async () => {
+    const btn = document.getElementById('sync-btn');
+    const status = document.getElementById('sync-status');
+    btn.disabled = true;
+    status.textContent = 'Syncing\u2026';
+    try {
+      const live = await fetchLiveVocab(vocab);
+      Object.assign(vocab, live);
+      document.getElementById('word-count').textContent = vocab.words.length;
+      document.getElementById('sync-time').textContent = getLastSync()?.toLocaleString() || '';
+      status.textContent = `Done — ${vocab.words.length} words loaded.`;
+    } catch {
+      status.textContent = 'Sync failed. Check your connection.';
+    } finally {
+      btn.disabled = false;
+    }
   };
 
   document.getElementById('export-btn').onclick = () => {

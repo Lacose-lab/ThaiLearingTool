@@ -1,10 +1,12 @@
+import { fetchLiveVocab } from './sheets.js';
+
 let vocab = null;
+let currentTab = 'home';
 const tabs = {};
 
 async function loadVocab() {
   const res = await fetch('src/data/vocab.json');
   vocab = await res.json();
-  return vocab;
 }
 
 async function loadTab(name) {
@@ -16,6 +18,7 @@ async function loadTab(name) {
 }
 
 async function showTab(name) {
+  currentTab = name;
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
   const content = document.getElementById('content');
   content.innerHTML = '<div style="padding:2rem;text-align:center;color:var(--text-muted)">Loading\u2026</div>';
@@ -28,4 +31,19 @@ document.getElementById('bottom-nav').addEventListener('click', e => {
   if (btn) showTab(btn.dataset.tab);
 });
 
-loadVocab().then(() => showTab('home'));
+async function init() {
+  await loadVocab();
+  showTab('home');
+
+  // Live sheet sync in background — refreshes current tab if word count changed
+  fetchLiveVocab(vocab).then(live => {
+    if (live.words.length !== vocab.words.length) {
+      vocab = live;
+      showTab(currentTab);
+    } else {
+      vocab = live;
+    }
+  });
+}
+
+init();
