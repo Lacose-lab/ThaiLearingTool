@@ -119,13 +119,14 @@ export function render(container, vocab) {
         })
       });
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error?.message || `HTTP ${res.status}`);
       const reply = data.content?.[0]?.text || '\u0E02\u0E2D\u0E42\u0E17\u0E29\u0E04\u0E23\u0E31\u0E1A, something went wrong.';
       thinking.remove();
       history.push({ role: 'assistant', content: reply });
       addMessage('assistant', reply);
     } catch (err) {
       thinking.remove();
-      addMessage('assistant', '\u0E02\u0E2D\u0E42\u0E17\u0E29\u0E04\u0E23\u0E31\u0E1A, connection error. Check your API key in Settings.');
+      addMessage('assistant', `Error: ${err.message}`);
     } finally {
       input.disabled = false;
       document.getElementById('send-btn').disabled = false;
