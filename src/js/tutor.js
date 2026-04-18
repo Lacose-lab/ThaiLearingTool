@@ -97,11 +97,8 @@ export function render(container, vocab) {
     const wrapper = document.createElement('div');
     wrapper.style.cssText = `display:flex;flex-direction:column;align-items:${role === 'user' ? 'flex-end' : 'flex-start'};max-width:88%;${role === 'user' ? 'margin-left:auto' : ''}`;
     const div = document.createElement('div');
-    div.style.cssText = `padding:0.75rem 1rem;border-radius:var(--radius);line-height:1.6;white-space:pre-wrap;word-break:break-word;${
-      role === 'user'
-        ? 'background:var(--accent);color:#000;'
-        : 'background:var(--surface2);color:var(--text);border:1px solid var(--border);'
-    }`;
+    div.style.cssText = `padding:0.85rem 1rem;border-radius:16px;line-height:1.55;white-space:pre-wrap;word-break:break-word;max-width:86%;`;
+    div.classList.add(role === 'user' ? 'bubble-user' : 'bubble-assistant');
     div.textContent = text;
     wrapper.appendChild(div);
     if (role === 'assistant') {

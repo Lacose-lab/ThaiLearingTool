@@ -1,15 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg: #0f0f0f;
-  --surface: #1a1a1a;
-  --surface2: #242424;
-  --border: #333;
-  --text: #f0f0f0;
-  --text-muted: #888;
-  --accent: #f59e0b;
-  --accent2: #10b981;
-  --danger: #ef4444;
-  --nav-h: 64px;
-  --radius: 12px;
+  --bg:        #000000;
+  --surface:   #111113;
+  --surface2:  #1c1c1e;
+  --surface3:  #2a2a2d;
+  --border:    #2a2a2d;
+
+  --text:      #f4f1e8;
+  --text-muted:#8a8781;
+  --text-dim:  #5a5853;
+
+  --gold:      #d4af37;
+  --gold-hi:   #f1d26a;
+  --gold-lo:   #9e7f24;
+  --gold-sheen:linear-gradient(180deg,#f6dc7b 0%,#d4af37 50%,#a6841f 100%);
+  --gold-grad: linear-gradient(135deg,#f1d26a 0%,#d4af37 45%,#9e7f24 100%);
+  --gold-hair: rgba(212,175,55,0.28);
+
+  --success:   #7fa88a;
+  --danger:    #b5524a;
+  --accent:    var(--gold);
+
+  --card-bg:   linear-gradient(180deg,#141416 0%,#0a0a0c 100%);
+  --card-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);
+
+  --radius:     14px;
+  --radius-lg:  20px;
+  --radius-btn: 12px;
+  --radius-badge: 8px;
+  --nav-h:      68px;
+
+  --font-serif: 'Cormorant Garamond','EB Garamond','Times New Roman',serif;
+  --font-ui:    'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-thai:  'Noto Sans Thai Looped','Noto Sans Thai','Inter',sans-serif;
+  --font-mono:  ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --dur-fast: 0.15s;
+  --dur-med:  0.25s;
+  --ease:     cubic-bezier(.2,.6,.2,1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,9 +46,16 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.55;
   min-height: 100dvh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+:lang(th), .thai-text {
+  font-family: var(--font-thai);
 }
 
 #app { display: flex; flex-direction: column; height: 100dvh; }
@@ -27,94 +63,212 @@ body {
 #content {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 1rem 1.125rem;
   padding-bottom: calc(var(--nav-h) + 1rem);
 }
 
+/* ── Bottom Nav ───────────────────────────────────── */
 #bottom-nav {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   height: var(--nav-h);
-  background: var(--surface);
-  border-top: 1px solid var(--border);
+  background: #000;
+  border-top: 1px solid rgba(212,175,55,0.15);
   display: flex;
   align-items: center;
+  padding-bottom: 4px;
+  z-index: 100;
 }
 
 .nav-btn {
   flex: 1;
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--text-dim);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  font-size: 0.65rem;
+  gap: 3px;
   cursor: pointer;
   padding: 0.5rem 0;
-  transition: color 0.15s;
+  font-family: var(--font-ui);
+  transition: color var(--dur-fast);
 }
+.nav-btn.active { color: var(--gold); }
+.nav-btn span { font-size: 0.62rem; letter-spacing: 0.03em; }
+.nav-btn svg { width: 22px; height: 22px; }
 
-.nav-btn.active { color: var(--accent); }
-.nav-btn span { font-size: 0.6rem; }
-
+/* ── Cards ────────────────────────────────────────── */
 .card {
-  background: var(--surface);
+  background: var(--card-bg);
   border-radius: var(--radius);
   padding: 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--gold-hair);
+  box-shadow: var(--card-shadow);
+}
+.card-hero {
+  border-radius: var(--radius-lg);
 }
 
+/* ── Buttons ──────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
+  padding: 0.8rem 1.25rem;
+  border-radius: var(--radius-btn);
   border: none;
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
+  font-family: var(--font-ui);
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: opacity var(--dur-fast);
   width: 100%;
 }
+.btn:active { opacity: 0.82; }
 
-.btn:active { opacity: 0.8; }
-.btn-primary { background: var(--accent); color: #000; }
-.btn-success { background: var(--accent2); color: #000; }
-.btn-danger { background: var(--danger); color: #fff; }
-.btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-primary {
+  background: var(--gold-sheen);
+  color: #0a0a0a;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 1px 2px rgba(0,0,0,0.4);
+}
+.btn-success { background: var(--success); color: #0a0a0a; }
+.btn-danger  { background: var(--danger);  color: var(--text); }
+.btn-ghost {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(212,175,55,0.5);
+}
+.btn-dim {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
 
-.thai { font-size: 2rem; line-height: 1.4; }
-.thai-sm { font-size: 1.25rem; }
-h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-h2 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+/* ── Typography ───────────────────────────────────── */
+h1 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
 .muted { color: var(--text-muted); font-size: 0.875rem; }
 
+.thai {
+  font-family: var(--font-thai);
+  font-size: 2rem;
+  line-height: 1.45;
+}
+.thai-sm {
+  font-family: var(--font-thai);
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+.thai-lg {
+  font-family: var(--font-thai);
+  font-size: 2.5rem;
+  line-height: 1.45;
+}
+
+.gold-text { color: var(--gold); }
+
+.gold-num {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1;
+  background: var(--gold-sheen);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── Inputs ───────────────────────────────────────── */
 input[type="text"], input[type="password"] {
   background: var(--surface2);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   color: var(--text);
   font-size: 1rem;
-  padding: 0.75rem;
+  padding: 0.85rem 1rem;
   width: 100%;
   outline: none;
+  font-family: var(--font-ui);
+  transition: border-color var(--dur-fast);
 }
-
 input[type="text"]:focus, input[type="password"]:focus {
-  border-color: var(--accent);
+  border-color: var(--gold);
 }
 
+/* ── Badges ───────────────────────────────────────── */
 .badge {
   display: inline-block;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-badge);
   font-size: 0.7rem;
-  background: var(--surface2);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
+  font-family: var(--font-ui);
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  border: 1px solid rgba(212,175,55,0.45);
+  background: transparent;
   margin-left: 0.25rem;
+}
+
+/* ── Progress bar ─────────────────────────────────── */
+.progress-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface2);
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gold-sheen);
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(241,210,106,0.4);
+  transition: width 0.4s var(--ease);
+}
+
+/* ── Icon container (gold bg) ─────────────────────── */
+.icon-box {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(212,175,55,0.08);
+  border: 1px solid var(--gold-hair);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── Chat bubbles ─────────────────────────────────── */
+.bubble-user {
+  background: var(--gold-sheen);
+  color: #0a0a0a;
+  border-bottom-right-radius: 6px;
+  font-weight: 500;
+  align-self: flex-end;
+  margin-left: auto;
+}
+.bubble-assistant {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--gold-hair);
+  border-bottom-left-radius: 6px;
 }

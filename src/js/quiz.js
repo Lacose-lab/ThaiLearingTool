@@ -8,13 +8,15 @@ function shuffle(arr) {
 }
 
 function speakBtn(thai, style = '') {
-  return `<button class="btn btn-ghost speak-thai" data-thai="${thai.replace(/"/g, '&quot;')}"
-    style="padding:0.3rem 0.6rem;font-size:0.8rem;flex-shrink:0;${style}">&#128266;</button>`;
+  return `<button class="btn btn-dim speak-thai" data-thai="${thai.replace(/"/g, '&quot;')}"
+    style="width:auto;padding:0.3rem 0.6rem;font-size:0.8rem;flex-shrink:0;${style}">
+    <svg width="14" height="14"><use href="#i-audio"/></svg>
+  </button>`;
 }
 
 function romanBtn(thai, id, style = '') {
-  return `<button class="btn btn-ghost roman-toggle" data-thai="${thai.replace(/"/g, '&quot;')}" data-target="${id}"
-    style="padding:0.3rem 0.6rem;font-size:0.8rem;flex-shrink:0;${style}">A&#257;</button>`;
+  return `<button class="btn btn-dim roman-toggle" data-thai="${thai.replace(/"/g, '&quot;')}" data-target="${id}"
+    style="width:auto;padding:0.3rem 0.6rem;font-size:0.8rem;flex-shrink:0;${style}">Āā</button>`;
 }
 
 function bindSpeakRoman(container) {
@@ -43,11 +45,15 @@ export function render(container, vocab) {
   function showQuestion() {
     if (idx >= pool.length) {
       container.innerHTML = `
-        <div class="card" style="text-align:center;margin-top:4rem">
-          <div style="font-size:3rem">&#127942;</div>
-          <h1>${score} / ${pool.length}</h1>
-          <div class="muted" style="margin-bottom:1rem">${score === pool.length ? 'Perfect!' : score >= pool.length * 0.7 ? 'Great job!' : 'Keep practicing!'}</div>
-          <button class="btn btn-primary" id="restart">Play again</button>
+        <div style="margin-top:3rem">
+          <div class="card card-hero" style="text-align:center;padding:2rem 1.25rem">
+            <div style="color:var(--gold);display:flex;justify-content:center;margin-bottom:0.75rem">
+              <svg width="40" height="40"><use href="#i-star"/></svg>
+            </div>
+            <h1>${score} / ${pool.length}</h1>
+            <div class="muted" style="margin-top:0.25rem;margin-bottom:1.25rem">${score === pool.length ? 'Perfect!' : score >= pool.length * 0.7 ? 'Great job!' : 'Keep practicing!'}</div>
+            <button class="btn btn-primary" id="restart">Play again</button>
+          </div>
         </div>`;
       document.getElementById('restart').onclick = () => render(container, vocab);
       return;
@@ -59,14 +65,13 @@ export function render(container, vocab) {
     const options = shuffle([correct, ...distractors, ...fallback].slice(0, 4));
 
     if (mode === 'thai-to-en') {
-      // Thai question → pick English answer
       container.innerHTML = `
-        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem">
-          <div class="muted">${idx + 1} / ${pool.length}</div>
-          <div class="muted">Score: ${score}</div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem">
+          <span class="muted">${idx + 1} / ${pool.length}</span>
+          <span class="muted">Score: ${score}</span>
         </div>
-        <div class="card" style="text-align:center;margin:1rem 0;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem">
-          <div class="thai" style="font-size:2rem;font-weight:600">${correct.thai}</div>
+        <div class="card card-hero" style="text-align:center;padding:1.75rem 1.25rem;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.625rem">
+          <div class="thai-lg thai-text" lang="th">${correct.thai}</div>
           <div style="display:flex;gap:0.5rem;justify-content:center">
             ${speakBtn(correct.thai)}
             ${romanBtn(correct.thai, 'roman-q')}
@@ -75,27 +80,26 @@ export function render(container, vocab) {
         </div>
         <div style="display:flex;flex-direction:column;gap:0.5rem">
           ${options.map(o => `
-            <button class="btn btn-ghost option-btn" data-id="${o.id}" style="text-align:left;justify-content:flex-start">
+            <button class="btn btn-dim option-btn" data-id="${o.id}" style="text-align:left;justify-content:flex-start">
               ${o.english}
             </button>`).join('')}
         </div>
       `;
     } else {
-      // English question → pick Thai answer
       container.innerHTML = `
-        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem">
-          <div class="muted">${idx + 1} / ${pool.length}</div>
-          <div class="muted">Score: ${score}</div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem">
+          <span class="muted">${idx + 1} / ${pool.length}</span>
+          <span class="muted">Score: ${score}</span>
         </div>
-        <div class="card" style="text-align:center;margin:1rem 0;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="font-size:1.3rem;font-weight:600">${correct.english}</div>
-          ${correct.german ? `<div class="muted" style="font-size:0.9rem;margin-top:0.25rem">${correct.german}</div>` : ''}
+        <div class="card card-hero" style="text-align:center;padding:1.75rem 1.25rem;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-family:var(--font-serif);font-size:1.8rem;font-weight:500">${correct.english}</div>
+          ${correct.german ? `<div class="muted" style="margin-top:0.25rem;font-style:italic">${correct.german}</div>` : ''}
         </div>
         <div style="display:flex;flex-direction:column;gap:0.5rem">
           ${options.map(o => `
             <div style="display:flex;align-items:center;gap:0.4rem">
-              <button class="btn btn-ghost option-btn" data-id="${o.id}"
-                style="flex:1;text-align:left;justify-content:flex-start;font-size:1.2rem">
+              <button class="btn btn-dim option-btn" data-id="${o.id}"
+                style="flex:1;text-align:left;justify-content:flex-start;font-family:var(--font-thai);font-size:1.2rem">
                 ${o.thai}
               </button>
               ${speakBtn(o.thai)}
@@ -118,12 +122,12 @@ export function render(container, vocab) {
 
         if (isCorrect) {
           score++;
-          btn.style.cssText += ';background:var(--accent2);color:#000;border-color:var(--accent2)';
+          btn.style.cssText += ';background:var(--success);color:#0a0a0a;border-color:var(--success)';
           progress[correct.id] = updateCard(progress[correct.id] || {}, 3);
         } else {
-          btn.style.cssText += ';background:var(--danger);color:#fff;border-color:var(--danger)';
+          btn.style.cssText += ';background:var(--danger);color:var(--text);border-color:var(--danger)';
           const correctBtn = container.querySelector(`[data-id="${correct.id}"]`);
-          if (correctBtn) correctBtn.style.cssText += ';background:var(--accent2);color:#000;border-color:var(--accent2)';
+          if (correctBtn) correctBtn.style.cssText += ';background:var(--success);color:#0a0a0a;border-color:var(--success)';
           progress[correct.id] = updateCard(progress[correct.id] || {}, 0);
         }
 

@@ -9,50 +9,56 @@ export function render(container, vocab) {
     : 'Never — will sync on next load';
 
   container.innerHTML = `
-    <h1>Settings</h1>
+    <h1 style="margin-bottom:1.125rem">Profile</h1>
 
-    <div class="card" style="margin-bottom:1rem">
+    <div class="card card-hero" style="text-align:center;padding:2rem 1.25rem">
+      <div style="
+        width:72px;height:72px;margin:0 auto 0.75rem;
+        border-radius:20px;
+        background:linear-gradient(180deg,#1c1c1e,#000);
+        border:1px solid var(--gold-hair);
+        display:flex;align-items:center;justify-content:center;
+        color:var(--gold);font-family:var(--font-thai);font-size:2.1rem;font-weight:700;
+      "><span lang="th">น</span></div>
+      <h2>Learner</h2>
+      <div class="muted" style="margin-top:0.2rem">Intermediate · male register · ${vocab.words.length} words</div>
+    </div>
+
+    <div class="card">
       <h2 style="margin-bottom:0.75rem">Anthropic API Key</h2>
       <input id="api-key-input" type="password" placeholder="sk-ant-…"
         value="${currentKey || ''}"
-        style="margin-bottom:0.5rem;font-family:monospace;font-size:0.875rem">
-      <button class="btn btn-primary" id="save-key" style="margin-bottom:0.75rem">Save Key</button>
+        style="margin-bottom:0.5rem;font-family:var(--font-mono);font-size:0.875rem">
+      <button class="btn btn-primary" id="save-key" style="margin-bottom:0.625rem">Save key</button>
       <div id="key-status" class="muted" style="font-size:0.8rem"></div>
-      <div class="muted" style="font-size:0.75rem;margin-top:0.5rem">
+      <div class="muted" style="font-size:0.75rem;margin-top:0.375rem">
         Sent only to api.anthropic.com — never stored elsewhere.
       </div>
     </div>
 
-    <div class="card" style="margin-bottom:1rem">
+    <div class="card">
       <h2 style="margin-bottom:0.75rem">Vocabulary Sync</h2>
       <div class="muted" style="font-size:0.875rem;margin-bottom:0.75rem">
-        <span id="word-count">${vocab.words.length}</span> words loaded &middot; Last synced: <span id="sync-time">${syncLabel}</span>
+        <span id="word-count">${vocab.words.length}</span> words loaded
+        &middot; Last synced: <span id="sync-time">${syncLabel}</span>
       </div>
-      <button class="btn btn-ghost" id="sync-btn">&#8635; Sync from Google Sheets</button>
+      <button class="btn btn-ghost" id="sync-btn" style="display:flex;align-items:center;justify-content:center;gap:0.4rem">
+        <svg width="16" height="16"><use href="#i-sync"/></svg> Sync from Google Sheets
+      </button>
       <div id="sync-status" class="muted" style="font-size:0.8rem;margin-top:0.5rem"></div>
     </div>
 
-    <div class="card" style="margin-bottom:1rem">
-      <h2 style="margin-bottom:0.5rem">Model</h2>
-      <div class="muted" style="font-family:monospace;font-size:0.875rem">claude-haiku-4-5-20251001</div>
-    </div>
-
-    <div class="card" style="margin-bottom:1rem">
-      <h2 style="margin-bottom:0.75rem">Progress</h2>
-      <div class="muted" style="margin-bottom:1rem;font-size:0.875rem">
-        ${Object.keys(getProgress()).length} words with recorded progress
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.5rem">
-        <button class="btn btn-ghost" id="export-btn">Export Progress CSV</button>
-        <button class="btn btn-danger" id="clear-btn">Clear All Progress</button>
-      </div>
+    <div class="card">
+      <h2 style="margin-bottom:0.375rem">Model</h2>
+      <div class="muted" style="font-family:var(--font-mono);font-size:0.875rem">claude-haiku-4-5-20251001</div>
     </div>
 
     <div class="card">
-      <h2 style="margin-bottom:0.5rem">About</h2>
-      <div class="muted" style="font-size:0.875rem;line-height:1.6">
-        YT-Research &middot; ${vocab.words.length} words &middot; ${vocab.sentences.length} sentences<br>
-        Thai vocabulary SRS with AI tutor Kru Noi (ครูน้อย)
+      <h2 style="margin-bottom:0.625rem">Progress</h2>
+      <div class="muted" style="margin-bottom:0.875rem">${Object.keys(getProgress()).length} words with recorded progress</div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem">
+        <button class="btn btn-ghost" id="export-btn">Export progress CSV</button>
+        <button class="btn btn-danger" id="clear-btn">Clear all progress</button>
       </div>
     </div>
   `;
