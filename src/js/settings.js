@@ -1,4 +1,4 @@
-import { getApiKey, saveApiKey, clearProgress, exportProgressCSV, getProgress, getReminderTime, setReminderTime } from './storage.js';
+import { getApiKey, saveApiKey, clearProgress, exportProgressCSV, getProgress, getReminderTime, setReminderTime, getWorkerUrl, setWorkerUrl } from './storage.js';
 import { fetchLiveVocab, getLastSync } from './sheets.js';
 
 function notifStatus() {
@@ -8,6 +8,7 @@ function notifStatus() {
 
 export function render(container, vocab) {
   const currentKey = getApiKey();
+  const currentWorkerUrl = getWorkerUrl();
   const lastSync = getLastSync();
   const syncLabel = lastSync ? lastSync.toLocaleString() : 'Never — will sync on next load';
   const reminderTime = getReminderTime();
@@ -57,6 +58,20 @@ export function render(container, vocab) {
     </div>
 
     ${notifHTML}
+
+    <div class="card">
+      <h2 style="margin-bottom:0.625rem">Kru Noi Connection</h2>
+      <div class="muted" style="font-size:0.8rem;margin-bottom:0.75rem">
+        Deploy the <code style="font-family:var(--font-mono);font-size:0.78rem;background:var(--surface3);padding:0.1rem 0.3rem;border-radius:4px">cloudflare-worker.js</code>
+        file from the repo to Cloudflare Workers, then paste your Worker URL here.
+        Your API key stays server-side — never exposed to the browser.
+      </div>
+      <input id="worker-url-input" type="url" placeholder="https://kru-noi-proxy.your-name.workers.dev"
+        value="${currentWorkerUrl}"
+        style="margin-bottom:0.5rem;font-family:var(--font-mono);font-size:0.8rem">
+      <button class="btn btn-primary" id="save-worker" style="margin-bottom:0.625rem">Save Worker URL</button>
+      <div id="worker-status" class="muted" style="font-size:0.8rem"></div>
+    </div>
 
     <div class="card">
       <h2 style="margin-bottom:0.75rem">Anthropic API Key</h2>
@@ -110,6 +125,18 @@ export function render(container, vocab) {
     s.textContent = `Reminder set for ${time} ✓`;
     setTimeout(() => { s.textContent = ''; }, 2000);
   });
+
+  document.getElementById('save-worker').onclick = () => {
+    const url = document.getElementById('worker-url-input').value.trim();
+    if (url && !url.startsWith('https://')) {
+      document.getElementById('worker-status').textContent = 'URL must start with https://';
+      return;
+    }
+    setWorkerUrl(url);
+    const s = document.getElementById('worker-status');
+    s.textContent = url ? 'Worker URL saved ✓' : 'Cleared.';
+    setTimeout(() => { s.textContent = ''; }, 2000);
+  };
 
   document.getElementById('save-key').onclick = () => {
     const key = document.getElementById('api-key-input').value.trim();

@@ -1,53 +1,100 @@
-import { getApiKey } from './storage.js';
+import { getWorkerUrl, getProgress, getWeakWords } from './storage.js';
 import { speak } from './tts.js';
 
-const AGENT_ID = 'agent_011Ca9hSNnqrQbmwSVf4rXZu';
-const ENV_ID = 'env_01WoCSBTbrJoDVTBFcALFZ2g';
-const BASE = 'https://api.anthropic.com';
-const BETA = 'managed-agents-2026-04-01';
+const MODEL = 'claude-haiku-4-5';
+const MAX_TOKENS = 1024;
 
-function headers(apiKey, withBody = false) {
-  return {
-    'x-api-key': apiKey,
-    'anthropic-version': '2023-06-01',
-    'anthropic-beta': BETA,
-    'anthropic-dangerous-direct-browser-access': 'true',
-    ...(withBody ? { 'content-type': 'application/json' } : {}),
-  };
+function buildSystemPrompt(vocab, progress) {
+  const weak = getWeakWords(vocab, progress, 20);
+  const weakSection = weak.length > 0
+    ? `\n\nWords the student struggles with most (prioritise these in drills):\n${weak.map(w => `  • ${w.thai} = ${w.english}${w.notes ? ` (${w.notes})` : ''} — failed ${progress[w.id]?.failures}×`).join('\n')}`
+    : '';
+
+  const wordList = vocab.words.map(w =>
+    `${w.thai} = ${w.english}${w.notes ? ` [${w.notes}]` : ''}${w.category ? ` {${w.category}}` : ''}`
+  ).join('\n');
+
+  const sentences = (vocab.sentences || []).slice(0, 40).map(s =>
+    `${s.thai} — ${s.english}`
+  ).join('\n');
+
+  return `You are ครูน้อย (Kru Noi), a warm and encouraging Thai language teacher. Your student is a German male living in Bangkok, intermediate level, attending Thai classes twice a week.
+
+TEACHING STYLE:
+- Short, punchy responses — this is a phone app, keep messages under 150 words unless drilling
+- Mix Thai script with English explanations naturally
+- When the student makes a mistake, gently correct and explain WHY (e.g. tone, register, particle)
+- Use ครับ yourself as a male speaker politely
+- Celebrate progress warmly but briefly
+- If asked about a word not in the vocabulary list, teach it but note it's bonus material
+
+STUDENT'S CURRENT VOCABULARY (${vocab.words.length} words):
+${wordList}
+${sentences.length > 0 ? `\nSENTENCE PATTERNS STUDIED:\n${sentences}` : ''}${weakSection}
+
+When drilling, pick from the weak words list first. Format drills as: show English → student types/says Thai. Confirm correct answers immediately.`;
 }
 
-async function createSession(apiKey) {
-  const res = await fetch(`${BASE}/v1/sessions?beta=true`, {
-    method: 'POST',
-    headers: headers(apiKey, true),
-    body: JSON.stringify({ agent: AGENT_ID, environment_id: ENV_ID }),
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error?.message || `HTTP ${res.status}`);
-  return data.id;
+function addMessage(messagesEl, role, html, rawText) {
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = `display:flex;flex-direction:column;align-items:${role === 'user' ? 'flex-end' : 'flex-start'};${role === 'user' ? 'margin-left:auto' : ''};max-width:88%`;
+
+  const bubble = document.createElement('div');
+  bubble.classList.add(role === 'user' ? 'bubble-user' : 'bubble-assistant');
+  bubble.style.cssText = 'line-height:1.6;white-space:pre-wrap;word-break:break-word';
+  if (html) {
+    bubble.innerHTML = html;
+  } else {
+    bubble.textContent = rawText || '';
+  }
+  wrapper.appendChild(bubble);
+
+  if (role === 'assistant' && rawText) {
+    const speakBtn = document.createElement('button');
+    speakBtn.className = 'btn btn-ghost';
+    speakBtn.style.cssText = 'padding:0.2rem 0.6rem;font-size:0.72rem;margin-top:0.2rem;width:auto';
+    speakBtn.textContent = '🔊 Speak';
+    speakBtn.onclick = () => speak(rawText);
+    wrapper.appendChild(speakBtn);
+  }
+
+  messagesEl.appendChild(wrapper);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  return bubble;
 }
 
-async function sendMessage(sessionId, text, apiKey) {
-  await fetch(`${BASE}/v1/sessions/${sessionId}/events?beta=true`, {
+async function* streamMessage(workerUrl, messages, systemPrompt) {
+  const res = await fetch(workerUrl, {
     method: 'POST',
-    headers: headers(apiKey, true),
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      events: [{ type: 'user.message', content: [{ type: 'text', text }] }],
+      model: MODEL,
+      max_tokens: MAX_TOKENS,
+      system: [
+        {
+          type: 'text',
+          text: systemPrompt,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
+      stream: true,
+      messages,
     }),
   });
-}
 
-async function* openStream(sessionId, apiKey) {
-  const res = await fetch(`${BASE}/v1/sessions/${sessionId}/events/stream?beta=true`, {
-    headers: headers(apiKey),
-  });
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error?.message || `Stream HTTP ${res.status}`);
+    let errMsg = `HTTP ${res.status}`;
+    try {
+      const err = await res.json();
+      errMsg = err.error?.message || errMsg;
+    } catch {}
+    throw new Error(errMsg);
   }
+
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let buf = '';
+
   while (true) {
     const { done, value } = await reader.read();
     if (done) break;
@@ -58,31 +105,45 @@ async function* openStream(sessionId, apiKey) {
       if (!line.startsWith('data: ')) continue;
       const json = line.slice(6).trim();
       if (!json || json === '[DONE]') continue;
-      try { yield JSON.parse(json); } catch {}
+      try {
+        const evt = JSON.parse(json);
+        if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
+          yield evt.delta.text;
+        }
+      } catch {}
     }
   }
 }
 
-function buildVocabContext(vocab) {
-  const words = vocab.words.map(w =>
-    `${w.thai} = ${w.english}${w.notes ? ` (${w.notes})` : ''}`
-  ).join('\n');
-  const sentences = vocab.sentences.map(s => `${s.thai} = ${s.english}`).join('\n');
-  return `[Student context — German male, Bangkok, intermediate Thai, studies 3x/week]\n\nVocabulary (${vocab.words.length} words):\n${words}\n\nSentence patterns:\n${sentences}`;
-}
-
 export function render(container, vocab) {
+  const workerUrl = getWorkerUrl();
+  const progress = getProgress();
+  const systemPrompt = buildSystemPrompt(vocab, progress);
+
+  const history = [];
+
   container.innerHTML = `
     <div style="display:flex;flex-direction:column;height:calc(100dvh - var(--nav-h) - 2rem)">
-      <div style="margin-bottom:0.75rem;flex-shrink:0">
-        <h1>ครูน้อย</h1>
-        <div class="muted" id="tutor-status">Connecting\u2026</div>
+      <div style="flex-shrink:0;margin-bottom:0.625rem">
+        <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.2rem">
+          <h1 style="margin-bottom:0">ครูน้อย</h1>
+          <span class="muted" style="font-size:0.8rem">· ${vocab.words.length} words in memory</span>
+        </div>
+        <div id="tutor-status" class="muted" style="font-size:0.8rem"></div>
       </div>
-      <div id="chat-messages" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0.75rem;padding-bottom:0.5rem"></div>
+
+      <div id="quick-actions" style="display:flex;gap:0.5rem;margin-bottom:0.625rem;flex-wrap:wrap;flex-shrink:0">
+        <button class="btn btn-ghost" data-mode="drill" style="font-size:0.82rem;padding:0.4rem 0.875rem;width:auto">⚡ Drill me</button>
+        <button class="btn btn-ghost" data-mode="talk"  style="font-size:0.82rem;padding:0.4rem 0.875rem;width:auto">💬 Let's talk</button>
+        <button class="btn btn-ghost" data-mode="recap" style="font-size:0.82rem;padding:0.4rem 0.875rem;width:auto">📖 Recap today</button>
+      </div>
+
+      <div id="chat-messages" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0.625rem;padding-bottom:0.5rem"></div>
+
       <div style="display:flex;gap:0.5rem;margin-top:0.5rem;flex-shrink:0">
-        <input id="chat-input" type="text" placeholder="Ask Kru Noi anything\u2026" disabled
+        <input id="chat-input" type="text" placeholder="Ask anything…"
           style="flex:1;padding:0.75rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:1rem;outline:none">
-        <button class="btn btn-primary" id="send-btn" disabled style="width:auto;padding:0.75rem 1.25rem;flex-shrink:0">Send</button>
+        <button class="btn btn-primary" id="send-btn" style="width:auto;padding:0.75rem 1.25rem;flex-shrink:0">Send</button>
       </div>
     </div>
   `;
@@ -91,127 +152,78 @@ export function render(container, vocab) {
   const input = document.getElementById('chat-input');
   const statusEl = document.getElementById('tutor-status');
 
-  function setStatus(text) { statusEl.textContent = text; }
+  if (!workerUrl) {
+    statusEl.textContent = 'Set your Worker URL in Profile → Kru Noi Connection first.';
+    addMessage(messagesEl, 'assistant', null,
+      'สวัสดีครับ! I\'m Kru Noi — your personal Thai teacher.\n\nTo connect me, go to Profile → "Kru Noi Connection" and paste your Cloudflare Worker URL. The cloudflare-worker.js file is in the repo — deploy it in 2 minutes at dash.cloudflare.com ครับ.');
+    input.disabled = true;
+    document.getElementById('send-btn').disabled = true;
+    return;
+  }
 
-  function addMessage(role, text) {
-    const wrapper = document.createElement('div');
-    wrapper.style.cssText = `display:flex;flex-direction:column;align-items:${role === 'user' ? 'flex-end' : 'flex-start'};max-width:88%;${role === 'user' ? 'margin-left:auto' : ''}`;
-    const div = document.createElement('div');
-    div.style.cssText = `padding:0.85rem 1rem;border-radius:16px;line-height:1.55;white-space:pre-wrap;word-break:break-word;max-width:86%;`;
-    div.classList.add(role === 'user' ? 'bubble-user' : 'bubble-assistant');
-    div.textContent = text;
-    wrapper.appendChild(div);
-    if (role === 'assistant') {
-      const btn = document.createElement('button');
-      btn.className = 'btn btn-ghost';
-      btn.style.cssText = 'padding:0.2rem 0.6rem;font-size:0.75rem;margin-top:0.25rem';
-      btn.textContent = '🔊 Speak';
-      btn.onclick = () => speak(text);
-      wrapper.appendChild(btn);
-    }
-    messagesEl.appendChild(wrapper);
+  addMessage(messagesEl, 'assistant', null,
+    'สวัสดีครับ! I\'m Kru Noi. I know all your vocabulary and which words give you trouble. What shall we work on today? You can tap a button above or just ask me anything ครับ!');
+  input.focus();
+
+  async function sendUserMessage(text) {
+    if (!text.trim()) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('send-btn').disabled = true;
+    document.getElementById('quick-actions').style.display = 'none';
+
+    addMessage(messagesEl, 'user', null, text);
+    history.push({ role: 'user', content: text });
+
+    const thinkingEl = document.createElement('div');
+    thinkingEl.style.cssText = 'color:var(--text-muted);font-style:italic;font-size:0.82rem;padding:0.25rem 0.25rem';
+    thinkingEl.textContent = 'ครูน้อย is thinking…';
+    messagesEl.appendChild(thinkingEl);
     messagesEl.scrollTop = messagesEl.scrollHeight;
-    return div;
-  }
-
-  // Event queue — stream runs in background, sendMessage drains events per turn
-  let eventQueue = [];
-  let eventResolver = null;
-
-  function pushEvent(evt) {
-    if (eventResolver) { eventResolver(evt); eventResolver = null; }
-    else eventQueue.push(evt);
-  }
-
-  function nextEvent() {
-    return new Promise(resolve => {
-      if (eventQueue.length) resolve(eventQueue.shift());
-      else eventResolver = resolve;
-    });
-  }
-
-  async function waitForIdle(onMessage) {
-    while (true) {
-      const evt = await nextEvent();
-      if (evt.type === 'agent.message') {
-        const text = (evt.content || []).map(b => b.text || '').join('');
-        if (text) onMessage(text);
-      } else if (evt.type === 'session.status_idle') {
-        return;
-      } else if (evt.type === 'session.error' || evt.type === 'session.status_terminated') {
-        throw new Error(evt.error?.message || evt.type);
-      }
-    }
-  }
-
-  async function init() {
-    const apiKey = getApiKey();
-    if (!apiKey || apiKey === '__ANTHROPIC_API_KEY__') {
-      setStatus('Add your API key in Settings first ครับ.');
-      return;
-    }
 
     try {
-      const sessionId = await createSession(apiKey);
+      const bubble = addMessage(messagesEl, 'assistant', null, '');
+      thinkingEl.remove();
+      let fullText = '';
 
-      // Start background stream
-      (async () => {
-        try {
-          for await (const evt of openStream(sessionId, apiKey)) pushEvent(evt);
-        } catch (e) {
-          pushEvent({ type: 'session.error', error: { message: e.message } });
-        }
-      })();
-
-      // Send vocab context silently
-      setStatus('Loading vocabulary context\u2026');
-      await sendMessage(sessionId, buildVocabContext(vocab), apiKey);
-      await waitForIdle(() => {});
-
-      // Ready
-      setStatus(`Your Thai tutor \u00b7 ${vocab.words.length} words in memory`);
-      input.disabled = false;
-      document.getElementById('send-btn').disabled = false;
-      addMessage('assistant', '\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E04\u0E23\u0E31\u0E1A! I\'m Kru Noi. Ask me anything about Thai \u2014 vocabulary, sentences, grammar, or let\'s practice together \u0E04\u0E23\u0E31\u0E1A!');
-      input.focus();
-
-      async function handleSend() {
-        const text = input.value.trim();
-        if (!text) return;
-        input.value = '';
-        input.disabled = true;
-        document.getElementById('send-btn').disabled = true;
-        addMessage('user', text);
-
-        const thinking = document.createElement('div');
-        thinking.style.cssText = 'color:var(--text-muted);font-style:italic;padding:0.5rem 1rem;font-size:0.875rem';
-        thinking.textContent = 'ครูน้อย is thinking\u2026';
-        messagesEl.appendChild(thinking);
+      for await (const chunk of streamMessage(workerUrl, history, systemPrompt)) {
+        fullText += chunk;
+        bubble.textContent = fullText;
         messagesEl.scrollTop = messagesEl.scrollHeight;
-
-        try {
-          await sendMessage(sessionId, text, apiKey);
-          let reply = '';
-          await waitForIdle(msg => { reply += msg; });
-          thinking.remove();
-          if (reply) addMessage('assistant', reply);
-        } catch (err) {
-          thinking.remove();
-          addMessage('assistant', `Error: ${err.message}`);
-        } finally {
-          input.disabled = false;
-          document.getElementById('send-btn').disabled = false;
-          input.focus();
-        }
       }
 
-      document.getElementById('send-btn').onclick = handleSend;
-      input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) handleSend(); });
+      history.push({ role: 'assistant', content: fullText });
+
+      const speakBtn = document.createElement('button');
+      speakBtn.className = 'btn btn-ghost';
+      speakBtn.style.cssText = 'padding:0.2rem 0.6rem;font-size:0.72rem;margin-top:0.2rem;width:auto';
+      speakBtn.textContent = '🔊 Speak';
+      speakBtn.onclick = () => speak(fullText);
+      bubble.parentElement.appendChild(speakBtn);
 
     } catch (err) {
-      setStatus(`Connection failed: ${err.message}`);
+      thinkingEl.remove();
+      addMessage(messagesEl, 'assistant', null, `Connection error: ${err.message}\n\nCheck your Worker URL in Profile ครับ.`);
+    } finally {
+      input.disabled = false;
+      document.getElementById('send-btn').disabled = false;
+      input.focus();
     }
   }
 
-  init();
+  document.getElementById('send-btn').onclick = () => sendUserMessage(input.value.trim());
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) sendUserMessage(input.value.trim());
+  });
+
+  document.getElementById('quick-actions').addEventListener('click', e => {
+    const btn = e.target.closest('[data-mode]');
+    if (!btn) return;
+    const prompts = {
+      drill: 'Drill me on my weak words — quiz me one at a time, show the English and I\'ll type the Thai.',
+      talk:  'Let\'s have a short Thai conversation. Start us off with something easy ครับ.',
+      recap: 'Give me a quick recap of the words I\'ve been struggling with lately and one tip for each.',
+    };
+    sendUserMessage(prompts[btn.dataset.mode]);
+  });
 }

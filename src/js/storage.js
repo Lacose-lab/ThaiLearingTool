@@ -5,6 +5,7 @@ const KEYS = {
   lastSeen: 'yt_research_last_seen',
   reminderTime: 'yt_reminder_time',
   lastPractice: 'yt_last_practice',
+  workerUrl: 'kru_noi_worker_url',
 };
 
 export function getApiKey() {
@@ -13,6 +14,14 @@ export function getApiKey() {
 
 export function saveApiKey(key) {
   localStorage.setItem(KEYS.apiKey, key);
+}
+
+export function getWorkerUrl() {
+  return localStorage.getItem(KEYS.workerUrl) || '';
+}
+
+export function setWorkerUrl(url) {
+  localStorage.setItem(KEYS.workerUrl, url);
 }
 
 export function getProgress() {
