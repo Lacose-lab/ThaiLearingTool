@@ -48,7 +48,7 @@ export default {
         'anthropic-version': '2023-06-01',
         'content-type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ ...body, model: 'claude-haiku-4-5' }),
     });
 
     const responseHeaders = new Headers(corsHeaders);
