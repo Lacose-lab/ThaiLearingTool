@@ -1,4 +1,4 @@
-const CACHE = 'kru-noi-v2';
+const CACHE = 'kru-noi-v3';
 const PRECACHE = [
   '/ThaiLearingTool/',
   '/ThaiLearingTool/index.html',
