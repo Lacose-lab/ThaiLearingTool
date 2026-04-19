@@ -123,7 +123,7 @@ export function render(container, vocab) {
   const history = [];
 
   container.innerHTML = `
-    <div style="display:flex;flex-direction:column;height:calc(100dvh - var(--nav-h) - 2rem)">
+    <div style="display:flex;flex-direction:column;min-height:calc(100dvh - var(--nav-h) - 2rem)">
       <div style="flex-shrink:0;margin-bottom:0.625rem">
         <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.2rem">
           <h1 style="margin-bottom:0">ครูน้อย</h1>
@@ -138,9 +138,9 @@ export function render(container, vocab) {
         <button class="btn btn-ghost" data-mode="recap" style="font-size:0.82rem;padding:0.4rem 0.875rem;width:auto">📖 Recap today</button>
       </div>
 
-      <div id="chat-messages" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0.625rem;padding-bottom:0.5rem"></div>
+      <div id="chat-messages" style="flex:1;display:flex;flex-direction:column;gap:0.625rem;padding-bottom:1rem"></div>
 
-      <div style="display:flex;gap:0.5rem;margin-top:0.5rem;flex-shrink:0">
+      <div style="display:flex;gap:0.5rem;padding:0.75rem 0;position:sticky;bottom:calc(var(--nav-h) + 0.5rem);background:var(--bg);z-index:10">
         <input id="chat-input" type="text" placeholder="Ask anything…"
           style="flex:1;padding:0.75rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:1rem;outline:none">
         <button class="btn btn-primary" id="send-btn" style="width:auto;padding:0.75rem 1.25rem;flex-shrink:0">Send</button>
