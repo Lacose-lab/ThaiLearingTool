@@ -94,7 +94,6 @@ export function render(container, vocab) {
         </div>
         <div class="card card-hero" style="text-align:center;padding:1.75rem 1.25rem;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center">
           <div style="font-family:var(--font-serif);font-size:1.8rem;font-weight:500">${correct.english}</div>
-          ${correct.german ? `<div class="muted" style="margin-top:0.25rem;font-style:italic">${correct.german}</div>` : ''}
         </div>
         <div style="display:flex;flex-direction:column;gap:0.5rem">
           ${options.map(o => `

@@ -48,7 +48,6 @@ export function render(container, vocab) {
       <div class="card card-hero" style="text-align:center;padding:2rem 1.25rem;margin-bottom:0.75rem">
         <div class="muted" style="margin-bottom:0.625rem;letter-spacing:0.06em;text-transform:uppercase;font-size:0.7rem">Type the Thai for</div>
         <div style="font-family:var(--font-serif);font-size:2rem;font-weight:500">${w.english}</div>
-        ${w.german ? `<div class="muted" style="margin-top:0.25rem;font-style:italic">${w.german}</div>` : ''}
       </div>
       <input id="answer" type="text" placeholder="Type Thai\u2026" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
         style="margin-bottom:0.625rem;font-family:var(--font-thai);font-size:1.2rem">

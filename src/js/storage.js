@@ -3,6 +3,8 @@ const KEYS = {
   apiKey: 'yt_research_api_key',
   streak: 'yt_research_streak',
   lastSeen: 'yt_research_last_seen',
+  reminderTime: 'yt_reminder_time',
+  lastPractice: 'yt_last_practice',
 };
 
 export function getApiKey() {
@@ -19,6 +21,22 @@ export function getProgress() {
 
 export function saveProgress(progress) {
   localStorage.setItem(KEYS.progress, JSON.stringify(progress));
+}
+
+export function getReminderTime() {
+  return localStorage.getItem(KEYS.reminderTime) || '20:00';
+}
+
+export function setReminderTime(time) {
+  localStorage.setItem(KEYS.reminderTime, time);
+}
+
+export function markPracticed() {
+  localStorage.setItem(KEYS.lastPractice, new Date().toDateString());
+}
+
+export function hasPracticedToday() {
+  return localStorage.getItem(KEYS.lastPractice) === new Date().toDateString();
 }
 
 export function getWeakWords(vocab, progress, limit = 8) {

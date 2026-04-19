@@ -48,6 +48,9 @@ export function render(container, vocab) {
         <button class="btn btn-dim" data-goto="typing">Type Thai</button>
         <button class="btn btn-ghost" data-goto="tutor">Kru Noi</button>
       </div>
+      <button class="btn btn-primary" id="quick5-btn" style="margin-top:0.625rem;background:transparent;background-image:none;color:var(--gold);border:1px solid rgba(212,175,55,0.4);font-size:0.9rem">
+        ⚡ Quick 5 — two minutes, five words</button>
+      </div>
     </div>
 
     ${weak.length > 0 ? `
@@ -95,6 +98,11 @@ export function render(container, vocab) {
     btn.addEventListener('click', () => {
       document.querySelector(`[data-tab="${btn.dataset.goto}"]`).click();
     });
+  });
+
+  document.getElementById('quick5-btn')?.addEventListener('click', () => {
+    sessionStorage.setItem('flashcards_mode', 'quick5');
+    document.querySelector('[data-tab="flashcards"]').click();
   });
 
   const weakBtn = document.getElementById('weak-practice-btn');

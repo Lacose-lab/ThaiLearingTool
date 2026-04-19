@@ -1,0 +1,14 @@
+{
+  "name": "Kru Noi — Thai Learning",
+  "short_name": "Kru Noi",
+  "description": "Thai vocabulary SRS with AI tutor Kru Noi",
+  "start_url": "/ThaiLearingTool/",
+  "scope": "/ThaiLearingTool/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
