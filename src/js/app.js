@@ -52,8 +52,7 @@ function scheduleReminder() {
 
   const delay = fire - now;
   if (delay <= 0) {
-    // Already past reminder time today and haven't practiced — show now
-    showReminderNotification();
+    if (!hasPracticedToday()) showReminderNotification();
     return;
   }
 
