@@ -17,7 +17,7 @@ export function saveApiKey(key) {
 }
 
 export function getWorkerUrl() {
-  return localStorage.getItem(KEYS.workerUrl) || '';
+  return localStorage.getItem(KEYS.workerUrl) || 'https://kru-noi-proxy.lindnermanuel1992.workers.dev';
 }
 
 export function setWorkerUrl(url) {
