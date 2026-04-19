@@ -1,13 +1,26 @@
-import { getProgress, saveProgress } from './storage.js';
+import { getProgress, saveProgress, getWeakWords } from './storage.js';
 import { updateCard, getDueWords } from './srs.js';
 import { speak } from './tts.js';
 import { romanize } from './romanize.js';
 
 export function render(container, vocab) {
   const progress = getProgress();
-  const allDue = getDueWords(vocab, progress);
-  const queue = allDue.length > 0 ? [...allDue] : [...vocab.words].sort(() => Math.random() - 0.5).slice(0, 20);
-  const mode = allDue.length > 0 ? 'review' : 'practice';
+
+  // Weak-words mode: sessionStorage flag set by home screen
+  const modeOverride = sessionStorage.getItem('flashcards_mode');
+  sessionStorage.removeItem('flashcards_mode');
+
+  let queue, modeName;
+  if (modeOverride === 'weak') {
+    queue = getWeakWords(vocab, progress, 20);
+    modeName = 'weak';
+    if (!queue.length) { queue = [...vocab.words].sort(() => Math.random() - 0.5).slice(0, 20); modeName = 'practice'; }
+  } else {
+    const allDue = getDueWords(vocab, progress);
+    queue = allDue.length > 0 ? [...allDue] : [...vocab.words].sort(() => Math.random() - 0.5).slice(0, 20);
+    modeName = allDue.length > 0 ? 'review' : 'practice';
+  }
+
   let idx = 0;
   let revealed = false;
   let romanVisible = false;
@@ -21,7 +34,7 @@ export function render(container, vocab) {
               <svg width="40" height="40"><use href="#i-star"/></svg>
             </div>
             <h1>Session complete</h1>
-            <div class="muted" style="margin-top:0.25rem;margin-bottom:1.25rem">${queue.length} cards ${mode === 'review' ? 'reviewed' : 'practiced'}</div>
+            <div class="muted" style="margin-top:0.25rem;margin-bottom:1.25rem">${queue.length} cards ${modeName === 'review' ? 'reviewed' : modeName === 'weak' ? 'drilled' : 'practiced'}</div>
             <button class="btn btn-primary" id="again-btn">Go again</button>
           </div>
         </div>`;
@@ -47,6 +60,7 @@ export function render(container, vocab) {
         <div class="thai-lg thai-text" lang="th">${w.thai}</div>
         ${!revealed ? `
           <div class="muted" style="margin-top:1.25rem;letter-spacing:0.06em;text-transform:uppercase;font-size:0.7rem">Tap to reveal</div>
+          ${w.notes ? `<div style="margin-top:0.625rem;font-size:0.78rem;color:var(--text-dim);font-style:italic">${w.notes}</div>` : ''}
         ` : `
           <div style="margin-top:1.125rem;font-family:var(--font-serif);font-size:1.6rem;font-weight:500;color:var(--gold)">${w.english}</div>
           ${w.german ? `<div class="muted" style="margin-top:0.25rem;font-style:italic">${w.german}</div>` : ''}
@@ -77,12 +91,15 @@ export function render(container, vocab) {
 
     document.getElementById('speak-btn').onclick = e => { e.stopPropagation(); speak(w.thai); };
 
+    // Sticky romanization: restore state from previous card
+    const romanEl = document.getElementById('roman-text');
+    if (romanVisible) { romanEl.textContent = romanize(w.thai); romanEl.style.display = 'block'; }
+
     document.getElementById('roman-btn').onclick = e => {
       e.stopPropagation();
       romanVisible = !romanVisible;
-      const el = document.getElementById('roman-text');
-      if (romanVisible) { el.textContent = romanize(w.thai); el.style.display = 'block'; }
-      else el.style.display = 'none';
+      if (romanVisible) { romanEl.textContent = romanize(w.thai); romanEl.style.display = 'block'; }
+      else romanEl.style.display = 'none';
     };
 
     if (revealed) {

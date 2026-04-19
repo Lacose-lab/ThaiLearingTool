@@ -2,6 +2,7 @@ import { getProgress, saveProgress } from './storage.js';
 import { updateCard } from './srs.js';
 import { speak } from './tts.js';
 import { romanize } from './romanize.js';
+import { getDueWords } from './srs.js';
 
 function shuffle(arr) {
   return [...arr].sort(() => Math.random() - 0.5);
@@ -124,20 +125,33 @@ export function render(container, vocab) {
           score++;
           btn.style.cssText += ';background:var(--success);color:#0a0a0a;border-color:var(--success)';
           progress[correct.id] = updateCard(progress[correct.id] || {}, 3);
+          speak(correct.thai);
+          saveProgress(progress);
+          setTimeout(() => { idx++; mode = Math.random() < 0.5 ? 'thai-to-en' : 'en-to-thai'; showQuestion(); }, 900);
         } else {
           btn.style.cssText += ';background:var(--danger);color:var(--text);border-color:var(--danger)';
           const correctBtn = container.querySelector(`[data-id="${correct.id}"]`);
           if (correctBtn) correctBtn.style.cssText += ';background:var(--success);color:#0a0a0a;border-color:var(--success)';
           progress[correct.id] = updateCard(progress[correct.id] || {}, 0);
-        }
+          speak(correct.thai);
+          saveProgress(progress);
 
-        speak(correct.thai);
-        saveProgress(progress);
-        setTimeout(() => {
-          idx++;
-          mode = Math.random() < 0.5 ? 'thai-to-en' : 'en-to-thai';
-          showQuestion();
-        }, 900);
+          // Show learning panel: romanization + notes + "Got it" button
+          const panel = document.createElement('div');
+          panel.style.cssText = 'margin-top:0.875rem;padding:1rem;background:var(--surface2);border:1px solid var(--gold-hair);border-radius:var(--radius);';
+          panel.innerHTML = `
+            <div class="thai-text" style="font-size:1.5rem" lang="th">${correct.thai}</div>
+            <div style="color:var(--text-muted);font-size:0.85rem;letter-spacing:0.05em;margin-top:0.25rem">${romanize(correct.thai)}</div>
+            ${correct.notes ? `<div style="color:var(--gold);font-size:0.82rem;margin-top:0.5rem;font-style:italic">${correct.notes}</div>` : ''}
+            <button class="btn btn-primary" id="gotit-btn" style="margin-top:0.875rem">Got it →</button>
+          `;
+          container.appendChild(panel);
+          document.getElementById('gotit-btn').onclick = () => {
+            idx++;
+            mode = Math.random() < 0.5 ? 'thai-to-en' : 'en-to-thai';
+            showQuestion();
+          };
+        }
       };
     });
   }

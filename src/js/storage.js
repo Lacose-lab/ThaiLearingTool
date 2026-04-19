@@ -21,6 +21,13 @@ export function saveProgress(progress) {
   localStorage.setItem(KEYS.progress, JSON.stringify(progress));
 }
 
+export function getWeakWords(vocab, progress, limit = 8) {
+  return vocab.words
+    .filter(w => (progress[w.id]?.failures || 0) > 0)
+    .sort((a, b) => (progress[b.id]?.failures || 0) - (progress[a.id]?.failures || 0))
+    .slice(0, limit);
+}
+
 export function clearProgress() {
   localStorage.removeItem(KEYS.progress);
   localStorage.removeItem(KEYS.streak);

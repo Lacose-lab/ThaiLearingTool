@@ -10,6 +10,7 @@ export function updateCard(card, quality) {
   if (quality < 1) {
     c.interval = 1;
     c.easeFactor = Math.max(1.3, (c.easeFactor || 2.5) - 0.2);
+    c.failures = (c.failures || 0) + 1;
   } else {
     const ef = c.easeFactor || 2.5;
     if (!c.interval || c.interval === 0) c.interval = 1;

@@ -1,4 +1,4 @@
-import { getStreak, getProgress } from './storage.js';
+import { getStreak, getProgress, getWeakWords } from './storage.js';
 import { getDueWords } from './srs.js';
 
 export function render(container, vocab) {
@@ -7,6 +7,7 @@ export function render(container, vocab) {
   const due = getDueWords(vocab, progress);
   const dueCount = due.length;
 
+  const weak = getWeakWords(vocab, progress);
   const now = new Date();
   const dateStr = now.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' }) +
     ' / ' + now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
@@ -49,6 +50,29 @@ export function render(container, vocab) {
       </div>
     </div>
 
+    ${weak.length > 0 ? `
+    <div class="card">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:0.75rem">
+        <h2 style="margin-bottom:0">Needs work</h2>
+        <span class="muted" style="font-size:0.75rem">${weak.length} word${weak.length > 1 ? 's' : ''}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.875rem">
+        ${weak.map(w => `
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.625rem;background:var(--surface3);border-radius:8px">
+            <div style="display:flex;align-items:center;gap:0.625rem">
+              <span class="thai-text" style="font-size:1.1rem" lang="th">${w.thai}</span>
+              <span class="muted" style="font-size:0.82rem">${w.english}</span>
+            </div>
+            <span style="font-size:0.7rem;color:var(--danger);background:rgba(181,82,74,0.15);border:1px solid rgba(181,82,74,0.3);padding:0.15rem 0.45rem;border-radius:6px;white-space:nowrap">
+              failed ${progress[w.id]?.failures}×
+            </span>
+          </div>
+        `).join('')}
+      </div>
+      <button class="btn btn-ghost" id="weak-practice-btn">Drill these words →</button>
+    </div>
+    ` : ''}
+
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.625rem">
       ${[
         { th: 'วันสงกรานต์', en: 'Songkran', date: '13–15 Apr', icon: 'i-flame' },
@@ -72,4 +96,12 @@ export function render(container, vocab) {
       document.querySelector(`[data-tab="${btn.dataset.goto}"]`).click();
     });
   });
+
+  const weakBtn = document.getElementById('weak-practice-btn');
+  if (weakBtn) {
+    weakBtn.addEventListener('click', () => {
+      sessionStorage.setItem('flashcards_mode', 'weak');
+      document.querySelector('[data-tab="flashcards"]').click();
+    });
+  }
 }
