@@ -1,4 +1,11 @@
-import { getProgress, saveProgress, getApiKey } from './storage.js';
+import {
+  getLlmModel,
+  getLlmProvider,
+  getProgress,
+  getWorkerUrl,
+  markPracticed,
+  saveProgress,
+} from './storage.js';
 import { updateCard } from './srs.js';
 import { speak } from './tts.js';
 import { romanize } from './romanize.js';
@@ -82,11 +89,13 @@ export function render(container, vocab) {
         `;
         progress[w.id] = updateCard(progress[w.id] || {}, exact ? 3 : 2);
         saveProgress(progress);
+        markPracticed();
         bindSpeakRoman(w.thai);
         setTimeout(() => { idx++; showPrompt(); }, 1800);
       } else {
         progress[w.id] = updateCard(progress[w.id] || {}, 0);
         saveProgress(progress);
+        markPracticed();
         feedback.innerHTML = `
           <div style="color:var(--danger);font-weight:600;display:flex;align-items:center;gap:0.375rem">
             <svg width="18" height="18"><use href="#i-close"/></svg> Correct answer
@@ -100,14 +109,13 @@ export function render(container, vocab) {
             <button class="btn btn-dim" id="roman-ans" style="width:auto;padding:0.4rem 0.875rem;font-size:0.8rem">Āā Roman</button>
           </div>
           <div id="roman-text" style="display:none;color:var(--text-muted);font-size:0.85rem;margin-top:0.25rem;letter-spacing:0.05em"></div>
-          <div id="tutor-feedback" class="muted" style="margin-top:0.75rem;font-size:0.875rem">Getting tip from Kru Noi\u2026</div>
+          <div id="tutor-feedback" class="muted" style="margin-top:0.75rem;font-size:0.875rem">Getting a tutor tip\u2026</div>
           <button class="btn btn-ghost" style="margin-top:0.75rem" id="next-btn">Next \u2192</button>
         `;
         document.getElementById('next-btn').onclick = () => { idx++; showPrompt(); };
         bindSpeakRoman(w.thai);
         speak(w.thai);
-        const apiKey = getApiKey();
-        if (apiKey) getTutorFeedback(w, answer, apiKey);
+        getTutorFeedback(w, answer);
       }
     }
 
@@ -126,19 +134,19 @@ export function render(container, vocab) {
     };
   }
 
-  async function getTutorFeedback(word, userAnswer, apiKey) {
+  async function getTutorFeedback(word, userAnswer) {
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch(getWorkerUrl(), {
         method: 'POST',
         headers: {
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
           'content-type': 'application/json',
-          'anthropic-dangerous-direct-browser-access': 'true',
         },
         body: JSON.stringify({
-          model: 'claude-haiku-4-5-20251001',
+          provider: getLlmProvider(),
+          model: getLlmModel(),
           max_tokens: 120,
+          stream: false,
+          system: 'You are a concise and encouraging Thai tutor. End short feedback with ครับ.',
           messages: [{
             role: 'user',
             content: `Student tried to write "${word.thai}" (${word.english}) but wrote "${userAnswer}". One short encouraging tip in English, max 2 sentences. End with ครับ.`
@@ -147,7 +155,7 @@ export function render(container, vocab) {
       });
       const data = await res.json();
       const el = document.getElementById('tutor-feedback');
-      if (el) el.textContent = data.content?.[0]?.text || 'Keep practicing \u0E04\u0E23\u0E31\u0E1A!';
+      if (el) el.textContent = data.text || data.content?.[0]?.text || 'Keep practicing \u0E04\u0E23\u0E31\u0E1A!';
     } catch {
       const el = document.getElementById('tutor-feedback');
       if (el) el.textContent = 'Keep practicing \u0E04\u0E23\u0E31\u0E1A!';

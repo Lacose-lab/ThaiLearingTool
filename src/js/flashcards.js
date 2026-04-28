@@ -1,4 +1,4 @@
-import { getProgress, saveProgress, getWeakWords } from './storage.js';
+import { getProgress, saveProgress, getWeakWords, markPracticed } from './storage.js';
 import { updateCard, getDueWords } from './srs.js';
 import { speak } from './tts.js';
 import { romanize } from './romanize.js';
@@ -161,6 +161,7 @@ export function render(container, vocab) {
     const w = queue[idx];
     progress[w.id] = updateCard(progress[w.id] || {}, quality);
     saveProgress(progress);
+    markPracticed();
     idx++;
     revealed = false;
     // romanVisible intentionally NOT reset — sticky across cards

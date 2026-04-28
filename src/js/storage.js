@@ -1,27 +1,40 @@
 const KEYS = {
   progress: 'yt_research_progress',
-  apiKey: 'yt_research_api_key',
   streak: 'yt_research_streak',
   lastSeen: 'yt_research_last_seen',
   reminderTime: 'yt_reminder_time',
   lastPractice: 'yt_last_practice',
+  practiceDays: 'yt_practice_days',
   workerUrl: 'kru_noi_worker_url',
+  llmProvider: 'kru_noi_llm_provider',
+  llmModel: 'kru_noi_llm_model',
 };
 
-export function getApiKey() {
-  return localStorage.getItem(KEYS.apiKey) || '__ANTHROPIC_API_KEY__';
-}
-
-export function saveApiKey(key) {
-  localStorage.setItem(KEYS.apiKey, key);
-}
-
 export function getWorkerUrl() {
-  return localStorage.getItem(KEYS.workerUrl) || 'https://kru-noi-proxy.lindnermanuel1992.workers.dev';
+  return localStorage.getItem(KEYS.workerUrl) || 'https://thai-learning-proxy.lindnermanuel1992.workers.dev';
 }
 
 export function setWorkerUrl(url) {
   localStorage.setItem(KEYS.workerUrl, url);
+}
+
+export function getLlmProvider() {
+  return localStorage.getItem(KEYS.llmProvider) || 'anthropic';
+}
+
+export function setLlmProvider(provider) {
+  localStorage.setItem(KEYS.llmProvider, provider === 'openai' ? 'openai' : 'anthropic');
+}
+
+export function getLlmModel() {
+  const provider = getLlmProvider();
+  const saved = localStorage.getItem(KEYS.llmModel);
+  if (saved) return saved;
+  return provider === 'openai' ? 'gpt-4.1-mini' : 'claude-haiku-4-5-20251001';
+}
+
+export function setLlmModel(model) {
+  localStorage.setItem(KEYS.llmModel, model.trim());
 }
 
 export function getProgress() {
@@ -40,8 +53,23 @@ export function setReminderTime(time) {
   localStorage.setItem(KEYS.reminderTime, time);
 }
 
+function dateKey(date = new Date()) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+export function getPracticeDays() {
+  return JSON.parse(localStorage.getItem(KEYS.practiceDays) || '{}');
+}
+
 export function markPracticed() {
-  localStorage.setItem(KEYS.lastPractice, new Date().toDateString());
+  const today = new Date();
+  const days = getPracticeDays();
+  days[dateKey(today)] = true;
+  localStorage.setItem(KEYS.practiceDays, JSON.stringify(days));
+  localStorage.setItem(KEYS.lastPractice, today.toDateString());
 }
 
 export function hasPracticedToday() {
@@ -59,6 +87,7 @@ export function clearProgress() {
   localStorage.removeItem(KEYS.progress);
   localStorage.removeItem(KEYS.streak);
   localStorage.removeItem(KEYS.lastSeen);
+  localStorage.removeItem(KEYS.practiceDays);
 }
 
 export function getStreak() {

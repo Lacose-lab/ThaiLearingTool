@@ -1,7 +1,7 @@
 {
-  "name": "Kru Noi — Thai Learning",
-  "short_name": "Kru Noi",
-  "description": "Thai vocabulary SRS with AI tutor Kru Noi",
+  "name": "Thai Learning",
+  "short_name": "Thai",
+  "description": "Thai vocabulary SRS with an AI tutor",
   "start_url": "/ThaiLearingTool/",
   "scope": "/ThaiLearingTool/",
   "display": "standalone",

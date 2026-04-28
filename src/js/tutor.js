@@ -1,9 +1,8 @@
-import { getWorkerUrl, getProgress, getWeakWords } from './storage.js';
+import { getLlmModel, getLlmProvider, getWorkerUrl, getProgress, getWeakWords } from './storage.js';
 import { getDueWords } from './srs.js';
 import { speak } from './tts.js';
 import { romanize } from './romanize.js';
 
-const MODEL = 'claude-haiku-4-5';
 const MAX_TOKENS = 1024;
 
 function shuffle(arr) {
@@ -174,13 +173,16 @@ function startDrill(vocab, progress, messagesEl, quickActionsEl) {
 }
 
 async function* streamMessage(workerUrl, messages, systemPrompt) {
+  const provider = getLlmProvider();
+  const model = getLlmModel();
   const res = await fetch(workerUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      model: MODEL,
+      provider,
+      model,
       max_tokens: MAX_TOKENS,
-      system: [{ type: 'text', text: systemPrompt, cache_control: { type: 'ephemeral' } }],
+      system: systemPrompt,
       stream: true,
       messages,
     }),
@@ -208,7 +210,9 @@ async function* streamMessage(workerUrl, messages, systemPrompt) {
       if (!json || json === '[DONE]') continue;
       try {
         const evt = JSON.parse(json);
+        if (evt.text) yield evt.text;
         if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') yield evt.delta.text;
+        if (evt.type === 'response.output_text.delta' && evt.delta) yield evt.delta;
       } catch {}
     }
   }
@@ -216,6 +220,8 @@ async function* streamMessage(workerUrl, messages, systemPrompt) {
 
 export function render(container, vocab) {
   const workerUrl = getWorkerUrl();
+  const provider = getLlmProvider();
+  const model = getLlmModel();
   const progress = getProgress();
   const systemPrompt = buildSystemPrompt(vocab, progress);
   const history = [];
@@ -225,6 +231,7 @@ export function render(container, vocab) {
       <div style="flex-shrink:0;margin-bottom:0.625rem">
         <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.2rem">
           <h1 style="margin-bottom:0">Thai Teacher</h1>
+          <span class="provider-pill">${provider === 'openai' ? 'OpenAI' : 'Anthropic'} · ${model}</span>
           <span class="muted" style="font-size:0.8rem">· ${vocab.words.length} words in memory</span>
         </div>
       </div>
@@ -291,7 +298,7 @@ export function render(container, vocab) {
 
     } catch (err) {
       thinkingEl.remove();
-      addMessage(messagesEl, 'assistant', `Connection error: ${err.message}`);
+      addMessage(messagesEl, 'assistant', `Connection error: ${err.message}. Check the AI teacher settings and Worker secrets.`);
     } finally {
       input.disabled = false;
       document.getElementById('send-btn').disabled = false;

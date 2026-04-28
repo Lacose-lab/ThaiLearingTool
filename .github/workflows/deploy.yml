@@ -23,9 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Inject API key
-        run: sed -i "s/__ANTHROPIC_API_KEY__/${{ secrets.ANTHROPIC_API_KEY }}/g" src/js/storage.js
-
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

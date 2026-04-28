@@ -1,9 +1,10 @@
 import { fetchLiveVocab } from './sheets.js';
-import { getReminderTime, hasPracticedToday, getProgress } from './storage.js';
+import { getReminderTime, hasPracticedToday } from './storage.js';
 
 let vocab = null;
 let currentTab = 'home';
 const tabs = {};
+const APP_BASE = location.pathname.startsWith('/ThaiLearingTool/') ? '/ThaiLearingTool/' : '/';
 
 async function loadVocab() {
   const res = await fetch('src/data/vocab.json');
@@ -36,7 +37,7 @@ document.getElementById('bottom-nav').addEventListener('click', e => {
 async function registerSW() {
   if (!('serviceWorker' in navigator)) return;
   try {
-    await navigator.serviceWorker.register('/ThaiLearingTool/sw.js');
+    await navigator.serviceWorker.register(`${APP_BASE}sw.js`);
   } catch {}
 }
 
@@ -65,16 +66,16 @@ function showReminderNotification() {
   if (Notification.permission !== 'granted') return;
   if (!navigator.serviceWorker.controller) {
     // Fallback if SW not controlling yet
-    new Notification('ครูน้อย — Time to practice! \uD83C\uDDF9\uD83C\uDDED', {
+    new Notification('Thai Learning — Time to practice! \uD83C\uDDF9\uD83C\uDDED', {
       body: 'Your Thai words are waiting. Keep the streak going \u0E04\u0E23\u0E31\u0E1A!',
-      icon: '/ThaiLearingTool/icon.svg',
-      tag: 'kru-noi-daily',
+      icon: `${APP_BASE}icon.svg`,
+      tag: 'thai-learning-daily',
     });
     return;
   }
   navigator.serviceWorker.controller.postMessage({
     type: 'SHOW_REMINDER',
-    title: 'ครูน้อย — Time to practice! 🇹🇭',
+    title: 'Thai Learning — Time to practice! 🇹🇭',
     body: 'Your Thai words are waiting. Keep the streak going ครับ!',
   });
 }

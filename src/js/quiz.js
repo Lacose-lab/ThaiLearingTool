@@ -1,4 +1,4 @@
-import { getProgress, saveProgress } from './storage.js';
+import { getProgress, saveProgress, markPracticed } from './storage.js';
 import { updateCard } from './srs.js';
 import { speak } from './tts.js';
 import { romanize } from './romanize.js';
@@ -126,6 +126,7 @@ export function render(container, vocab) {
           progress[correct.id] = updateCard(progress[correct.id] || {}, 3);
           speak(correct.thai);
           saveProgress(progress);
+          markPracticed();
           setTimeout(() => { idx++; mode = Math.random() < 0.5 ? 'thai-to-en' : 'en-to-thai'; showQuestion(); }, 900);
         } else {
           btn.style.cssText += ';background:var(--danger);color:var(--text);border-color:var(--danger)';
@@ -134,6 +135,7 @@ export function render(container, vocab) {
           progress[correct.id] = updateCard(progress[correct.id] || {}, 0);
           speak(correct.thai);
           saveProgress(progress);
+          markPracticed();
 
           // Show learning panel: romanization + notes + "Got it" button
           const panel = document.createElement('div');

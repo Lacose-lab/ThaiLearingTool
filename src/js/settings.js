@@ -1,4 +1,16 @@
-import { clearProgress, exportProgressCSV, getProgress, getReminderTime, setReminderTime } from './storage.js';
+import {
+  clearProgress,
+  exportProgressCSV,
+  getLlmModel,
+  getLlmProvider,
+  getProgress,
+  getReminderTime,
+  getWorkerUrl,
+  setLlmModel,
+  setLlmProvider,
+  setReminderTime,
+  setWorkerUrl,
+} from './storage.js';
 import { fetchLiveVocab, getLastSync } from './sheets.js';
 
 function notifStatus() {
@@ -10,6 +22,9 @@ export function render(container, vocab) {
   const lastSync = getLastSync();
   const syncLabel = lastSync ? lastSync.toLocaleString() : 'Never — will sync on next load';
   const reminderTime = getReminderTime();
+  const provider = getLlmProvider();
+  const model = getLlmModel();
+  const workerUrl = getWorkerUrl();
   const { supported, permission } = notifStatus();
 
   const notifHTML = supported ? `
@@ -55,6 +70,24 @@ export function render(container, vocab) {
       <div class="muted" style="margin-top:0.2rem">Intermediate · male register · ${vocab.words.length} words</div>
     </div>
 
+    <div class="card">
+      <h2 style="margin-bottom:0.75rem">AI teacher</h2>
+      <div class="muted" style="font-size:0.875rem;margin-bottom:0.875rem">
+        The AI tutor uses your Cloudflare Worker so API keys stay server-side.
+      </div>
+      <label class="field-label" for="provider-select">Provider</label>
+      <select id="provider-select" class="input-field" style="margin-bottom:0.75rem">
+        <option value="anthropic" ${provider === 'anthropic' ? 'selected' : ''}>Anthropic</option>
+        <option value="openai" ${provider === 'openai' ? 'selected' : ''}>OpenAI</option>
+      </select>
+      <label class="field-label" for="model-input">Model</label>
+      <input id="model-input" class="input-field" type="text" value="${model}" autocomplete="off" spellcheck="false" style="margin-bottom:0.75rem">
+      <label class="field-label" for="worker-url-input">Worker URL</label>
+      <input id="worker-url-input" class="input-field" type="text" value="${workerUrl}" autocomplete="off" spellcheck="false">
+      <button class="btn btn-primary" id="save-ai-settings" style="margin-top:0.875rem">Save AI settings</button>
+      <div id="ai-settings-status" class="muted" style="font-size:0.8rem;margin-top:0.5rem"></div>
+    </div>
+
     ${notifHTML}
 
     <div class="card">
@@ -78,6 +111,27 @@ export function render(container, vocab) {
       </div>
     </div>
   `;
+
+  document.getElementById('provider-select')?.addEventListener('change', e => {
+    const next = e.target.value;
+    const modelInput = document.getElementById('model-input');
+    if (!modelInput) return;
+    if (modelInput.value === 'claude-haiku-4-5-20251001' || modelInput.value === 'gpt-4.1-mini') {
+      modelInput.value = next === 'openai' ? 'gpt-4.1-mini' : 'claude-haiku-4-5-20251001';
+    }
+  });
+
+  document.getElementById('save-ai-settings')?.addEventListener('click', () => {
+    const providerValue = document.getElementById('provider-select').value;
+    const modelValue = document.getElementById('model-input').value.trim();
+    const workerValue = document.getElementById('worker-url-input').value.trim();
+    setLlmProvider(providerValue);
+    if (modelValue) setLlmModel(modelValue);
+    if (workerValue) setWorkerUrl(workerValue);
+    const status = document.getElementById('ai-settings-status');
+    status.textContent = 'AI settings saved.';
+    setTimeout(() => { status.textContent = ''; }, 2000);
+  });
 
   document.getElementById('enable-notif')?.addEventListener('click', async () => {
     const result = await Notification.requestPermission();

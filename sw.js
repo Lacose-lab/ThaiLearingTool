@@ -1,24 +1,25 @@
-const CACHE = 'kru-noi-v7';
+const CACHE = 'thai-learning-v12';
+const BASE = new URL(self.registration.scope).pathname;
 const PRECACHE = [
-  '/ThaiLearingTool/',
-  '/ThaiLearingTool/index.html',
-  '/ThaiLearingTool/icon.svg',
-  '/ThaiLearingTool/manifest.json',
-  '/ThaiLearingTool/src/css/styles.css',
-  '/ThaiLearingTool/src/js/app.js',
-  '/ThaiLearingTool/src/js/home.js',
-  '/ThaiLearingTool/src/js/flashcards.js',
-  '/ThaiLearingTool/src/js/quiz.js',
-  '/ThaiLearingTool/src/js/typing.js',
-  '/ThaiLearingTool/src/js/tutor.js',
-  '/ThaiLearingTool/src/js/settings.js',
-  '/ThaiLearingTool/src/js/storage.js',
-  '/ThaiLearingTool/src/js/srs.js',
-  '/ThaiLearingTool/src/js/tts.js',
-  '/ThaiLearingTool/src/js/romanize.js',
-  '/ThaiLearingTool/src/js/sheets.js',
-  '/ThaiLearingTool/src/data/vocab.json',
-];
+  '',
+  'index.html',
+  'icon.svg',
+  'manifest.json',
+  'src/css/styles.css',
+  'src/js/app.js',
+  'src/js/home.js',
+  'src/js/flashcards.js',
+  'src/js/quiz.js',
+  'src/js/typing.js',
+  'src/js/tutor.js',
+  'src/js/settings.js',
+  'src/js/storage.js',
+  'src/js/srs.js',
+  'src/js/tts.js',
+  'src/js/romanize.js',
+  'src/js/sheets.js',
+  'src/data/vocab.json',
+].map(path => `${BASE}${path}`);
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -54,9 +55,9 @@ self.addEventListener('message', e => {
     const { title, body } = e.data;
     self.registration.showNotification(title, {
       body,
-      icon: '/ThaiLearingTool/icon.svg',
-      badge: '/ThaiLearingTool/icon.svg',
-      tag: 'kru-noi-daily',
+      icon: `${BASE}icon.svg`,
+      badge: `${BASE}icon.svg`,
+      tag: 'thai-learning-daily',
       renotify: true,
       requireInteraction: false,
       vibrate: [200, 100, 200],
@@ -69,9 +70,9 @@ self.addEventListener('notificationclick', e => {
   e.notification.close();
   e.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then(cs => {
-      const existing = cs.find(c => c.url.includes('/ThaiLearingTool/'));
+      const existing = cs.find(c => c.url.includes(BASE));
       if (existing) return existing.focus();
-      return clients.openWindow('/ThaiLearingTool/');
+      return clients.openWindow(BASE);
     })
   );
 });
